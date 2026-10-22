@@ -3,6 +3,17 @@
   "name": "Akidev sources",
   "sources": [
     {
+      "id": "arenascans",
+      "name": "Arena Scans",
+      "version": 1,
+      "path": "sources/arenascans.json",
+      "sha256": "131118ed354c1041b58e519f9bdaeaed34cadd3d69847c7e8ecdd54b18d69fdd",
+      "lang": [
+        "en"
+      ],
+      "nsfw": false
+    },
+    {
       "id": "asurascans",
       "name": "Asura Scans",
       "version": 4,

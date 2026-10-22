@@ -17,10 +17,11 @@ fixtures/<id>/         recorded pages and fixtures.json for a source or an examp
 
 ## What is in it
 
-Three sources, each with fixtures recorded from the live site, and one theme:
+Four sources, each with fixtures recorded from the live site, and one theme:
 
 | Source | Site | How it reads the site |
 | --- | --- | --- |
+| `arenascans` | arenascan.com | a WordPress `mangareader` (MangaStream-family) site: `.bsx` cards, `?order=popular`/`update`, search filters by `genre`; pages come from the `ts_reader.run({...})` script blob's `sources.0.images` |
 | `asurascans` | api.asurascans.com | its own JSON API: `data`, `meta.has_more`, `series`, `data.chapter.pages.*.url` |
 | `dynastyscans` | dynasty-scans.com | its own JSON API, for series and for one-shots; an id is `series/<p>` or `doujins/<p>` |
 | `flamecomics` | flamecomics.xyz | a Next.js site: reads `script#__NEXT_DATA__` as JSON for detail, chapters and pages; search is its `/api/series` |
@@ -181,6 +182,22 @@ A value is read by an expression. Short forms: HTML `"h3"` (the text of the matc
 Chapters come back newest first whatever order the site lists them in (`"order": "oldest-first"` if it
 lists them oldest first). A chapter's number is read from its title when no `number` is given.
 `pages.reading` is `longstrip`, `paged` or `paged_rtl`.
+
+### A MangaStream / WP `mangareader` site
+
+`arenascans` is the working pattern for the WordPress `mangareader` theme (the ThemeSans / MangaStream family).
+Cards are `div.bsx` (cover `img.ts-post-image`, title `.tt`); the catalogue sorts by `?order=popular` / `?order=update`
+(the only server-side sorts — the on-page "order" tabs are client-side and change nothing); search is
+`{base}/page/{page}/?s={term}` and **filters by `?s=&genre=<slug>`**, proven to return a genuinely different list.
+Two traps, each proven against the live site:
+
+- The reader's `<div id="readerarea">` wraps every page image in a `<noscript>` (the no-JS fallback), and the HTML
+  parser skips `noscript` contents, so `#readerarea img` finds nothing. The pages are read instead from the
+  `ts_reader.run({...})` script blob: `css: "script"` → `text` → regex out the `{...}` argument → `json` →
+  `path: "sources.0.images.*"`. The blob is the canonical image list (173 pages, no tiles, no crypto).
+- The site **never fills** its Status / Author / Artist metadata — `<i></i>` or `n/a` even on its most popular title —
+  so `status` reads `unknown` and `authors` reads `[]`. That is truthful; keep the `default`/`non_empty` guards rather
+  than inventing a value.
 
 ### A Next.js (or similar) site that ships its data as JSON in the page
 

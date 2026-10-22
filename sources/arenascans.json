@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "id": "arenascans",
+  "name": "Arena Scans",
+  "version": 1,
+  "lang": ["en"],
+  "nsfw": false,
+  "base_url": "https://arenascan.com",
+  "rate_per_second": 2,
+  "popular": {
+    "request": {
+      "url": "{base}/manga/page/{page}/?order=popular"
+    },
+    "rows": "div.bsx",
+    "card": {
+      "id": [
+        { "css": "a" },
+        { "attr": "href" },
+        { "regex": "/manga/([^/]+)/?$" }
+      ],
+      "title": ".tt",
+      "cover": [
+        { "css": "img.ts-post-image" },
+        { "attr": "data-src|data-lazy-src|src" },
+        "abs"
+      ]
+    },
+    "next": "a.next.page-numbers, a.r"
+  },
+  "latest": {
+    "request": {
+      "url": "{base}/manga/page/{page}/?order=update"
+    },
+    "rows": "div.bsx",
+    "card": {
+      "id": [
+        { "css": "a" },
+        { "attr": "href" },
+        { "regex": "/manga/([^/]+)/?$" }
+      ],
+      "title": ".tt",
+      "cover": [
+        { "css": "img.ts-post-image" },
+        { "attr": "data-src|data-lazy-src|src" },
+        "abs"
+      ]
+    },
+    "next": "a.next.page-numbers, a.r"
+  },
+  "search": {
+    "request": {
+      "url": "{base}/page/{page}/{?&s={term}?}{?&genre={genre}?}"
+    },
+    "rows": "div.bsx",
+    "card": {
+      "id": [
+        { "css": "a" },
+        { "attr": "href" },
+        { "regex": "/manga/([^/]+)/?$" }
+      ],
+      "title": ".tt",
+      "cover": [
+        { "css": "img.ts-post-image" },
+        { "attr": "data-src|data-lazy-src|src" },
+        "abs"
+      ]
+    },
+    "next": "a.next.page-numbers"
+  },
+  "filters": [
+    {
+      "id": "genre",
+      "name": "Genre",
+      "kind": "select",
+      "options": [
+        { "value": "action", "name": "Action" },
+        { "value": "adventure", "name": "Adventure" },
+        { "value": "comedy", "name": "Comedy" },
+        { "value": "drama", "name": "Drama" },
+        { "value": "fantasy", "name": "Fantasy" },
+        { "value": "harem", "name": "Harem" },
+        { "value": "historical", "name": "Historical" },
+        { "value": "isekai", "name": "Isekai" },
+        { "value": "martial-arts", "name": "Martial Arts" },
+        { "value": "mystery", "name": "Mystery" },
+        { "value": "psychological", "name": "Psychological" },
+        { "value": "regression", "name": "Regression" },
+        { "value": "reincarnation", "name": "Reincarnation" },
+        { "value": "romance", "name": "Romance" },
+        { "value": "school-life", "name": "School Life" },
+        { "value": "seinen", "name": "Seinen" },
+        { "value": "shounen", "name": "Shounen" },
+        { "value": "slice-of-life", "name": "Slice of Life" },
+        { "value": "supernatural", "name": "Supernatural" },
+        { "value": "villainess", "name": "Villainess" }
+      ]
+    }
+  ],
+  "detail": {
+    "request": {
+      "url": "{base}/manga/{id}/"
+    },
+    "title": "h1.entry-title",
+    "cover": [
+      { "css": ".thumbook img, .thumb img, img.wp-post-image" },
+      { "attr": "data-src|data-lazy-src|src" },
+      "abs",
+      "first"
+    ],
+    "description": [
+      { "css": ".entry-content-single, .entry-content" },
+      "plain_text"
+    ],
+    "authors": [
+      { "css": ".imptdt" },
+      "text",
+      { "regex": "(?i)Author\\s+(.+)$" },
+      { "replace": { "from": "(?i)^n/a\\s*$", "to": "" } },
+      "non_empty",
+      "first"
+    ],
+    "tags": [
+      { "css": ".mgen a, a[href*=\"/genres/\"]" },
+      "text",
+      "unique"
+    ],
+    "status": [
+      { "css": ".imptdt" },
+      "text",
+      { "regex": "(?i)Status\\s+([A-Za-z]+)" },
+      "first",
+      { "default": "unknown" },
+      {
+        "map": [
+          ["ongoing", "ongoing"],
+          ["completed", "completed"],
+          ["complete", "completed"],
+          ["hiatus", "hiatus"],
+          ["dropped", "cancelled"]
+        ]
+      }
+    ]
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/manga/{id}/"
+    },
+    "rows": "#chapterlist li[data-num]",
+    "chapter": {
+      "id": [
+        { "css": ".eph-num a" },
+        { "attr": "href" },
+        { "regex": "arenascan\\.com/([^/]+)/?$" }
+      ],
+      "number": [
+        { "css": ".chapternum" },
+        "number"
+      ],
+      "title": ".chapternum",
+      "uploaded": [
+        { "css": ".chapterdate" },
+        { "date": ["MMMM d, yyyy"] }
+      ]
+    },
+    "order": "newest-first"
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/{id:raw}/"
+    },
+    "images": [
+      { "css": "script" },
+      "text",
+      { "regex": "ts_reader\\.run\\((\\{[\\s\\S]*\"sources\"[\\s\\S]*?\\})\\);?\\s*$" },
+      "json",
+      { "path": "sources.0.images.*" },
+      "unique"
+    ],
+    "reading": "longstrip"
+  },
+  "page_size": 10
+}
