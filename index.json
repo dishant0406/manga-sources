@@ -5,9 +5,9 @@
     {
       "id": "arenascans",
       "name": "Arena Scans",
-      "version": 3,
+      "version": 4,
       "path": "sources/arenascans.json",
-      "sha256": "ee8843641bce0c49d607a7a4204f67b62222deef67a86da6be01778afd8dd96f",
+      "sha256": "32f4d78dd46ee2f1cf010e8ad4e17b70147a666db3fcdb145acfd3d88707277e",
       "lang": [
         "en"
       ],

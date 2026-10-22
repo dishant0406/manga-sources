@@ -2,14 +2,14 @@
   "schema": 1,
   "id": "arenascans",
   "name": "Arena Scans",
-  "version": 3,
+  "version": 4,
   "lang": ["en"],
   "nsfw": false,
   "base_url": "https://arenascan.com",
   "rate_per_second": 2,
   "popular": {
     "request": {
-      "url": "{base}/manga/?order=popular&page={page}"
+      "url": "{base}/manga/page/{page}/?order=popular"
     },
     "rows": "div.bsx",
     "next": [{ "css": "a.r" }, "text"],
@@ -29,7 +29,7 @@
   },
   "latest": {
     "request": {
-      "url": "{base}/manga/?order=update&page={page}"
+      "url": "{base}/manga/page/{page}/?order=update"
     },
     "rows": "div.bsx",
     "next": [{ "css": "a.r" }, "text"],
@@ -49,7 +49,7 @@
   },
   "search": {
     "request": {
-      "url": "{base}/?s={?{term}?}{?&genre={genre}?}&page={page}"
+      "url": "{base}/page/{page}/?s={?{term}?}{?&genre={genre}?}"
     },
     "rows": "div.bsx",
     "card": {
