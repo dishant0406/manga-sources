@@ -1779,9 +1779,9 @@
   "responses": {
     "GET https://arenascan.com/a-rogue-guard-in-a-medieval-fantasy-chapter-54/": "r5.html",
     "GET https://arenascan.com/manga/a-fortune-telling-princess/": "r4.html",
-    "GET https://arenascan.com/manga/page/1/?order=popular": "r1.html",
-    "GET https://arenascan.com/manga/page/1/?order=update": "r2.html",
-    "GET https://arenascan.com/page/1/?s=solo": "r3.html",
-    "GET https://arenascan.com/page/1/?s=&genre=action": "r6.html"
+    "GET https://arenascan.com/manga/?order=popular&page=1": "r1.html",
+    "GET https://arenascan.com/manga/?order=update&page=1": "r2.html",
+    "GET https://arenascan.com/?s=solo&page=1": "r3.html",
+    "GET https://arenascan.com/?s=&genre=action&page=1": "r6.html"
   }
 }
