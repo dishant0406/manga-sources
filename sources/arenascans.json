@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "arenascans",
   "name": "Arena Scans",
-  "version": 1,
+  "version": 2,
   "lang": ["en"],
   "nsfw": false,
   "base_url": "https://arenascan.com",
@@ -47,7 +47,7 @@
   },
   "search": {
     "request": {
-      "url": "{base}/page/{page}/{?&s={term}?}{?&genre={genre}?}"
+      "url": "{base}/page/{page}/?s={?{term}?}{?&genre={genre}?}"
     },
     "rows": "div.bsx",
     "card": {
