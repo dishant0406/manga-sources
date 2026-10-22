@@ -24,8 +24,7 @@
         { "attr": "data-src|data-lazy-src|src" },
         "abs"
       ]
-    },
-    "next": "a.next.page-numbers, a.r"
+    }
   },
   "latest": {
     "request": {
@@ -44,8 +43,7 @@
         { "attr": "data-src|data-lazy-src|src" },
         "abs"
       ]
-    },
-    "next": "a.next.page-numbers, a.r"
+    }
   },
   "search": {
     "request": {
