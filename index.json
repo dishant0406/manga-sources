@@ -3,50 +3,33 @@
   "name": "Akidev sources",
   "sources": [
     {
-      "id": "internet-archive-comics",
-      "name": "Internet Archive: public-domain comics",
-      "version": 1,
-      "path": "sources/internet-archive-comics.json",
-      "sha256": "9f92d264147a488766c9f2e45b3ede98ae256700caef9d6cb4291517047cf4d0",
+      "id": "asurascans",
+      "name": "Asura Scans",
+      "version": 4,
+      "path": "sources/asurascans.json",
+      "sha256": "a939052ca6bc03bef21786059578a19bf7ce11c950e9e0975b5ba84cca1f65e3",
       "lang": [
         "en"
       ],
       "nsfw": false
     },
     {
-      "id": "mangadex",
-      "name": "MangaDex",
-      "version": 1,
-      "path": "sources/mangadex.json",
-      "sha256": "8ed2e322d4d93d11d039bf34a9eb219f6da0e405706785f288b644b358ee4320",
+      "id": "dynastyscans",
+      "name": "Dynasty Scans",
+      "version": 2,
+      "path": "sources/dynastyscans.json",
+      "sha256": "dfe22d9efc2c6597ba2dcb94d63f69a720a91e5f8cc16884d93bbb2d48ac4a02",
       "lang": [
         "en"
       ],
-      "nsfw": false
+      "nsfw": true
     },
     {
-      "id": "pepper-and-carrot",
-      "name": "Pepper&Carrot",
+      "id": "flamecomics",
+      "name": "Flame Comics",
       "version": 1,
-      "path": "sources/pepper-and-carrot.json",
-      "sha256": "7aec475bfc9ccd9ee1b7fa5ff20476d64140774c0055c744bd0eaac89bb10f8c",
-      "lang": [
-        "en",
-        "fr",
-        "de",
-        "es",
-        "it",
-        "pt",
-        "ja"
-      ],
-      "nsfw": false
-    },
-    {
-      "id": "xkcd",
-      "name": "xkcd",
-      "version": 1,
-      "path": "sources/xkcd.json",
-      "sha256": "0c110673ce9cdea123e0e7b669d881ef5d6f992b6680dc6d1e51ff86bf50d54e",
+      "path": "sources/flamecomics.json",
+      "sha256": "b61121ce1fdd3b1e7a28ac28b0e4dabaedc166dfea90bba7665dee16912afdb4",
       "lang": [
         "en"
       ],
@@ -58,7 +41,7 @@
       "id": "madara",
       "version": 1,
       "path": "themes/madara.json",
-      "sha256": "5854656dd0981646f23b4d15831c77de1e7494fe2d59195e2560b9787d9c902e"
+      "sha256": "8e2c8934927019b92fe930168d11245517a25cae83ac395b6478976cf64b47f4"
     }
   ]
 }
