@@ -173,6 +173,10 @@ A value is read by an expression. Short forms: HTML `"h3"` (the text of the matc
   request's own holes (`{"template": "{page}"}`): those are always set, so it would say every page follows for ever.
   `total` is compared with `page * page_size`, so it has to count what a page holds; a site handing back 25 rows a page
   cannot be described by `total` unless `page_size` is 25 too.
+- A list's `card` is `{"id": ex, "title": ex, "cover": ex, "chapters": ex}`; only `id` and `title` are required.
+  `chapters` is optional: when the list shows how many chapters a series has (or its newest chapter, "Ch. 120"), the
+  first number in the text is read and the app shows "120 chapters" on the card, so the person need not open the
+  series to see it. No number, or no field, shows nothing.
 - `settings`: `{"id": "lang", "name": ..., "default": "en", "options": [{"value", "name"}]}`; the person's choice (the
   default until then) fills the hole `{lang}`. `{rating:raw}` is not percent-encoded, for an option that is a piece of
   query. The app shows each setting as a picker on the source's page.
