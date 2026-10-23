@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "asurascans",
   "name": "Asura Scans",
-  "version": 4,
+  "version": 5,
   "lang": [
     "en"
   ],
@@ -18,7 +18,8 @@
     "card": {
       "id": "slug",
       "title": "title",
-      "cover": "cover"
+      "cover": "cover",
+      "chapters": "chapter_count"
     },
     "next": "meta.has_more"
   },
@@ -31,7 +32,8 @@
     "card": {
       "id": "slug",
       "title": "title",
-      "cover": "cover"
+      "cover": "cover",
+      "chapters": "chapter_count"
     },
     "next": "meta.has_more"
   },
@@ -44,7 +46,8 @@
     "card": {
       "id": "slug",
       "title": "title",
-      "cover": "cover"
+      "cover": "cover",
+      "chapters": "chapter_count"
     },
     "next": "meta.has_more"
   },

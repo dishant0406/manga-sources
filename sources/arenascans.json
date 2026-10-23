@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "arenascans",
   "name": "Arena Scans",
-  "version": 4,
+  "version": 5,
   "lang": ["en"],
   "nsfw": false,
   "base_url": "https://arenascan.com",
@@ -20,6 +20,7 @@
         { "regex": "/manga/([^/]+)/?$" }
       ],
       "title": ".tt",
+      "chapters": ".epxs",
       "cover": [
         { "css": "img.ts-post-image" },
         { "attr": "data-src|data-lazy-src|src" },
@@ -40,6 +41,7 @@
         { "regex": "/manga/([^/]+)/?$" }
       ],
       "title": ".tt",
+      "chapters": ".epxs",
       "cover": [
         { "css": "img.ts-post-image" },
         { "attr": "data-src|data-lazy-src|src" },
@@ -59,6 +61,7 @@
         { "regex": "/manga/([^/]+)/?$" }
       ],
       "title": ".tt",
+      "chapters": ".epxs",
       "cover": [
         { "css": "img.ts-post-image" },
         { "attr": "data-src|data-lazy-src|src" },

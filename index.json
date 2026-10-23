@@ -5,9 +5,9 @@
     {
       "id": "arenascans",
       "name": "Arena Scans",
-      "version": 4,
+      "version": 5,
       "path": "sources/arenascans.json",
-      "sha256": "32f4d78dd46ee2f1cf010e8ad4e17b70147a666db3fcdb145acfd3d88707277e",
+      "sha256": "a27c62593075d6cf7c291e3e054967547efef5134e2fc34bbe22a96a4d74d83e",
       "lang": [
         "en"
       ],
@@ -16,9 +16,9 @@
     {
       "id": "asurascans",
       "name": "Asura Scans",
-      "version": 4,
+      "version": 5,
       "path": "sources/asurascans.json",
-      "sha256": "a939052ca6bc03bef21786059578a19bf7ce11c950e9e0975b5ba84cca1f65e3",
+      "sha256": "d575319102a7cf571efacdd4e2e190c2cc4551a50fa59438087cfd243f455cbf",
       "lang": [
         "en"
       ],
@@ -38,9 +38,9 @@
     {
       "id": "flamecomics",
       "name": "Flame Comics",
-      "version": 1,
+      "version": 2,
       "path": "sources/flamecomics.json",
-      "sha256": "b61121ce1fdd3b1e7a28ac28b0e4dabaedc166dfea90bba7665dee16912afdb4",
+      "sha256": "4680d4c04ef3782cecbe9823510623765a5b579168c95acb351040d9d51314cc",
       "lang": [
         "en"
       ],

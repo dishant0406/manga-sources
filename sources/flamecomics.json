@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "flamecomics",
   "name": "Flame Comics",
-  "version": 1,
+  "version": 2,
   "lang": ["en"],
   "nsfw": false,
   "base_url": "https://flamecomics.xyz",
@@ -18,6 +18,7 @@
     "card": {
       "id": "id",
       "title": "label",
+      "chapters": "chapter_count",
       "cover": [
         { "path": "image" },
         {
