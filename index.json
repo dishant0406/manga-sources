@@ -26,6 +26,17 @@
       "min_app": "0.1.30"
     },
     {
+      "id": "atumoe",
+      "name": "Atsumaru",
+      "version": 1,
+      "path": "sources/atumoe.json",
+      "sha256": "85a0aa2dbe9548d2a23796e21e982e34241c293dca382f49e662310cfcca4e49",
+      "lang": [
+        "en"
+      ],
+      "nsfw": false
+    },
+    {
       "id": "demonicscans",
       "name": "Demonic Scans",
       "version": 1,

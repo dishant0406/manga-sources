@@ -1,0 +1,335 @@
+{
+  "schema": 1,
+  "id": "atumoe",
+  "name": "Atsumaru",
+  "version": 1,
+  "lang": [
+    "en"
+  ],
+  "nsfw": false,
+  "base_url": "https://atsu.moe",
+  "rate_per_second": 2,
+  "page_size": 50,
+  "popular": {
+    "request": {
+      "url": "{base}/api/home2/popular?offset={offset}&limit=50&mediums=Comic"
+    },
+    "rows": "items",
+    "card": {
+      "id": "id",
+      "title": "title",
+      "cover": [
+        {
+          "path": "image"
+        },
+        {
+          "template": "https://cdn.atsu.moe/static/{value}"
+        }
+      ]
+    },
+    "format": "json"
+  },
+  "latest": {
+    "request": {
+      "url": "{base}/api/home2/recentlyUpdated?offset={offset}&limit=50&mediums=Comic"
+    },
+    "rows": "items",
+    "card": {
+      "id": "id",
+      "title": "title",
+      "cover": [
+        {
+          "path": "image"
+        },
+        {
+          "template": "https://cdn.atsu.moe/static/{value}"
+        }
+      ]
+    },
+    "format": "json"
+  },
+  "search": {
+    "request": {
+      "url": "{base}/collections/manga/documents/search?q={?{term}?}&query_by=title,englishTitle,otherNames,authors,acronyms&query_by_weights=4,3,2,2,1&num_typos=4,3,2,1,0&prefix=true,true,true,true,false&infix=off,off,fallback,off,off&include_fields=id,title,authors,poster,posterSmall,type,medium,isAdult,status,year,mbRating,chapterCount&filter_by=hidden:!=true && medium:=Comic{?&&genreIds:=[{genre}]?}{?&&status:=[{status}]?}&page={page}&per_page=50{?&sort_by={sort}?}"
+    },
+    "rows": "hits",
+    "card": {
+      "id": "document.id",
+      "title": "document.title",
+      "cover": [
+        {
+          "path": "document.poster"
+        },
+        {
+          "template": "https://cdn.atsu.moe{value}"
+        }
+      ],
+      "chapters": "document.chapterCount"
+    },
+    "total": "found",
+    "format": "json"
+  },
+  "filters": [
+    {
+      "id": "genre",
+      "name": "Genre",
+      "kind": "select",
+      "options": [
+        {
+          "value": "39",
+          "name": "Action"
+        },
+        {
+          "value": "46",
+          "name": "Adult"
+        },
+        {
+          "value": "37",
+          "name": "Adventure"
+        },
+        {
+          "value": "180",
+          "name": "Boys Love"
+        },
+        {
+          "value": "6",
+          "name": "Comedy"
+        },
+        {
+          "value": "31",
+          "name": "Drama"
+        },
+        {
+          "value": "36",
+          "name": "Fantasy"
+        },
+        {
+          "value": "4",
+          "name": "Girls Love"
+        },
+        {
+          "value": "10",
+          "name": "Hentai"
+        },
+        {
+          "value": "45",
+          "name": "Historical"
+        },
+        {
+          "value": "44",
+          "name": "Horror"
+        },
+        {
+          "value": "29",
+          "name": "Martial Arts"
+        },
+        {
+          "value": "32",
+          "name": "Mystery"
+        },
+        {
+          "value": "18",
+          "name": "Psychological"
+        },
+        {
+          "value": "9",
+          "name": "Romance"
+        },
+        {
+          "value": "1",
+          "name": "Sci-Fi"
+        },
+        {
+          "value": "7",
+          "name": "Slice of Life"
+        },
+        {
+          "value": "41",
+          "name": "Smut"
+        },
+        {
+          "value": "22",
+          "name": "Supernatural"
+        },
+        {
+          "value": "19",
+          "name": "Thriller"
+        },
+        {
+          "value": "5",
+          "name": "Tragedy"
+        }
+      ]
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "kind": "select",
+      "options": [
+        {
+          "value": "Ongoing",
+          "name": "Ongoing"
+        },
+        {
+          "value": "Completed",
+          "name": "Completed"
+        },
+        {
+          "value": "Hiatus",
+          "name": "Hiatus"
+        },
+        {
+          "value": "Canceled",
+          "name": "Canceled"
+        }
+      ]
+    },
+    {
+      "id": "sort",
+      "name": "Sort",
+      "kind": "select",
+      "options": [
+        {
+          "value": "views:desc",
+          "name": "Most viewed"
+        },
+        {
+          "value": "trending:desc",
+          "name": "Trending"
+        },
+        {
+          "value": "mbRating:desc",
+          "name": "Top rated"
+        },
+        {
+          "value": "dateAdded:desc",
+          "name": "Recently added"
+        },
+        {
+          "value": "releaseDate:desc",
+          "name": "Newest release"
+        },
+        {
+          "value": "title:asc",
+          "name": "A to Z"
+        }
+      ]
+    }
+  ],
+  "detail": {
+    "request": {
+      "url": "{base}/manga/{id}"
+    },
+    "title": [
+      {
+        "css": "script"
+      },
+      "text",
+      {
+        "regex": "(?s)window\\.mangaPage\\s*=\\s*(\\{.*\\})"
+      },
+      "json",
+      {
+        "path": "mangaPage.title"
+      }
+    ],
+    "cover": [
+      {
+        "css": "script"
+      },
+      "text",
+      {
+        "regex": "(?s)window\\.mangaPage\\s*=\\s*(\\{.*\\})"
+      },
+      "json",
+      {
+        "path": "mangaPage.poster.image"
+      },
+      {
+        "template": "https://cdn.atsu.moe/static/{value}"
+      }
+    ],
+    "description": [
+      {
+        "css": "script"
+      },
+      "text",
+      {
+        "regex": "(?s)window\\.mangaPage\\s*=\\s*(\\{.*\\})"
+      },
+      "json",
+      {
+        "path": "mangaPage.synopsis"
+      }
+    ],
+    "authors": [
+      {
+        "css": "script"
+      },
+      "text",
+      {
+        "regex": "(?s)window\\.mangaPage\\s*=\\s*(\\{.*\\})"
+      },
+      "json",
+      {
+        "path": "mangaPage.authors.*.name"
+      }
+    ],
+    "tags": [
+      {
+        "css": "script"
+      },
+      "text",
+      {
+        "regex": "(?s)window\\.mangaPage\\s*=\\s*(\\{.*\\})"
+      },
+      "json",
+      {
+        "path": "mangaPage.genres.*.name"
+      },
+      "unique"
+    ],
+    "status": [
+      {
+        "css": "script"
+      },
+      "text",
+      {
+        "regex": "(?s)window\\.mangaPage\\s*=\\s*(\\{.*\\})"
+      },
+      "json",
+      {
+        "path": "mangaPage.status"
+      }
+    ]
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/api/manga/allChapters?mangaId={id}"
+    },
+    "rows": "chapters",
+    "chapter": {
+      "id": "id",
+      "number": "number",
+      "title": "title",
+      "date": "createdAt"
+    },
+    "order": "newest-first",
+    "format": "json"
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/api/read/chapter?mangaId={series}&chapterId={id}"
+    },
+    "images": [
+      {
+        "path": "readChapter.pages.*.image"
+      },
+      {
+        "template": "https://cdn.atsu.moe{value}"
+      }
+    ],
+    "reading": "longstrip",
+    "format": "json"
+  }
+}
