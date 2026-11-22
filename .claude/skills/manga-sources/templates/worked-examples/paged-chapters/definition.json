@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "id": "my-paged-site",
+  "name": "My Paged Site",
+  "version": 1,
+  "lang": [
+    "en"
+  ],
+  "nsfw": false,
+  "base_url": "https://api.example.com",
+  "rate_per_second": 2,
+  "popular": {
+    "request": {
+      "url": "{base}/titles?offset={offset}&limit=20"
+    },
+    "format": "json",
+    "rows": "items",
+    "card": {
+      "id": "id",
+      "title": "name"
+    },
+    "total": "total"
+  },
+  "detail": {
+    "request": {
+      "url": "{base}/titles/{id}"
+    },
+    "format": "json",
+    "title": "name"
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/titles/{id}/chapters?offset={offset}&limit=2"
+    },
+    "format": "json",
+    "rows": "items",
+    "chapter": {
+      "id": "id",
+      "number": "number",
+      "title": "name",
+      "date": [
+        {
+          "path": "released"
+        },
+        {
+          "date": [
+            "iso"
+          ]
+        }
+      ]
+    },
+    "order": "newest-first",
+    "repeat": {
+      "size": 2,
+      "total": "total"
+    }
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/chapters/{id}/pages"
+    },
+    "format": "json",
+    "images": "pages.*.url",
+    "reading": "longstrip"
+  },
+  "page_size": 20
+}

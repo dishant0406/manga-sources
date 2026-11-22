@@ -1,0 +1,12 @@
+{
+  "data": {
+    "pages": [
+      {
+        "url": "https://cdn.example.com/p/1.jpg"
+      },
+      {
+        "url": "https://cdn.example.com/p/2.jpg"
+      }
+    ]
+  }
+}

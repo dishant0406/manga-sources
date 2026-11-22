@@ -1,0 +1,29 @@
+{
+  "calls": [
+    {
+      "expect": [
+        {
+          "date_ms": null,
+          "id": "ch-2",
+          "number": 2.0,
+          "scanlator": null,
+          "title": "Chapter 2"
+        },
+        {
+          "date_ms": null,
+          "id": "ch-1",
+          "number": 1.0,
+          "scanlator": null,
+          "title": "Chapter 1"
+        }
+      ],
+      "id": "some-title",
+      "op": "chapters"
+    }
+  ],
+  "now_ms": 1760000000000,
+  "responses": {
+    "GET https://www.example.com/title/some-title/": "title.html",
+    "POST https://www.example.com/wp-admin/admin-ajax.php": "chapters.html"
+  }
+}

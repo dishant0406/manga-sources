@@ -1,0 +1,17 @@
+{
+  "series": {
+    "title": "Solo Leveling",
+    "cover": "https://cdn.example.com/c/sl.jpg",
+    "description": "<p>The weakest hunter.</p><p>He levels up.</p>",
+    "author": "Chugong",
+    "status": "Completed",
+    "genres": [
+      {
+        "name": "Action"
+      },
+      {
+        "name": "Fantasy"
+      }
+    ]
+  }
+}

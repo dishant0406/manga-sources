@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "id": "my-nextjs-site",
+  "name": "My Next.js Site",
+  "version": 1,
+  "lang": [
+    "en"
+  ],
+  "nsfw": false,
+  "base_url": "https://www.example.com",
+  "rate_per_second": 2,
+  "search": {
+    "request": {
+      "url": "{base}/api/series?search={?{term}?}"
+    },
+    "format": "json",
+    "rows": [
+      {
+        "path": "*"
+      }
+    ],
+    "card": {
+      "id": "id",
+      "title": "label",
+      "chapters": "chapter_count",
+      "cover": [
+        {
+          "path": "image"
+        },
+        {
+          "template": "https://cdn.example.com/series/{^.id}/{value}"
+        }
+      ]
+    }
+  },
+  "detail": {
+    "request": {
+      "url": "{base}/series/{id}"
+    },
+    "title": [
+      {
+        "css": "script#__NEXT_DATA__"
+      },
+      "text",
+      "json",
+      {
+        "path": "props.pageProps.series.title"
+      }
+    ],
+    "cover": [
+      {
+        "css": "script#__NEXT_DATA__"
+      },
+      "text",
+      "json",
+      {
+        "path": "props.pageProps.series.cover"
+      },
+      {
+        "template": "https://cdn.example.com/series/{id}/{value}"
+      }
+    ],
+    "description": [
+      {
+        "css": "script#__NEXT_DATA__"
+      },
+      "text",
+      "json",
+      {
+        "path": "props.pageProps.series.description"
+      },
+      "plain_text"
+    ],
+    "authors": [
+      {
+        "css": "script#__NEXT_DATA__"
+      },
+      "text",
+      "json",
+      {
+        "path": "props.pageProps.series.author.*"
+      }
+    ],
+    "tags": [
+      {
+        "css": "script#__NEXT_DATA__"
+      },
+      "text",
+      "json",
+      {
+        "path": "props.pageProps.series.tags.*"
+      }
+    ],
+    "status": [
+      {
+        "css": "script#__NEXT_DATA__"
+      },
+      "text",
+      "json",
+      {
+        "path": "props.pageProps.series.status"
+      },
+      {
+        "map": [
+          [
+            "completed",
+            "completed"
+          ],
+          [
+            "complete",
+            "completed"
+          ],
+          [
+            "finished",
+            "completed"
+          ],
+          [
+            "ongoing",
+            "ongoing"
+          ],
+          [
+            "publishing",
+            "ongoing"
+          ],
+          [
+            "hiatus",
+            "hiatus"
+          ],
+          [
+            "on hold",
+            "hiatus"
+          ],
+          [
+            "cancelled",
+            "cancelled"
+          ],
+          [
+            "canceled",
+            "cancelled"
+          ],
+          [
+            "dropped",
+            "cancelled"
+          ]
+        ]
+      }
+    ]
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/series/{id}"
+    },
+    "rows": [
+      {
+        "css": "script#__NEXT_DATA__"
+      },
+      "text",
+      "json",
+      {
+        "path": "props.pageProps.chapters.*"
+      }
+    ],
+    "chapter": {
+      "id": [
+        {
+          "path": "token"
+        }
+      ],
+      "number": [
+        {
+          "path": "chapter"
+        },
+        "number"
+      ],
+      "title": [
+        {
+          "path": "title"
+        }
+      ]
+    },
+    "order": "newest-first"
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/series/{series}/{id:raw}"
+    },
+    "images": [
+      {
+        "css": "script#__NEXT_DATA__"
+      },
+      "text",
+      "json",
+      {
+        "path": "props.pageProps.chapter.images.*.name"
+      },
+      "sort",
+      {
+        "template": "https://cdn.example.com/series/{series}/{id:raw}/{value}"
+      }
+    ],
+    "reading": "longstrip"
+  }
+}

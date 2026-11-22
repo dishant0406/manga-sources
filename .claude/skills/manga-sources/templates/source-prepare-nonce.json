@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "id": "my-nonce-site",
+  "name": "My Nonce Site",
+  "version": 1,
+  "lang": [
+    "en"
+  ],
+  "nsfw": false,
+  "base_url": "https://www.example.com",
+  "rate_per_second": 1,
+  "popular": {
+    "request": {
+      "url": "{base}/list?page={page}"
+    },
+    "rows": "div.item",
+    "card": {
+      "id": [
+        {
+          "css": "a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/title/([^/]+)/?$"
+        }
+      ],
+      "title": "h2"
+    },
+    "next": "a.next"
+  },
+  "detail": {
+    "request": {
+      "url": "{base}/title/{id}/"
+    },
+    "title": "h1"
+  },
+  "chapters": {
+    "request": {
+      "method": "POST",
+      "url": "{base}/wp-admin/admin-ajax.php",
+      "form": {
+        "action": "load_chapters",
+        "series": "{id}",
+        "nonce": "{nonce}"
+      },
+      "headers": {
+        "x-requested-with": "XMLHttpRequest"
+      }
+    },
+    "prepare": [
+      {
+        "request": {
+          "url": "{base}/title/{id}/"
+        },
+        "vars": {
+          "nonce": [
+            {
+              "css": "script#page-data"
+            },
+            "html",
+            {
+              "regex": "nonce\"\\s*:\\s*\"([a-f0-9]+)\""
+            }
+          ]
+        }
+      }
+    ],
+    "rows": "li.chapter",
+    "chapter": {
+      "id": [
+        {
+          "css": "a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/([^/]+)/?$"
+        }
+      ],
+      "title": "a"
+    },
+    "order": "newest-first"
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/title/{series}/{id}/"
+    },
+    "images": [
+      {
+        "css": "div.reader img"
+      },
+      {
+        "attr": "data-src|src"
+      }
+    ],
+    "reading": "longstrip"
+  }
+}

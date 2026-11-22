@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "id": "demonicscans",
+  "name": "Demonic Scans",
+  "version": 1,
+  "lang": ["en"],
+  "nsfw": false,
+  "base_url": "https://demonicscans.org",
+  "rate_per_second": 2,
+  "popular": {
+    "request": {
+      "url": "{base}/advanced.php?list={page}&orderby=VIEWS DESC"
+    },
+    "rows": "div.advanced-element",
+    "card": {
+      "id": [
+        { "css": "a" },
+        { "attr": "href" },
+        { "regex": "/manga/([^/]+)" }
+      ],
+      "title": [{ "css": "a" }, { "attr": "title" }],
+      "cover": [
+        { "css": "img" },
+        { "attr": "src" },
+        "abs"
+      ]
+    }
+  },
+  "latest": {
+    "request": {
+      "url": "{base}/lastupdates.php?list={page}"
+    },
+    "rows": "div.updates-element",
+    "card": {
+      "id": [
+        { "css": ".thumb a" },
+        { "attr": "href" },
+        { "regex": "/manga/([^/]+)" }
+      ],
+      "title": [{ "css": "h2 a" }, { "attr": "title" }],
+      "cover": [
+        { "css": ".thumb img" },
+        { "attr": "src" },
+        "abs"
+      ]
+    }
+  },
+  "search": {
+    "request": {
+      "url": "{base}/search.php?manga={?{term}?}"
+    },
+    "rows": "a[href^=\"/manga/\"]",
+    "card": {
+      "id": [
+        { "attr": "href" },
+        { "regex": "/manga/([^/]+)" }
+      ],
+      "title": [
+        { "css": ".seach-right div" },
+        "first"
+      ],
+      "cover": [
+        { "css": "img.search-thumb" },
+        { "attr": "src" },
+        "abs"
+      ]
+    },
+    "next": [{ "css": "a.next-page" }]
+  },
+  "detail": {
+    "request": {
+      "url": "{base}/manga/{id}"
+    },
+    "title": "h1.big-fat-titles",
+    "cover": [
+      { "css": "#manga-page img" },
+      { "attr": "src" },
+      "abs"
+    ],
+    "description": [
+      { "css": "#manga-info-rightColumn .white-font" },
+      "plain_text"
+    ],
+    "authors": [
+      { "css": "#manga-info-stats .flex.flex-row" },
+      "text",
+      { "regex": "(?i)Author\\s+(.+)"},
+      "first",
+      "non_empty"
+    ],
+    "tags": [
+      { "css": ".genres-list li" },
+      "text",
+      "unique"
+    ],
+    "status": [
+      { "css": "#manga-info-stats .flex.flex-row" },
+      "text",
+      { "regex": "(?i)Status\\s+(\\w+)" },
+      "first",
+      { "map": [
+        ["ongoing", "ongoing"],
+        ["completed", "completed"],
+        ["complete", "completed"],
+        ["hiatus", "hiatus"],
+        ["dropped", "cancelled"],
+        ["cancelled", "cancelled"]
+      ]},
+      { "default": "unknown" }
+    ]
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/manga/{id}"
+    },
+    "rows": "#chapters-list li",
+    "chapter": {
+      "id": [
+        { "css": "a" },
+        { "attr": "href" },
+        { "regex": "chapter=([0-9.]+)" }
+      ],
+      "number": [
+        { "css": "a" },
+        "text",
+        "number"
+      ],
+      "title": [
+        { "css": "a" },
+        { "attr": "title" }
+      ],
+      "date": [
+        { "css": "a span" },
+        "text",
+        { "date": ["yyyy-MM-dd"] }
+      ]
+    },
+    "order": "newest-first"
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/title/{series}/chapter/{id}/1"
+    },
+    "images": [
+      { "css": "img.imgholder" },
+      { "attr": "src" },
+      { "regex": "^(https?://.*)$" }
+    ],
+    "reading": "longstrip"
+  },
+  "page_size": 56
+}

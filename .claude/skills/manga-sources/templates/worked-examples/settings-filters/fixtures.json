@@ -1,0 +1,41 @@
+{
+  "calls": [
+    {
+      "expect": {
+        "has_next": true,
+        "items": [
+          {
+            "cover": "https://cdn.example.com/1.jpg",
+            "id": "m1",
+            "title": "One"
+          }
+        ]
+      },
+      "op": "popular",
+      "page": 1
+    },
+    {
+      "expect": {
+        "has_next": false,
+        "items": [
+          {
+            "cover": "https://cdn.example.com/2.jpg",
+            "id": "m2",
+            "title": "Two"
+          }
+        ]
+      },
+      "filters": {
+        "author": "Chugong",
+        "order": "latest"
+      },
+      "op": "search",
+      "term": "two"
+    }
+  ],
+  "now_ms": 1760000000000,
+  "responses": {
+    "GET https://api.example.com/manga?limit=20&offset=0&lang=en&contentRating[]=safe": "popular.json",
+    "GET https://api.example.com/manga?limit=20&offset=0&lang=en&order=latest&title=two&author=Chugong": "search.json"
+  }
+}

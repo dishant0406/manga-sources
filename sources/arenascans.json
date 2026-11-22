@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "arenascans",
   "name": "Arena Scans",
-  "version": 5,
+  "version": 6,
   "lang": ["en"],
   "nsfw": false,
   "base_url": "https://arenascan.com",
@@ -160,7 +160,7 @@
         "number"
       ],
       "title": ".chapternum",
-      "uploaded": [
+      "date": [
         { "css": ".chapterdate" },
         { "date": ["MMMM d, yyyy"] }
       ]

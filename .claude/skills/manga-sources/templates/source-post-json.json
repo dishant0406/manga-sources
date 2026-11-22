@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "my-post-site",
+  "name": "My POST Site",
+  "version": 1,
+  "lang": [
+    "en"
+  ],
+  "nsfw": false,
+  "base_url": "https://api.example.com",
+  "rate_per_second": 2,
+  "headers": {
+    "accept": "application/json"
+  },
+  "search": {
+    "request": {
+      "method": "POST",
+      "url": "{base}/graphql",
+      "json": {
+        "query": "query($q:String,$page:Int){search(q:$q,page:$page){items{slug title cover}}}",
+        "variables": {
+          "q": "{term}",
+          "page": "{page}"
+        }
+      }
+    },
+    "format": "json",
+    "rows": "data.search.items",
+    "card": {
+      "id": "slug",
+      "title": "title",
+      "cover": "cover"
+    }
+  },
+  "detail": {
+    "request": {
+      "url": "{base}/series/{id}"
+    },
+    "format": "json",
+    "title": "title"
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/series/{id}/chapters"
+    },
+    "format": "json",
+    "rows": "chapters",
+    "chapter": {
+      "id": "slug",
+      "number": "number"
+    },
+    "order": "oldest-first"
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/chapters/{id}"
+    },
+    "format": "json",
+    "images": "images.*",
+    "reading": "longstrip"
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "schema": 1,
+  "id": "my-api-site",
+  "name": "My API Site",
+  "version": 1,
+  "lang": [
+    "en"
+  ],
+  "nsfw": false,
+  "base_url": "https://api.example.com",
+  "rate_per_second": 2,
+  "page_size": 20,
+  "popular": {
+    "request": {
+      "url": "{base}/series?offset={offset}&per_page=20&sort=popular"
+    },
+    "format": "json",
+    "rows": "data",
+    "card": {
+      "id": "slug",
+      "title": "title",
+      "cover": "cover",
+      "chapters": "chapter_count"
+    },
+    "next": "meta.has_more"
+  },
+  "latest": {
+    "request": {
+      "url": "{base}/series?offset={offset}&per_page=20&sort=latest"
+    },
+    "format": "json",
+    "rows": "data",
+    "card": {
+      "id": "slug",
+      "title": "title",
+      "cover": "cover",
+      "chapters": "chapter_count"
+    },
+    "next": "meta.has_more"
+  },
+  "search": {
+    "request": {
+      "url": "{base}/series?offset={offset}&per_page=20{?&search={term}?}{?&genre={genre}?}"
+    },
+    "format": "json",
+    "rows": "data",
+    "card": {
+      "id": "slug",
+      "title": "title",
+      "cover": "cover",
+      "chapters": "chapter_count"
+    },
+    "next": "meta.has_more"
+  },
+  "filters": [
+    {
+      "id": "genre",
+      "name": "Genre",
+      "kind": "select",
+      "options": [
+        {
+          "value": "action",
+          "name": "Action"
+        },
+        {
+          "value": "romance",
+          "name": "Romance"
+        }
+      ]
+    }
+  ],
+  "detail": {
+    "request": {
+      "url": "{base}/series/{id}"
+    },
+    "format": "json",
+    "title": "series.title",
+    "cover": "series.cover",
+    "description": [
+      {
+        "path": "series.description"
+      },
+      "plain_text"
+    ],
+    "authors": "series.author",
+    "tags": "series.genres.*.name",
+    "status": [
+      {
+        "path": "series.status"
+      },
+      {
+        "map": [
+          [
+            "completed",
+            "completed"
+          ],
+          [
+            "complete",
+            "completed"
+          ],
+          [
+            "finished",
+            "completed"
+          ],
+          [
+            "ongoing",
+            "ongoing"
+          ],
+          [
+            "publishing",
+            "ongoing"
+          ],
+          [
+            "hiatus",
+            "hiatus"
+          ],
+          [
+            "on hold",
+            "hiatus"
+          ],
+          [
+            "cancelled",
+            "cancelled"
+          ],
+          [
+            "canceled",
+            "cancelled"
+          ],
+          [
+            "dropped",
+            "cancelled"
+          ]
+        ]
+      },
+      {
+        "default": "unknown"
+      }
+    ]
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/series/{id}/chapters?page={page}&per_page=100"
+    },
+    "format": "json",
+    "rows": "data",
+    "chapter": {
+      "id": "slug",
+      "number": "number",
+      "title": [
+        {
+          "path": "number"
+        },
+        {
+          "template": "Chapter {value}"
+        }
+      ],
+      "date": [
+        {
+          "path": "published_at"
+        },
+        {
+          "date": [
+            "iso"
+          ]
+        }
+      ]
+    },
+    "order": "newest-first",
+    "repeat": {
+      "size": 100
+    }
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/series/{series}/chapters/{id}"
+    },
+    "format": "json",
+    "images": "data.pages.*.url",
+    "reading": "longstrip"
+  }
+}

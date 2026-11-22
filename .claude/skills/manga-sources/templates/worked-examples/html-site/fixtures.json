@@ -1,0 +1,82 @@
+{
+  "calls": [
+    {
+      "expect": {
+        "has_next": true,
+        "items": [
+          {
+            "cover": "https://www.example.com/img/sl.jpg",
+            "id": "solo-leveling",
+            "title": "Solo Leveling"
+          },
+          {
+            "cover": "https://www.example.com/img/tog.jpg",
+            "id": "tower-of-god",
+            "title": "Tower of God"
+          }
+        ]
+      },
+      "op": "popular",
+      "page": 1
+    },
+    {
+      "expect": {
+        "authors": [
+          "Chugong"
+        ],
+        "cover": "https://www.example.com/img/sl.jpg",
+        "description": "The weakest hunter.\nHe levels up.",
+        "status": "ongoing",
+        "tags": [
+          "Action",
+          "Fantasy"
+        ],
+        "title": "Solo Leveling"
+      },
+      "id": "solo-leveling",
+      "op": "details"
+    },
+    {
+      "expect": [
+        {
+          "date_ms": 1709337600000,
+          "id": "chapter-2",
+          "number": 2.0,
+          "scanlator": null,
+          "title": "Chapter 2"
+        },
+        {
+          "date_ms": 1759740800000,
+          "id": "chapter-1",
+          "number": 1.0,
+          "scanlator": null,
+          "title": "Chapter 1"
+        }
+      ],
+      "id": "solo-leveling",
+      "op": "chapters"
+    },
+    {
+      "expect": {
+        "headers": {
+          "referer": "https://www.example.com/"
+        },
+        "images": [
+          "https://cdn.example.com/p/1.jpg",
+          "https://cdn.example.com/p/2.jpg",
+          "https://www.example.com/p/3.jpg"
+        ],
+        "reading": "long_strip"
+      },
+      "id": "chapter-1",
+      "op": "pages",
+      "series": "solo-leveling"
+    }
+  ],
+  "now_ms": 1760000000000,
+  "responses": {
+    "GET https://www.example.com/series/solo-leveling/": "detail.html",
+    "GET https://www.example.com/series/solo-leveling/chapter-1/": "pages.html",
+    "GET https://www.example.com/series?sort=popular&page=1": "popular.html"
+  }
+}

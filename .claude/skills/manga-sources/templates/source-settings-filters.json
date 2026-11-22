@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "id": "my-multilang-site",
+  "name": "My Multilanguage Site",
+  "version": 1,
+  "lang": [
+    "en",
+    "fr"
+  ],
+  "nsfw": false,
+  "base_url": "https://api.example.com",
+  "rate_per_second": 2,
+  "settings": [
+    {
+      "id": "lang",
+      "name": "Language",
+      "default": "en",
+      "options": [
+        {
+          "value": "en",
+          "name": "English"
+        },
+        {
+          "value": "fr",
+          "name": "French"
+        }
+      ]
+    },
+    {
+      "id": "rating",
+      "name": "Content rating",
+      "default": "safe",
+      "options": [
+        {
+          "value": "safe",
+          "name": "Safe"
+        },
+        {
+          "value": "safe&contentRating[]=suggestive",
+          "name": "Safe and suggestive"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "order",
+      "name": "Order",
+      "kind": "select",
+      "default": "popular",
+      "options": [
+        {
+          "value": "popular",
+          "name": "Popular"
+        },
+        {
+          "value": "latest",
+          "name": "Latest"
+        }
+      ]
+    },
+    {
+      "id": "author",
+      "name": "Author",
+      "kind": "text"
+    }
+  ],
+  "popular": {
+    "request": {
+      "url": "{base}/manga?limit=20&offset={offset}&lang={lang}&contentRating[]={rating:raw}"
+    },
+    "format": "json",
+    "rows": "data",
+    "card": {
+      "id": "id",
+      "title": "title",
+      "cover": "cover"
+    },
+    "total": "total"
+  },
+  "search": {
+    "request": {
+      "url": "{base}/manga?limit=20&offset={offset}&lang={lang}&order={order}{?&title={term}?}{?&author={author}?}"
+    },
+    "format": "json",
+    "rows": "data",
+    "card": {
+      "id": "id",
+      "title": "title",
+      "cover": "cover"
+    },
+    "total": "total"
+  },
+  "detail": {
+    "request": {
+      "url": "{base}/manga/{id}"
+    },
+    "format": "json",
+    "title": "data.title"
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/manga/{id}/chapters?lang={lang}"
+    },
+    "format": "json",
+    "rows": "data",
+    "chapter": {
+      "id": "id",
+      "number": "number",
+      "title": "title"
+    },
+    "order": "newest-first"
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/chapters/{id}/pages"
+    },
+    "format": "json",
+    "images": "data.*.url",
+    "reading": "paged_rtl"
+  },
+  "page_size": 20
+}

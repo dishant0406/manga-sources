@@ -1,0 +1,14 @@
+{
+  "extends": "madara",
+  "id": "my-madara-site",
+  "name": "My Madara Site",
+  "version": 1,
+  "lang": [
+    "en"
+  ],
+  "nsfw": false,
+  "base_url": "https://www.example.com",
+  "mirrors": [
+    "https://www.example.org"
+  ]
+}

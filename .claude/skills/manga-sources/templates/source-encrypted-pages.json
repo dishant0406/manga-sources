@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "id": "my-protected-site",
+  "name": "My Protected Site",
+  "version": 1,
+  "lang": [
+    "en"
+  ],
+  "nsfw": false,
+  "base_url": "https://www.example.com",
+  "rate_per_second": 1,
+  "popular": {
+    "request": {
+      "url": "{base}/manga/page/{page}/"
+    },
+    "rows": "div.item",
+    "card": {
+      "id": [
+        {
+          "css": "a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/manga/([^/]+)/?$"
+        }
+      ],
+      "title": "h3"
+    },
+    "next": "a.nextpostslink"
+  },
+  "detail": {
+    "request": {
+      "url": "{base}/manga/{id}/"
+    },
+    "title": "h1"
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/manga/{id}/"
+    },
+    "rows": "li.chapter",
+    "chapter": {
+      "id": [
+        {
+          "css": "a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/manga/[^/]+/([^/]+)/?$"
+        }
+      ],
+      "title": "a"
+    },
+    "order": "newest-first"
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/manga/{series}/{id}/"
+    },
+    "images": [
+      {
+        "css": "script#chapter-protector-data"
+      },
+      "html",
+      {
+        "replace": {
+          "from": "\\\\/",
+          "to": "/"
+        }
+      },
+      {
+        "regex": "(?s)var\\s+chapter_data\\s*=\\s*'(\\{.*?\\})';"
+      },
+      {
+        "aes_cbc": {
+          "passphrase": "{nonce}"
+        }
+      },
+      "json",
+      {
+        "path": "*"
+      }
+    ],
+    "vars": {
+      "nonce": [
+        {
+          "css": "script#chapter-protector-data"
+        },
+        "html",
+        {
+          "replace": {
+            "from": "\\\\",
+            "to": ""
+          }
+        },
+        {
+          "regex": "var\\s+wpmangaprotectornonce\\s*=\\s*'([^']*)';"
+        }
+      ]
+    },
+    "reading": "longstrip"
+  }
+}

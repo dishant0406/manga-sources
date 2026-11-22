@@ -1,0 +1,78 @@
+{
+  "calls": [
+    {
+      "expect": {
+        "has_next": true,
+        "items": [
+          {
+            "chapters": 179,
+            "cover": "https://cdn.example.com/series/7/cover.png",
+            "id": "7",
+            "title": "Solo Leveling"
+          }
+        ]
+      },
+      "op": "search",
+      "term": "solo"
+    },
+    {
+      "expect": {
+        "authors": [
+          "Chugong"
+        ],
+        "cover": "https://cdn.example.com/series/7/cover.png",
+        "description": "Hunter.",
+        "status": "ongoing",
+        "tags": [
+          "Action",
+          "Fantasy"
+        ],
+        "title": "Solo Leveling"
+      },
+      "id": "7",
+      "op": "details"
+    },
+    {
+      "expect": [
+        {
+          "date_ms": null,
+          "id": "aaa111",
+          "number": 2.0,
+          "scanlator": null,
+          "title": "Chapter 2"
+        },
+        {
+          "date_ms": null,
+          "id": "bbb222",
+          "number": 1.0,
+          "scanlator": null,
+          "title": "Chapter 1"
+        }
+      ],
+      "id": "7",
+      "op": "chapters"
+    },
+    {
+      "expect": {
+        "headers": {
+          "referer": "https://www.example.com/"
+        },
+        "images": [
+          "https://cdn.example.com/series/7/bbb222/p1.png",
+          "https://cdn.example.com/series/7/bbb222/p2.png",
+          "https://cdn.example.com/series/7/bbb222/p10.png"
+        ],
+        "reading": "long_strip"
+      },
+      "id": "bbb222",
+      "op": "pages",
+      "series": "7"
+    }
+  ],
+  "now_ms": 1760000000000,
+  "responses": {
+    "GET https://www.example.com/api/series?search=solo": "search.json",
+    "GET https://www.example.com/series/7": "series.html",
+    "GET https://www.example.com/series/7/bbb222": "chapter.html"
+  }
+}

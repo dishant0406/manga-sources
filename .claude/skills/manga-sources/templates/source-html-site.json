@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "id": "my-html-site",
+  "name": "My HTML Site",
+  "version": 1,
+  "lang": [
+    "en"
+  ],
+  "nsfw": false,
+  "base_url": "https://www.example.com",
+  "rate_per_second": 2,
+  "popular": {
+    "request": {
+      "url": "{base}/series?sort=popular&page={page}"
+    },
+    "rows": "div.series-card",
+    "card": {
+      "id": [
+        {
+          "css": "a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/series/([^/]+)/?$"
+        }
+      ],
+      "title": "h3",
+      "cover": [
+        {
+          "css": "img"
+        },
+        {
+          "attr": "data-src|data-lazy-src|src"
+        },
+        "abs"
+      ]
+    },
+    "next": "a[rel=\"next\"]"
+  },
+  "latest": {
+    "request": {
+      "url": "{base}/series?sort=latest&page={page}"
+    },
+    "rows": "div.series-card",
+    "card": {
+      "id": [
+        {
+          "css": "a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/series/([^/]+)/?$"
+        }
+      ],
+      "title": "h3",
+      "cover": [
+        {
+          "css": "img"
+        },
+        {
+          "attr": "data-src|data-lazy-src|src"
+        },
+        "abs"
+      ]
+    },
+    "next": "a[rel=\"next\"]"
+  },
+  "search": {
+    "request": {
+      "url": "{base}/search?page={page}{?&q={term}?}"
+    },
+    "rows": "div.series-card",
+    "card": {
+      "id": [
+        {
+          "css": "a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/series/([^/]+)/?$"
+        }
+      ],
+      "title": "h3",
+      "cover": [
+        {
+          "css": "img"
+        },
+        {
+          "attr": "data-src|data-lazy-src|src"
+        },
+        "abs"
+      ]
+    },
+    "next": "a[rel=\"next\"]"
+  },
+  "detail": {
+    "request": {
+      "url": "{base}/series/{id}/"
+    },
+    "title": "h1",
+    "cover": [
+      {
+        "css": ".cover img"
+      },
+      {
+        "attr": "data-src|src"
+      },
+      "abs"
+    ],
+    "description": ".description",
+    "authors": ".author a",
+    "tags": ".genres a",
+    "status": [
+      {
+        "css": ".status"
+      },
+      "text",
+      {
+        "map": [
+          [
+            "completed",
+            "completed"
+          ],
+          [
+            "complete",
+            "completed"
+          ],
+          [
+            "finished",
+            "completed"
+          ],
+          [
+            "ongoing",
+            "ongoing"
+          ],
+          [
+            "publishing",
+            "ongoing"
+          ],
+          [
+            "hiatus",
+            "hiatus"
+          ],
+          [
+            "on hold",
+            "hiatus"
+          ],
+          [
+            "cancelled",
+            "cancelled"
+          ],
+          [
+            "canceled",
+            "cancelled"
+          ],
+          [
+            "dropped",
+            "cancelled"
+          ]
+        ]
+      },
+      {
+        "default": "unknown"
+      }
+    ]
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/series/{id}/"
+    },
+    "rows": "ul.chapters li",
+    "chapter": {
+      "id": [
+        {
+          "css": "a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/series/[^/]+/([^/]+)/?$"
+        }
+      ],
+      "title": "a",
+      "date": [
+        {
+          "css": ".date"
+        },
+        "text",
+        {
+          "date": [
+            "MMMM d, yyyy",
+            "MMM d, yyyy",
+            "relative"
+          ]
+        }
+      ]
+    },
+    "order": "newest-first"
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/series/{series}/{id}/"
+    },
+    "images": [
+      {
+        "css": "div.reader img"
+      },
+      {
+        "attr": "data-src|data-lazy-src|src"
+      }
+    ],
+    "reading": "longstrip"
+  }
+}

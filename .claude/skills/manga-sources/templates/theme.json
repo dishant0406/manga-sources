@@ -1,0 +1,77 @@
+{
+  "theme": true,
+  "version": 1,
+  "schema": 1,
+  "rate_per_second": 2,
+  "popular": {
+    "request": {
+      "url": "{base}/manga/page/{page}/?order=popular"
+    },
+    "rows": "div.item",
+    "card": {
+      "id": [
+        {
+          "css": "a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/manga/([^/]+)/?$"
+        }
+      ],
+      "title": ".title",
+      "cover": [
+        {
+          "css": "img"
+        },
+        {
+          "attr": "data-src|src"
+        },
+        "abs"
+      ]
+    },
+    "next": "a.next"
+  },
+  "detail": {
+    "request": {
+      "url": "{base}/manga/{id}/"
+    },
+    "title": "h1"
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/manga/{id}/"
+    },
+    "rows": "li.chapter",
+    "chapter": {
+      "id": [
+        {
+          "css": "a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/([^/]+)/?$"
+        }
+      ],
+      "title": "a"
+    },
+    "order": "newest-first"
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/manga/{series}/{id}/"
+    },
+    "images": [
+      {
+        "css": "div.reader img"
+      },
+      {
+        "attr": "data-src|src"
+      }
+    ],
+    "reading": "longstrip"
+  }
+}
