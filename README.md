@@ -248,10 +248,11 @@ In `.claude/skills/manga-sources/templates/`. Each one is checked by the real en
 | `source-paged-chapters.json` | one whose chapter list comes in pieces |
 | `source-encrypted-pages.json` | one whose page list is encrypted (the Madara protector) |
 | `source-settings-filters.json` | one with a language or rating choice, a genre or text filter |
+| `source-with-login.json` | free titles plus paid ones behind a sign-in (email and password for a token) |
 | `source-post-json.json` | one that wants a POST with a JSON body (GraphQL) |
 | `theme.json` | a new theme for a family of sites |
 
-In `templates/worked-examples/` six of them have hand-made answers and a `fixtures.json`, so you can run the whole loop with no network: `scripts/check.sh templates/source-json-api.json templates/worked-examples/json-api`.
+In `templates/worked-examples/` seven of them have hand-made answers and a `fixtures.json`, so you can run the whole loop with no network: `scripts/check.sh templates/source-json-api.json templates/worked-examples/json-api`.
 
 ## Everything a definition can say
 
@@ -269,6 +270,7 @@ This is the complete list at a glance. The details, with every rule and trap, ar
 | `headers`, `user_agent` | sent on every request, and a user agent to send instead of the phone browser one |
 | `page_size` | titles on a list page, 1 to 500, default 20 (for `{offset}` and `total`) |
 | `settings`, `filters` | choices for the person (below) |
+| `auth` | signing in, for paid or private titles (below) |
 | `popular`, `latest`, `search` | the lists |
 | `detail`, `chapters`, `pages` | the series, its chapters, a chapter's pages |
 | `min_app` | the oldest app version that can run it (copied to the index) |
@@ -278,7 +280,7 @@ This is the complete list at a glance. The details, with every rule and trap, ar
 
 `url` (must start with `{base}`), `method` (`GET` or `POST`), `form`, `json`, `headers`. A section's `format` is `html` (the default) or `json`.
 
-Holes: `{page}`, `{page0}`, `{offset}`, `{term}` (search only), `{id}`, `{series}`, `{base}`, a filter's id (search only), a setting's id, a var's name. `{name:raw}` is not percent-encoded (for an id that is a path). `{? ... ?}` vanishes when a hole inside is empty.
+Holes: `{page}`, `{page0}`, `{offset}`, `{term}` (search only), `{id}`, `{series}`, `{base}`, a filter's id (search only), a setting's id, a var's name, a session value (`{access}`, while signed in). `{name:raw}` is not percent-encoded (for an id that is a path). `{? ... ?}` vanishes when a hole inside is empty.
 
 **Put `{term}` inside a `{? ... ?}` group, never bare.** A search can run with no term (the home screen's genre chips search with only a filter set), and a bare `{term}` then has nothing to fill it, so the whole request fails with "needs a value this call does not have". `...?q={term}` breaks genre browsing. `...{?&q={term}?}` does not. The same goes for any hole a call might not set.
 
@@ -304,7 +306,7 @@ Do not build `next` out of the request's own holes (`{"template": "{page}"}`): t
 
 ### chapters
 
-`rows`, `chapter` (`id` required; `number`, `title`, `date`, `scanlator`), `order`, `repeat`, `prepare`, `vars`.
+`rows`, `chapter` (`id` required; `number`, `title`, `date`, `scanlator`, `locked`), `order`, `repeat`, `prepare`, `vars`.
 
 Chapters come back **newest first** whatever order the site lists them in. Say `"order": "oldest-first"` if the site lists them oldest first. A chapter's number is read from its title when no `number` is given. `date` must end up as milliseconds since 1970: use the `date` step.
 
@@ -313,6 +315,37 @@ Chapters come back **newest first** whatever order the site lists them in. Say `
 ### pages
 
 `images` (every text is a page, in order, made absolute), `reading` (`longstrip`, `paged` or `paged_rtl`), `image_headers`, `prepare`, `vars`. A `referer` of the source's address is sent with every image when none is given. A header with an empty value is left out (`"referer": ""`).
+
+### Signing in
+
+For a site with free titles and paid ones. The `auth` section says how to sign in; the person types their own account in the app, and the engine adds the session to every request. **No account, password or token is ever in the file.**
+
+```json
+"auth": {
+  "fields": [ { "id": "email", "name": "Email" }, { "id": "password", "name": "Password", "secret": true } ],
+  "login": {
+    "request": { "method": "POST", "url": "{base}/auth/login", "json": { "email": "{email}", "password": "{password}" } },
+    "format": "json",
+    "vars": { "access": "data.access_token", "refresh": "data.refresh_token", "user": "data.user.display_name" }
+  },
+  "refresh": { "request": { "method": "POST", "url": "{base}/auth/refresh", "json": { "refresh_token": "{refresh}" } },
+               "format": "json", "vars": { "access": "data.access_token" } },
+  "logout": { "method": "POST", "url": "{base}/auth/logout", "json": { "refresh_token": "{refresh}" } },
+  "headers": { "authorization": "Bearer {access}" }
+}
+```
+
+- `fields` is what the person types (`secret: true` hides it). Those are holes (`{email}`) in the `login` request only.
+- `login.vars` read the **session** out of the answer. Session values (`{access}`, `{refresh}`, `{user}`) are holes in every later request, and in `headers` and `image_headers`.
+- `headers` are added to every request to `base_url` while signed in, and left off while signed out. The free titles keep working without an account.
+- `chapters.chapter.locked` (an expression such as `"is_premium"`) marks a chapter that needs the account. The apps show "Locked" on it while signed out, and a tap opens the sign-in sheet first, then the chapter.
+- `refresh` is asked once when a request gets `401`, then that request is asked again. A refresh that fails ends the session ("sign in again").
+- **Only `base_url` ever sees the session.** The sign-in, the refresh, the logout and the headers never go to a mirror.
+- Without `login`, what the person typed is the session: a **pasted token or API key** (one field, and `headers` that use it).
+- The app keeps only the session (Keychain on iPhone, Keystore on Android), never the password. Sign-in screen: the source's page, **Account**.
+- Test with made-up accounts: `fixtures.json` calls `sign_in` (with fake `fields`) and `sign_out`. Never `record` a real sign-in: the real tokens would land in the fixtures. Live, set `AKI_AUTH_EMAIL` and `AKI_AUTH_PASSWORD` (`AKI_AUTH_<FIELD ID>`) and `scripts/run-live.sh` signs in first, so nothing is typed on a command line.
+
+**State today:** built and tested in the engine (`desktop/manga/tests/auth.rs` in the code repo), and in the iPhone and Android apps: a source with `auth` shows an **Account** row on its settings page, with a sign-in sheet drawn from `fields`, and the session is kept in the Keychain or the Keystore. An older app ignores `auth` and shows the source signed out. A chapter can say it is locked (`chapters.chapter.locked`): the apps show "Locked" on it while signed out and ask the person to sign in when they tap it. Template: `templates/source-with-login.json`. Worked example: `templates/worked-examples/login/`. Details: `.claude/skills/manga-sources/references/format.md` (auth) and `recipes.md` (recipe 16).
 
 ### Chains: `prepare` and `vars`
 
@@ -405,7 +438,8 @@ Decryption is the only thing in the engine that touches cryptography: no definit
 Plainly:
 
 - **A site behind a check** (Cloudflare "Just a moment", a captcha, a JavaScript challenge). The app has no web view and no way past a check. The call fails with `wants a check before it answers`, and the app says the site is not supported from here. Do not look for a way around.
-- **A login, an account, a paywall.** A definition cannot log in or hold a secret, and this repository is public.
+- **A sign-in that is not a plain request.** Email and password posted for a token, and a pasted token, are supported (see [Signing in](#signing-in)). Not supported: "Sign in with Google" and other redirects (they need a browser), a captcha or Turnstile token, a code sent by email, a request that must be signed. And never a secret in a definition: this repository is public.
+- **A paywall you would have to get around.**
 - **Chapters or pages that a script fills in after the page loads.** There is no script engine. A script *blob* that holds the data as JSON (`__NEXT_DATA__`, `ts_reader.run({...})`) can be read, because it is text in the answer.
 - **Tile descrambling.** The image arrives with a permutation saying which `tile_cols × tile_rows` cell belongs where, so it has to be undone on the image bytes, which means a codec in the engine and a call the app makes instead of showing the address. The only source that had it (`AsuraScans`) stopped sending the permutation (verified against its live API on 2026-10-22, every page comes back as `{url, width, height}`), so there is nothing to descramble and nothing to test against. It gets built when a source actually sends one; the algorithm is a paragraph, not a research project (see the code repo's `pipeline/MANGA_SOURCES_PORT_PLAN.md` §Phase 4).
 - **`xor` steps, other ciphers, other key derivations.** Only AES-CBC.

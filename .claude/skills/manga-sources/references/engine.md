@@ -11,7 +11,7 @@ Files worth knowing, all under `desktop/manga/src/`:
 | `eval.rs` | Reading values: the steps, `aes_cbc`, `where`, `sort`. |
 | `template.rs` | Filling `{holes}` and `{? ?}` groups. |
 | `date.rs` | Dates, relative dates and chapter numbers. |
-| `fetch.rs` | Requests: the rate, the user agent, cookies, check-page detection, the recorded stand-in for tests. |
+| `fetch.rs` | Requests: the rate, the user agent, cookies, check-page detection (`Challenge`), refused statuses (`Rejected`), the recorded stand-in for tests. |
 | `theme.rs` | `extends` and merging. |
 | `repo.rs` | The index, hashes, signing, the repository checks. |
 | `check.rs`, `bin/cli.rs` | Fixtures, and the command line the scripts call. |
@@ -32,6 +32,7 @@ Planning documents (in the code repo): `pipeline/MANGA_PLAN.md` (why it is built
 - **A check page** reaches the screen as the card "This site checks visitors first", with what to do instead.
 - **Rate**: each source is limited to `rate_per_second`, however many requests are asked at once.
 - **Cookies**: the engine can carry cookies and a user agent, but the app does not collect them from anywhere. A definition cannot ask for one.
+- **Signing in** (`auth`): the engine signs in, keeps the session, adds it to requests to `base_url`, and refreshes it on a 401. The engine part is built and tested (`manga/tests/auth.rs`). The iPhone and Android apps draw the sign-in sheet from `auth.fields` (the source's settings page, **Account** row) and keep the session in the Keychain or the Keystore through a small `SessionKeeper` interface the engine calls (`load` when a source loads, `save` on every change). An older app ignores `auth`, so the source works signed out there.
 
 ## Rules the engine enforces on every definition
 
@@ -39,6 +40,7 @@ Planning documents (in the code repo): `pipeline/MANGA_PLAN.md` (why it is built
 - Methods are `GET` and `POST` only.
 - A response is capped at 8 MB. A request has a 30 second limit.
 - At most 60 requests for one chapter list.
+- A session is sent to `base_url` only, never to a mirror, and the login request never carries an old session.
 - No code runs. A definition cannot make a hash, a signature, a time-based value or a random number of its own. The one thing that touches cryptography is decrypting (`aes_cbc`), and it cannot be turned into an oracle for something else.
 - A definition is validated when it is loaded. A bad selector, regex, date format, setting or filter is refused before a site is asked (`format.md` and `debugging.md` list them).
 - The images a page list names can be on **any host** (the engine does not restrict image hosts): that is why the repository warning matters, and why only sources you trust belong in a repository.
@@ -50,7 +52,9 @@ Say these plainly to the user. Do not bend the JSON to fake them.
 | Not supported | Why, and what to do |
 | --- | --- |
 | **A site behind a check** (Cloudflare "Just a moment", a captcha, a JavaScript challenge) | The app has **no web view** and no way to pass a check; that is what a check is for. It was a decision (`MANGA_PLAN.md` §15): about a quarter of popular sources need one, and they are not supported. The call fails with `wants a check before it answers`. If the site has an official API or a feed, use that. |
-| **A login, an account, a paywall, a cookie to copy** | A definition cannot log in or hold a secret, and a repository is public. |
+| **A sign-in that is not a plain request** | `auth` covers a password that is posted and answered with a token, and a pasted token. Not covered: OAuth with a redirect and "Sign in with Google" (they need a browser, and the app has no web view), a captcha or Turnstile token, a code sent by email or text, a request that must be signed or hashed. For a site that offers only those, the answer is no. A partner can be given a plain token endpoint or a pasted API key. |
+| **A cookie to copy** | The app collects none, and a definition cannot ask for one. |
+| **A secret in a definition** | A repository is public. The person types the account in the app. |
 | **Pages or chapters filled in by JavaScript** | There is no script engine. The engine reads the HTML or JSON the request returns. If the page has `0` chapter rows or `0` image addresses and no API behind it, the site cannot be read. (A script **blob** that holds the data as JSON, such as `__NEXT_DATA__` or `ts_reader.run({...})`, can be read: it is text in the answer.) |
 | **Tile descrambling** | The image arrives cut in tiles with a permutation saying which cell goes where. Undoing it needs a codec in the engine and a call the app makes instead of showing the address. The only source that had it (Asura) stopped sending the permutation (verified against its live API on 2026-10-22: every page is `{url, width, height}`), so it has not been built. It gets built when a source actually sends one. |
 | **`xor` steps, other ciphers, other key derivations** | Only AES-CBC, with the passphrase-and-salt derivation or a stated key and iv. |
@@ -63,7 +67,7 @@ Say these plainly to the user. Do not bend the JSON to fake them.
 | **Sorting or filtering a list in the definition** | A list is in the answer's order. Ask the site to sort (`?order=`). |
 | **Filter screens** | Parsed and passed to the request only. |
 | **Reading from a page's JavaScript variables by running it** | You can match text with `regex`. You cannot run code. |
-| **Anything per person** (a library, a history, a tracker login) | That is the app's database, not a source. |
+| **Anything per person** (a library, a history, a tracker login) | That is the app's database, not a source. A source's own sign-in is `auth`. |
 
 When the user asks for one of these, the answer is: "this needs a change in `desktop/manga/<file>`", with the file from the table above, and a short description of what the change would be. Do not write a source that pretends.
 

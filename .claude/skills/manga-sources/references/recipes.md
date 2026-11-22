@@ -19,6 +19,7 @@ Each recipe says what the site looks like, which template to start from, and the
 13. [Covers and images that need building](#13-covers-and-images-that-need-building)
 14. [A source with only search](#14-a-source-with-only-search)
 15. [Writing a new theme](#15-writing-a-new-theme)
+16. [A site with free and paid titles (signing in)](#16-a-site-with-free-and-paid-titles-signing-in)
 
 ## 1. A JSON API
 
@@ -251,3 +252,30 @@ A theme is a partial definition and is not validated on its own. It is validated
 Raise the theme's `version` when you change it, and re-run **every** source that extends it. The sources' own files do not change, so the index shows only the theme's hash move: the app updates the theme, and every installed source that extends it follows.
 
 An example that is only there to test the theme goes in `examples/` and is not in the index (`madara-example`).
+
+## 16. A site with free and paid titles (signing in)
+
+**Looks like:** most titles load for anyone, and some chapters (premium, early access) need an account. The site has a sign-in that posts an email and password and gets a token back, then sends `Authorization: Bearer <token>` on later requests.
+
+**Start from:** `templates/source-with-login.json`. Worked example: `templates/worked-examples/login/`. The format is in `format.md` (auth).
+
+How to find out if the site fits:
+
+1. **Read the site's own sign-in.** Fetch the login page and read its form handler (`grep -n 'fetch(' login.html`). You want a **POST of the email and password as JSON or a form** to a url on the site's own host, whose answer holds a token. Note the url, the body, the field names, and the paths of the access token, the refresh token and the user's name in the answer.
+2. **Find the refresh**, if there is one: look for `refresh` in the site's scripts. Without it the session simply ends when the token does, and the person signs in again.
+3. **See how the token is used**: `Authorization: Bearer ...` in the site's scripts, or a cookie. Copy exactly that into `auth.headers`.
+4. **See what a locked chapter looks like when signed out**: fields such as `is_premium` or `early_access_until` in the chapter list, and what the pages request answers (401, 403, an empty list). Put the field in `chapters.chapter.locked` (`"locked": "is_premium"`) so the apps can show "Locked" and ask the person to sign in before opening it. A field that is a date (`early_access_until`) is not a yes or no: it says "yes" even when the date has passed, so use it only if the site clears it, or read a real flag.
+
+It fits when the sign-in is a plain request. It **does not fit** when the form has a captcha or Turnstile token, when sign-in is only "Continue with Google" or another redirect, or when a code is sent by email. Say so, and say what would make it fit (a token endpoint or a pasted API key from the site).
+
+Asura's own sign-in is the shape the template follows: a `POST` of `{email, password}` to `/api/auth/login` that answers `access_token`, `refresh_token` and a `user`. Its register form carries a Turnstile token, so people register on the website, and its "Sign in with Google" button is a redirect, so Google-only accounts cannot sign in here until they set a password. (Checked by reading the login page's script on 2026-11-22. Its refresh endpoint, and what its pages request answers for a locked chapter, were **not** checked: do that before you fill in `refresh` or promise anything about locked chapters.)
+
+Rules for writing it:
+
+- The definition holds **no account and no token**. Fixtures use made-up values (`reader@example.com`, `fake-access-token`).
+- Put the sign-in calls in the fixtures as `sign_in` and `sign_out` calls (see the worked example). Never `record` a sign-in: the real tokens would land in the fixtures.
+- A **token that must reach an image CDN** (the CDN checks it) goes in `pages.image_headers` as `"authorization": "Bearer {access}"`. Only do that if you saw the site's own reader do it.
+- **A source whose free titles load without an account keeps working signed out.** Do not put `{access}` in a url outside a `{? ?}` group, or the free titles fail for people who never sign in. Headers are the safe place: they are left off while signed out.
+- Mirrors never get the session. If the only working address is a mirror, a signed-in request is asked anonymously.
+- `min_app`: set it to the first app version that has the sign-in screen. An older app ignores `auth` and shows the source signed out (free titles still work).
+- **Test it by hand with your own account**, if the user gives one, through the environment so nothing is typed on a command line: `AKI_AUTH_EMAIL=... AKI_AUTH_PASSWORD=... scripts/run-live.sh sources/<id>.json popular`. (A field id's dashes become underscores: `my-token` is `AKI_AUTH_MY_TOKEN`.) Never write a real account into a file, a fixture or a commit, and never enter one yourself: ask the user to run it.

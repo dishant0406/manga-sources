@@ -21,7 +21,7 @@ You are working in the `manga-sources` repo, or on something that reads it. This
 1. **Raise `version` on every change to a source or theme.** An installed copy updates only when the repository's version is higher.
 2. **Run `scripts/index.sh` after every change** to a file in `sources/` or `themes/`, and commit `index.json` with it. An app refuses a file whose hash is not the index's. CI fails on a stale index.
 3. **Only add a site that is legal to read.** A public API that welcomes third-party readers, or work released under an open licence. Never a site that republishes copyrighted chapters without the publisher's leave. When in doubt, ask the user before writing anything. See `references/from-a-website.md` (the legal gate).
-4. **Never get around a protection.** If the site answers with a check page (Cloudflare, a captcha), a login wall or a paywall, stop and tell the user. The app has no web view and no way past a check. Do not look for one.
+4. **Never get around a protection.** If the site answers with a check page (Cloudflare, a captcha) or a paywall, stop and tell the user. The app has no web view and no way past a check. Do not look for one. A **login** is different: a plain sign-in (email and password posted for a token, or a pasted token) is supported through `auth` (`references/recipes.md`, recipe 16). Never write a real account, password or token into a file, and never enter one yourself.
 5. **Record fixtures from the live site, not by hand.** Hand-written fixtures prove the engine reads a shape, not that the site matches it. The only hand-written ones in this repo are the two Madara examples and the worked examples in this skill.
 6. **Read the blessed answers before you commit them.** `--bless` writes whatever the definition returned, right or wrong. An empty `authors` list on a site that shows authors is a bug that `--bless` will happily save.
 7. **Test the real site by hand too.** Fixtures freeze one day. Run `scripts/run-live.sh` before you call it done, and again for a chapter in the middle of the list.
@@ -36,11 +36,12 @@ You are working in the `manga-sources` repo, or on something that reads it. This
 | **"Add this website / API"**, or "write me a source for X" | The whole job: investigate, classify, write, record, bless, verify, deliver | **`references/from-a-website.md`** (start here) |
 | A source for a site on a known CMS (Madara, MangaStream, Next.js) | A **source that extends a theme**, or a copy of a template | `references/recipes.md` |
 | Several sites that run the same CMS | A new **theme** | `references/recipes.md` (themes), `references/format.md` (themes) |
+| **Free titles plus paid ones behind a sign-in**, or a partner who gives a token or API key | An **`auth`** section | `references/recipes.md` (recipe 16), `references/format.md` (auth) |
 | A field is empty or wrong, a list stops early, pages are missing | **Debugging** | `references/debugging.md` |
 | A value must be cut, joined, decoded, dated or decrypted | An **expression** | `references/expressions.md` |
 | Genres, sorts, a language or rating choice | **Filters** or **settings** | `references/format.md` (filters, settings), `references/recipes.md` |
 | Ship it, version it, sign the index, add the repo to the app | **Publishing** | `references/publishing.md` |
-| Tile descrambling, a check page, scripting, a login | **Not supported** | `references/engine.md` (say so plainly) |
+| Tile descrambling, a check page, scripting, a sign-in that needs a captcha or a redirect | **Not supported** | `references/engine.md` (say so plainly) |
 
 If the request needs something a definition cannot say, tell the user plainly that it needs a change in `<code repo>/desktop/manga`, and name the file (see `references/engine.md`). Do not bend the JSON to fake it.
 
@@ -48,10 +49,10 @@ If the request needs something a definition cannot say, tell the user plainly th
 
 This is the main job. **Read `references/from-a-website.md` and follow it.** In short:
 
-1. **Gate it.** Is it legal to read? Does it need a login or answer with a check page? If yes to either problem, stop and tell the user.
+1. **Gate it.** Is it legal to read? Does it answer with a check page? Does what the user wants need a sign-in that is not a plain request (a captcha, a redirect, a code by email)? If yes to any, stop and tell the user. A plain sign-in is fine: see `auth`.
 2. **Probe it** with `scripts/probe.sh <url>` on the home page, a series page and a chapter page. It says if the answer is JSON, Next.js, MangaStream, Madara, encrypted, or a check page.
 3. **Apply the three-things test.** A source is worth writing only when the site is **reachable**, **gives its chapters in the answer** and **gives its pages in the answer**. Chapters or pages that a script fills in after the page loads cannot be read. Say so and stop.
-4. **Start from a template** in `templates/`. Do not write from nothing. The templates are `source-json-api`, `source-html-site`, `source-mangastream`, `source-next-data`, `source-extends-madara`, `source-prepare-nonce`, `source-paged-chapters`, `source-encrypted-pages`, `source-settings-filters`, `source-post-json` and `theme`. Each one is validated by the real engine, and six have a worked example with fixtures in `templates/worked-examples/`.
+4. **Start from a template** in `templates/`. Do not write from nothing. The templates are `source-json-api`, `source-html-site`, `source-mangastream`, `source-next-data`, `source-extends-madara`, `source-with-login`, `source-prepare-nonce`, `source-paged-chapters`, `source-encrypted-pages`, `source-settings-filters`, `source-post-json` and `theme`. Each one is validated by the real engine, and seven have a worked example with fixtures in `templates/worked-examples/`.
 5. **Write the six questions one at a time**, and run `scripts/check.sh <file>` after each. It catches bad selectors, bad regexes, bad date formats, a url that does not start with `{base}` and more, without touching the site.
 6. **Record** with `scripts/record.sh <file> popular details=<series> chapters=<series> pages=<series>,<chapter>` (also `latest`, `search=TERM`). **Bless** with `scripts/check.sh <file> fixtures/<id> --bless`. **Read the answers.**
 7. **Try the live site** with `scripts/run-live.sh`: a search, a series with many chapters, a chapter from the middle, one with unusual characters in its id.
@@ -79,7 +80,7 @@ All of them need the code repo (`CODE_REPO`, or `../akidev`) and a Rust toolchai
 | `scripts/check.sh <def>` | Validates a definition with no site and no fixtures. |
 | `scripts/check.sh <def> <fixtures-dir> [--bless]` | Replays the fixtures. `--bless` writes the answers as expected. |
 | `scripts/record.sh <def> <call>...` | Asks the live site and saves its answers as fixtures in `fixtures/<id>/`. |
-| `scripts/run-live.sh <def> <call> [args]` | One live call, printed as JSON. Nothing saved. |
+| `scripts/run-live.sh <def> <call> [args]` | One live call, printed as JSON. Nothing saved. For a source with `auth`, it signs in first when `AKI_AUTH_<FIELD ID>` are set in the environment (ask the user to run that, never type a password). |
 | `scripts/index.sh [--key f]` | Rewrites `index.json` (and signs it with `--key`). |
 | `scripts/check-all.sh` | What CI does: every definition against its fixtures, then the index freshness check. |
 

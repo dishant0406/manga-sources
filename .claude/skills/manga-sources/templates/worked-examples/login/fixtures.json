@@ -1,0 +1,70 @@
+{
+  "calls": [
+    {
+      "expect": {
+        "user": "Reader"
+      },
+      "fields": {
+        "email": "reader@example.com",
+        "password": "not-a-real-password"
+      },
+      "op": "sign_in"
+    },
+    {
+      "expect": {
+        "has_next": true,
+        "items": [
+          {
+            "chapters": 179,
+            "cover": "https://cdn.example.com/c/sl.jpg",
+            "id": "solo-leveling",
+            "title": "Solo Leveling"
+          },
+          {
+            "chapters": 600,
+            "cover": "https://cdn.example.com/c/tog.jpg",
+            "id": "tower-of-god",
+            "title": "Tower of God"
+          }
+        ]
+      },
+      "op": "popular",
+      "page": 1
+    },
+    {
+      "expect": [
+        {
+          "date_ms": 1709337600000,
+          "id": "chapter-2",
+          "locked": true,
+          "number": 2.0,
+          "scanlator": null,
+          "title": "Chapter 2"
+        },
+        {
+          "date_ms": 1709251200000,
+          "id": "chapter-1",
+          "number": 1.0,
+          "scanlator": null,
+          "title": "Chapter 1"
+        }
+      ],
+      "id": "solo-leveling",
+      "op": "chapters"
+    },
+    {
+      "expect": {
+        "signed_in": false
+      },
+      "op": "sign_out"
+    }
+  ],
+  "now_ms": 1760000000000,
+  "responses": {
+    "GET https://api.example.com/series/solo-leveling/chapters?page=1&per_page=100": "chapters.json",
+    "GET https://api.example.com/series/solo-leveling/chapters?page=2&per_page=100": "chapters-2.json",
+    "GET https://api.example.com/series?offset=0&per_page=20&sort=popular": "popular.json",
+    "POST https://api.example.com/auth/login": "login.json",
+    "POST https://api.example.com/auth/logout": "logout.json"
+  }
+}

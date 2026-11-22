@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "slug": "solo-leveling",
+      "title": "Solo Leveling",
+      "cover": "https://cdn.example.com/c/sl.jpg",
+      "chapter_count": 179
+    },
+    {
+      "slug": "tower-of-god",
+      "title": "Tower of God",
+      "cover": "https://cdn.example.com/c/tog.jpg",
+      "chapter_count": 600
+    }
+  ],
+  "meta": {
+    "has_more": true
+  }
+}

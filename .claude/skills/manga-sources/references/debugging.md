@@ -51,6 +51,12 @@ These come from `validate` and need no site. `scripts/check.sh <def>` shows them
 | `X is not JSON` | A trailing comma, a comment, an unquoted key | Validate with `jq . file`. |
 | `the definition extends a theme called X, which is not installed` | `extends` names a theme that is not in `themes/` (or not installed in the app) | Add the theme to the repo, or write the source stand-alone. A source does not bring its own theme. |
 | `themes extend each other in a circle: X` | Theme A extends B extends A | Break the circle. |
+| `auth needs at least one field` | `fields` is empty | Add what the person types. |
+| `auth field "x": an id is lowercase letters, digits, dashes and underscores, and not a name the engine uses` | A capital, a space, or an id such as `page`, `term`, `id` | Rename it. |
+| `auth field X is listed twice` | Two fields with one id | Rename one. |
+| `auth.login: vars say which values of the answer are the session` | `login` (or `refresh`) with no `vars` | Say which answer values are the session (`access`, ...). |
+| `auth.login: a request's url must start with {base}` | A login to another host | Not allowed. A login can only go to `base_url`. |
+| `auth.refresh needs auth.login: a session that is typed in cannot be refreshed` | `refresh` with no `login` | Add the login, or drop the refresh. |
 
 **An unknown key is not an error.** A misspelled field (`uploaded` for `date`, `descripton`, `cover_img`) is **silently ignored**, and the value reads as if the site had none. This is the most common reason a field is empty. Read your keys against `format.md`.
 
@@ -73,6 +79,13 @@ These come from `validate` and need no site. `scripts/check.sh <def>` shows them
 | `the value to decrypt is not base64` (or `hexadecimal`) | The text you passed to `aes_cbc` is not the ciphertext | Check the steps before it: the regex that cuts out the object, the unescape step. Use `"hex": true` if the ciphertext is hex. |
 | `the payload is not JSON: has the site changed?` / `the payload has no ciphertext (ct): has the site changed?` | The cut-out text is not the payload | Print the text before `aes_cbc` (record the page and read the script). |
 | a decryption that gives garbage | A wrong passphrase, a wrong salt, or a different key derivation | The nonce read from the page must be the one for **that** page. Confirm the derivation matches (`MD5` stretched to 48 bytes). A different scheme is code: `engine.md`. |
+| `<name> did not accept that sign-in: is the account right?` | The site answered the login with 400, 401, 403, 404 or 422 | The account or password is wrong, or the login url or body shape is. Compare the request with the site's own sign-in form in a browser's network tab. A site that wants a captcha token for login cannot be supported. |
+| `<name> answered, but its answer holds no session: is the account right, or has the site changed?` | The login answered 200 but none of `login.vars` found a value | Read the real answer (run a sign-in with `run-live.sh`), fix the paths. A site that answers a wrong password with 200 and an error body looks like this too. |
+| `<name>: the session ended, sign in again` | A request got 401, the refresh failed (the refresh token expired or was refused) | The person signs in again. If it happens at once after a good sign-in, the refresh request or its `vars` are wrong. |
+| `<name> has no sign-in` | `sign_in` on a source with no `auth` | Add `auth`, or do not call it. |
+| `X is needed to sign in` | A field was left empty | Fill it. |
+| `this source cannot sign in: its definition asks for a value the app had none of` | A hole in the login request is not an `auth` field (a typo: `{e-mail}`) | Fix the hole's name. |
+| `<url> answered 401 Unauthorized` on a list or a chapter | Signed out (no `headers` applied), or the token is not accepted, and no `refresh` is defined | Sign in first. Check `headers` carry the token the site expects (`authorization`, a cookie header, another name). |
 | `<name> has no popular list` (or `latest list`, `search`) | The app asked for a section the source does not have | Add the section, or leave it: the app knows from `can_popular`, `can_latest`, `can_search`. |
 
 ## 3. Symptoms with no error

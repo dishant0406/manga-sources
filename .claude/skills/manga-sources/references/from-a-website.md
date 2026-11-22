@@ -41,7 +41,7 @@ A source is a request to a site to read its work. Akidev's rule for this reposit
 Ask yourself, and say what you decided:
 
 1. **Is it plainly a pirate aggregator?** Many sites that host scanlations of licensed series are. If the site is that, say so, and do not write it without the user's clear instruction. This repository's README sets the rule (only sources that are legal to read), and the code repo's port plan (`pipeline/MANGA_SOURCES_PORT_PLAN.md`, sections 6 and 7) lists "aggregators in the default repository, or a second one the person adds on purpose" as a decision for the owner. The sources here today are `asurascans` (its own JSON API), `dynastyscans`, `flamecomics` and `arenascans`. Do not treat their presence as a ruling on a new site.
-2. **Does it need a login, a paywall, a cookie you would have to copy, or an age gate that is a real account check?** Stop. Do not write it.
+2. **Does it need a login for what the user wants?** Free titles that load without an account are fine: write the source for those. If the paid or private titles are the point, a plain sign-in (a posted email and password that answers a token, or a pasted token) is supported: see recipe 16 and `auth` in `format.md`. A sign-in that needs a captcha, a redirect ("Sign in with Google"), a code by email, or a cookie you would have to copy is **not** supported: stop and say so. A paywall you would have to get around: stop. **Never enter or ask for a real account yourself.** The person signs in in the app, and a test account goes in through the environment (`AKI_AUTH_<FIELD>`), run by the user.
 3. **Does it answer with a check page** (`Just a moment...`, a captcha, `cf-chl`)? Stop. The app has no web view and no way past a check. It fails with `wants a check before it answers`, and the app says the site is not supported from here. **Never look for a way around.** Do not suggest an unofficial relay, a clearance cookie or a header trick.
 4. **Does the site's own policy or `robots.txt` forbid it?** Read `/robots.txt` and the terms if they exist. A site that says no automated reading means no.
 5. **Is it adult?** Set `"nsfw": true`, and say so to the user.
@@ -121,6 +121,7 @@ If it fails: **stop and say which of the three it fails**, with the evidence (th
 | any of the above, with a paged chapter list | add `repeat` from `templates/source-paged-chapters.json` |
 | encrypted pages | `templates/source-encrypted-pages.json` |
 | a POST or GraphQL API | `templates/source-post-json.json` |
+| free titles plus paid ones behind a plain sign-in | `templates/source-with-login.json` (recipe 16) |
 | with a language, rating or genre choice | add from `templates/source-settings-filters.json` |
 | two or more sites on one CMS | `templates/theme.json`, then recipe 15 |
 

@@ -15,10 +15,11 @@ Everything a definition can say, and what the engine does with it. The code is `
 9. [prepare and vars](#prepare-and-vars)
 10. [filters](#filters)
 11. [settings](#settings)
-12. [Themes and extends](#themes-and-extends)
-13. [The index and the repository files](#the-index-and-the-repository-files)
-14. [Limits in one table](#limits-in-one-table)
-15. [What the app gets back](#what-the-app-gets-back)
+12. [auth: signing in](#auth-signing-in)
+13. [Themes and extends](#themes-and-extends)
+14. [The index and the repository files](#the-index-and-the-repository-files)
+15. [Limits in one table](#limits-in-one-table)
+16. [What the app gets back](#what-the-app-gets-back)
 
 ## A whole source at a glance
 
@@ -75,6 +76,7 @@ A source asks the site six questions, and each one is a section:
 | `user_agent` | text | a phone browser | Sent instead of the browser one, for a source that asks clients to say who they are. The default is an iPhone Safari string, because most sites turn away anything that says it is a script. |
 | `page_size` | whole number | `20` | How many titles a list page holds. From `1` to `500`. Used for `{offset}` (`(page - 1) * page_size`) and for `total`. |
 | `settings` | list | `[]` | Choices the person makes for this source. See [settings](#settings). |
+| `auth` | object | none | Signing in to a source that has paid or private titles. See [auth](#auth-signing-in). |
 | `filters` | list | `[]` | Ways to narrow a search. See [filters](#filters). |
 | `min_app` | text | none | Not read by the engine. The index copies it so an old app can refuse the source. Write the oldest app version that can run the definition (`"0.1.25"`). |
 | `extends` | text | none | The id of a theme. See [themes](#themes-and-extends). |
@@ -128,9 +130,11 @@ With no term and no genre, the url is `.../series?offset=0`.
 | `{series}` | chapters, pages | The series id. In `pages` it is the series, while `{id}` is the chapter. |
 | a filter's id | `search` only | The person's choice, or the filter's `default`. Nothing if neither. |
 | a setting's id | every section | The person's choice, or the setting's `default`. |
+| a session value (`{access}`, `{refresh}`, `{user}`, ...) | every section and `image_headers`, while signed in | What signing in gave. See [auth](#auth-signing-in). |
+| an `auth` field's id (`{email}`, `{password}`) | the `auth.login` request only | What the person typed. |
 | a var's name | the section that reads it, and the sections after a `prepare` that set it | A value read from an earlier answer. See [prepare and vars](#prepare-and-vars). |
 
-A var, a filter and a setting share one namespace after `page`, `page0`, `offset`, `term`, `id` and `series`. A var wins over a filter, and a filter over a setting. Do not reuse a name.
+A var, a filter, a setting and a session value share one namespace after `page`, `page0`, `offset`, `term`, `id` and `series`. A var wins over a filter, a filter over a setting, and a setting over a session value. Do not reuse a name.
 
 In an expression's `template` step there are two more: `{value}` is the node being read, and `{^.path}` is a value in the **row the expression started from** (JSON only). See `expressions.md`.
 
@@ -216,7 +220,8 @@ A site that never fills a field (Status and Author are `<i></i>` or `n/a` on eve
     "number":  "span.num",
     "title":   "a",
     "date":    [{ "css": ".date" }, "text", { "date": ["MMMM d, yyyy", "relative"] }],
-    "scanlator": ".group"
+    "scanlator": ".group",
+    "locked": "is_premium"
   },
   "order": "newest-first",
   "repeat": { "size": 100, "total": "meta.total" }
@@ -231,6 +236,7 @@ A site that never fills a field (Status and Author are `<i></i>` or `n/a` on eve
 | `chapter.title` | no | The title. If there is no `number`, the number is read from the title the same way. |
 | `chapter.date` | no | **Milliseconds since 1970 as text.** Use the `date` step to make that. A text that is not a whole number is ignored. |
 | `chapter.scanlator` | no | The group. |
+| `chapter.locked` | no | Whether the chapter needs an account (paid, early access). Any text counts as yes except `false`, `0`, `no` and `null`, and nothing counts as no. So a JSON `true`, `"yes"` or `1` locks it and `false` does not. The apps show "Locked" on the chapter while the person is signed out, and a tap asks them to sign in first (when the source has `auth`), then opens it. A signed-in person sees it as any chapter. A source with no `auth` shows nothing: it is only a hint. |
 | `order` | no | `newest-first` (default) or `oldest-first`. The engine returns newest first whatever the site does, so say `oldest-first` when the site lists oldest first and the engine reverses it. |
 | `repeat` | no | For a chapter list that comes in several requests. |
 
@@ -333,6 +339,55 @@ A setting is a choice the person makes **for this source**: a language, a conten
 - `{rating:raw}` is not percent-encoded, for an option whose value is a piece of query (`safe&contentRating[]=suggestive`).
 - The difference from a filter: a setting is remembered per source and applies everywhere (lists, detail, chapters, pages). A filter is chosen per search.
 
+## auth: signing in
+
+For a site with free titles and paid or private ones. The person types an account in the app, the engine signs in, and the **session** (what the site answers) goes on every later request. **Nothing in the definition is a secret**: it says how the sign-in request looks and where the session is in the answer. The app keeps only the session, never the password.
+
+```json
+"auth": {
+  "fields": [
+    { "id": "email",    "name": "Email" },
+    { "id": "password", "name": "Password", "secret": true }
+  ],
+  "login": {
+    "request": { "method": "POST", "url": "{base}/auth/login",
+                 "json": { "email": "{email}", "password": "{password}" } },
+    "format": "json",
+    "vars": { "access": "data.access_token", "refresh": "data.refresh_token", "user": "data.user.display_name" }
+  },
+  "refresh": {
+    "request": { "method": "POST", "url": "{base}/auth/refresh", "json": { "refresh_token": "{refresh}" } },
+    "format": "json",
+    "vars": { "access": "data.access_token", "refresh": "data.refresh_token" }
+  },
+  "logout": { "method": "POST", "url": "{base}/auth/logout", "json": { "refresh_token": "{refresh}" } },
+  "headers": { "authorization": "Bearer {access}" }
+}
+```
+
+| Field | Needed | Meaning |
+| --- | --- | --- |
+| `fields` | yes | What the person types. `id` is lower case letters, digits, dashes, underscores (not `base`, `page`, `page0`, `offset`, `term`, `id`, `series`), unique. `name` is the label. `secret: true` hides it as it is typed. At least one. |
+| `login` | no | The request that signs in: a `request`, a `format`, and `vars` (required, not empty). The `vars` read the **session** from the answer. The fields are holes in this request only (`{email}`). **Without `login`, what the person typed is the session** (a token pasted in: one field `access`, and `headers` that use it). |
+| `refresh` | no | Asked **once**, when a request is refused with `401` while signed in, then the refused request is asked again. Its `vars` replace the session values they name and keep the rest. Needs `login`. A refresh that fails ends the session: "sign in again". |
+| `logout` | no | A request made when the person signs out, best effort. The session is forgotten either way. |
+| `headers` | no | Added to **every request to `base_url`** while signed in. Holes are session values. While signed out the header is left off. |
+
+Rules:
+
+- **The session is the `vars` of the login answer.** Any names. `access`, `refresh` and `user` are the usual ones. `user` is what the app shows as "signed in as".
+- **Session values are holes everywhere**: in urls, forms, json bodies, headers, `image_headers` (for a CDN that checks a token) and templates. A hole with no value (signed out) fails a request that needs it outside a `{? ?}` group. Wrap an optional use in a group.
+- **The session goes only to `base_url`.** The login, refresh and logout requests, and the `headers`, are never sent to a mirror. A mirror that has to answer a signed-in request answers it anonymously. Auth requests never go to another host (every url starts with `{base}`, as everywhere).
+- **A 401 on a signed-in request** (and only 401) triggers one refresh when `refresh` is defined. Two requests refused at once refresh once. A site that answers `403`, or a check page, is not retried.
+- **A refused sign-in** (400, 401, 403, 404 or 422) is reported as "`<source>` did not accept that sign-in: is the account right?". The password is never in an error.
+- **An answer with none of the `vars`** is an error ("holds no session"): a wrong account that the site answers with 200, or a changed site.
+- **Sign-in is per source** and the session is the app's to keep: the engine hands every change to the app's `SessionKeeper` (`save`) and asks it for the saved one when the source loads (`load`). The apps keep it in the Keychain or the Keystore, never in the database.
+- **A source with `auth` still works signed out.** The free titles load. Only what needs the session fails.
+
+Only **password to token** and **a pasted token** are supported. Not supported: a sign-in that needs a web page (OAuth with a redirect, "Sign in with Google"), a captcha or Turnstile token, a code sent by email or text, a signed request. See `engine.md`.
+
+Test with made-up accounts only: `fixtures.json` has the calls `sign_in` (with `fields`, fake values) and `sign_out`. Their expected answers are the user name (`{"user": "Reader"}`) and `{"signed_in": false}`. **Never record a real sign-in**: `record` would save the real tokens into the fixtures. `templates/worked-examples/login/` is the pattern.
+
 ## Themes and extends
 
 Many sites run the same CMS (Madara, MangaStream). A **theme** is a base definition and a site is a few lines that extend it.
@@ -417,6 +472,7 @@ You do **not write the index**. `scripts/index.sh` does, from the files: the id,
 | An id (source, theme) | lower case letters, digits, dashes; at most 64 |
 | A filter or setting id | lower case letters, digits, dashes, underscores; at most 64 |
 | A var name | lower case letters, digits, dashes, underscores |
+| An `auth` field id | lower case letters, digits, dashes, underscores |
 
 ## What the app gets back
 
@@ -426,7 +482,7 @@ For the cases where you need to know what the final shape is:
 | --- | --- |
 | `popular`, `latest`, `search` | `{ "items": [ { "id", "title", "cover"?, "chapters"? } ], "has_next": true/false }` |
 | `details` | `{ "title", "cover"?, "description"?, "authors": [], "tags": [], "status": "ongoing" \| "completed" \| "hiatus" \| "cancelled" \| "unknown" }` |
-| `chapters` | `[ { "id", "number"?, "title"?, "date_ms"?, "scanlator"? } ]`, newest first |
+| `chapters` | `[ { "id", "number"?, "title"?, "date_ms"?, "scanlator"?, "locked"? } ]`, newest first (`locked` is left out when false) |
 | `pages` | `{ "images": [], "reading": "long_strip" \| "paged" \| "paged_rtl" \| "unknown", "headers": {} }` |
 
 `headers` in a page list is what the app sends with each image: a `referer` of the host, plus your `image_headers`. These are exactly the shapes `fixtures.json` expects.

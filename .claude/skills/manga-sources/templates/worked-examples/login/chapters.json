@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "slug": "chapter-2",
+      "number": 2,
+      "published_at": "2024-03-02T10:00:00Z",
+      "is_premium": true
+    },
+    {
+      "slug": "chapter-1",
+      "number": 1,
+      "published_at": "2024-03-01T10:00:00Z",
+      "is_premium": false
+    }
+  ]
+}
