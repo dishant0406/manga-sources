@@ -89,6 +89,7 @@ A pipe is a JSON list of steps. A step is either an object (`{"css": "a"}`) or, 
 | default | `{"default": "unknown"}` | This text **when there is nothing** (or only empty texts). |
 | non_empty | `"non_empty"` | Drops empty texts. |
 | exists | `"exists"` | The text `true` when there is anything, nothing otherwise. A test, for `next`. |
+| in_future | `"in_future"` | For a date in milliseconds (from the `date` step): `true` while it is still ahead of now, nothing once it has passed. For `chapter.locked` on an early-access date. `iso` reads the time and the zone, so a chapter unlocks at the minute its date says. |
 | map | `{"map": [["ongoing", "ongoing"], ["on hold", "hiatus"]]}` | For each text: the value of the **first key it contains** (compared lower case). A text that contains no key is dropped. |
 | coalesce | `{"coalesce": [ex, ex]}` | The first expression that gives something. Each is a short form or a pipe, run from the same starting nodes. |
 | where | `{"where": {"path": "type", "equals": "Series"}}` | Keeps the JSON nodes whose value at `path` passes. See below. |
@@ -126,7 +127,7 @@ The selector language is CSS as the `scraper` crate reads it: tags, classes, ids
 
 | Format | Reads |
 | --- | --- |
-| `"iso"` | `2024-02-29T10:00:00+00:00`, or anything with `yyyy-mm-dd` in it |
+| `"iso"` | `2024-02-29`, or with a time and a zone: `2024-02-29T10:14:32.215Z`, `2024-02-29T10:00:00+05:30`. A date alone is midnight UTC, a time with no zone is UTC, and fractions of a second are dropped. |
 | `"relative"` | `3 days ago`, `an hour ago`, `yesterday`, `today`, `just now`, `2 weeks ago`. Units: second, minute, hour, day, week, month (30 days), year. Relative to **now**. |
 | a pattern | letters stand for parts, anything else is literal |
 

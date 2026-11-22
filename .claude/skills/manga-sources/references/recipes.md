@@ -20,6 +20,7 @@ Each recipe says what the site looks like, which template to start from, and the
 14. [A source with only search](#14-a-source-with-only-search)
 15. [Writing a new theme](#15-writing-a-new-theme)
 16. [A site with free and paid titles (signing in)](#16-a-site-with-free-and-paid-titles-signing-in)
+17. [A real source, field by field: asurascans](#17-a-real-source-field-by-field-asurascans)
 
 ## 1. A JSON API
 
@@ -264,11 +265,11 @@ How to find out if the site fits:
 1. **Read the site's own sign-in.** Fetch the login page and read its form handler (`grep -n 'fetch(' login.html`). You want a **POST of the email and password as JSON or a form** to a url on the site's own host, whose answer holds a token. Note the url, the body, the field names, and the paths of the access token, the refresh token and the user's name in the answer.
 2. **Find the refresh**, if there is one: look for `refresh` in the site's scripts. Without it the session simply ends when the token does, and the person signs in again.
 3. **See how the token is used**: `Authorization: Bearer ...` in the site's scripts, or a cookie. Copy exactly that into `auth.headers`.
-4. **See what a locked chapter looks like when signed out**: fields such as `is_premium` or `early_access_until` in the chapter list, and what the pages request answers (401, 403, an empty list). Put the field in `chapters.chapter.locked` (`"locked": "is_premium"`) so the apps can show "Locked" and ask the person to sign in before opening it. A field that is a date (`early_access_until`) is not a yes or no: it says "yes" even when the date has passed, so use it only if the site clears it, or read a real flag.
+4. **See what a locked chapter looks like when signed out**: fields such as `is_premium` or `early_access_until` in the chapter list, and what the pages request answers (401, 403, an empty list). Put the field in `chapters.chapter.locked` (`"locked": "is_premium"`) so the apps can show a lock and ask the person to sign in before opening it. A date field (`early_access_until`) is not a yes or no, so turn it into one: `"locked": [{"path": "early_access_until"}, {"date": ["iso"]}, "in_future"]` locks the chapter only while the date is ahead. A chapter has one yes or no, so pick the field that says it. (`coalesce` cannot combine two flags: it takes the first expression that gives any text, and `false` is text.) Say what the lock means with `chapters.locked_label` (`"Early access"`), and use `chapters.locked_action: "none"` if the person cannot do anything about it by signing in.
 
 It fits when the sign-in is a plain request. It **does not fit** when the form has a captcha or Turnstile token, when sign-in is only "Continue with Google" or another redirect, or when a code is sent by email. Say so, and say what would make it fit (a token endpoint or a pasted API key from the site).
 
-Asura's own sign-in is the shape the template follows: a `POST` of `{email, password}` to `/api/auth/login` that answers `access_token`, `refresh_token` and a `user`. Its register form carries a Turnstile token, so people register on the website, and its "Sign in with Google" button is a redirect, so Google-only accounts cannot sign in here until they set a password. (Checked by reading the login page's script on 2026-11-22. Its refresh endpoint, and what its pages request answers for a locked chapter, were **not** checked: do that before you fill in `refresh` or promise anything about locked chapters.)
+Asura's own sign-in is the shape the template follows: a `POST` of `{email, password}` to `/api/auth/login` that answers `access_token`, `refresh_token` and a `user`. Its register form carries a Turnstile token, so people register on the website, and its "Sign in with Google" button is a redirect, so Google-only accounts cannot sign in here until they set a password. (Checked on 2026-11-22 by reading the login page's script and the API, with no account: `POST /api/auth/login` answers `{data: {access_token, refresh_token, user: {username, ...}}}` or the same without `data`; the site sends the token as `Authorization: Bearer`; `POST /api/auth/refresh` exists, because a `GET` answers `405`, but its body was **not** tested, so `sources/asurascans.json` sends `{refresh_token}` like its logout does; the chapter's pages answer carries `is_locked`, `access_gate` and `unlock_time`, and no chapter was locked on that day, so what a locked chapter really answers is unseen. Test the sign-in with your own account before you promise it: `AKI_AUTH_EMAIL=... AKI_AUTH_PASSWORD=... scripts/run-live.sh sources/asurascans.json chapters <series>`.)
 
 Rules for writing it:
 
@@ -279,3 +280,56 @@ Rules for writing it:
 - Mirrors never get the session. If the only working address is a mirror, a signed-in request is asked anonymously.
 - `min_app`: set it to the first app version that has the sign-in screen. An older app ignores `auth` and shows the source signed out (free titles still work).
 - **Test it by hand with your own account**, if the user gives one, through the environment so nothing is typed on a command line: `AKI_AUTH_EMAIL=... AKI_AUTH_PASSWORD=... scripts/run-live.sh sources/<id>.json popular`. (A field id's dashes become underscores: `my-token` is `AKI_AUTH_MY_TOKEN`.) Never write a real account into a file, a fixture or a commit, and never enter one yourself: ask the user to run it.
+
+## 17. A real source, field by field: asurascans
+
+`sources/asurascans.json` is the fullest example here: a JSON API with every list, every filter, the chapter flags and an account. It is also what a careful read of a site looks like: the site's own scripts told what the API accepts.
+
+**How the API was found.** The site is a server-rendered Astro site, and its series and chapter pages answer a Cloudflare check to a script, but the API at `api.asurascans.com` does not. The browse page's script (`BrowseFilters.*.js`) builds its API calls, and that is the list of parameters. Always read the site's own filter code: guessing is how this source once shipped a `genre` filter (the real name is `genres`) and a `per_page` (the real name is `limit`), and neither did anything.
+
+**The lists.** `GET /api/series?limit=20&offset=N&sort=...`. `meta.has_more` says another page follows (`next`), and a card is `slug`, `title`, `cover`, `chapter_count`.
+
+**The filters (all of them the site has).**
+
+| Filter | API parameter | Values |
+| --- | --- | --- |
+| `genre` | `genres` | 35 slugs from `/api/genres` (comma list on the site, one here) |
+| `type` | `type` | `manhwa`, `manhua`, `manga` (the site calls it Mangatoon) |
+| `status` | `status` | `ongoing`, `completed`, `hiatus`, `dropped`, `axed` |
+| `sort` | `sort` | `latest`, `popular`, `rating`, `title`, `newest` |
+| `order` | `order` | `desc`, `asc` |
+| `author`, `artist` | `author`, `artist` | text (names come from `/api/creators`) |
+| `min_chapters` | `min_chapters` | a number |
+
+Every option list has an "All" entry with the value `""`, so the hole is empty and its `{? ?}` group vanishes. `sort` and `order` always have a value (`latest`, `desc`), so they sit outside a group.
+
+**The series page, field by field.**
+
+| API field | Goes to | How |
+| --- | --- | --- |
+| `title`, `cover` | title, cover | direct |
+| `description` | description | `plain_text` (it carries a stray `</p>`) |
+| `alternative_titles` | end of the description | a `template` adds "Also known as: ..." |
+| `author`, `artist` | authors | one `template` joins them with `/`, `split` cuts, `unique` drops repeats ("LEE Dong Wook/ PARK Saenal") |
+| `genres[].name` | tags | `series.genres.*.name` |
+| `status` | status | `map`: `dropped` and `axed` are `cancelled` |
+| `type`, `rating`, `bookmark_count`, `popularity_rank`, `banner` | not mapped | the app has no place for them |
+
+**Chapters.** One request returns every chapter, newest first, so there is **no `repeat`**: the API ignores `page` and `per_page` (it answers all 350 chapters of a long series every time), and only `limit` and `offset` work. The old definition asked twice and stopped on a repeat. The title is built as `Chapter 349 · Trauma` so the real title is not lost, and `replace` collapses `Chapter 12 · Chapter 12`. Chapter `0` exists (a prologue) and its slug is a UUID, so a chapter id is never assumed to look like `chapter-N`. The date is `published_at` through `iso` (it has a time and a zone).
+
+**What is locked.** A chapter has `is_premium` (yes or no) and `early_access_until` (a date that is always there, after the chapter's own date). The two are joined with a `coalesce` whose first branch only gives text when the chapter is premium (`where` keeps the row, then `path slug` gives something) and whose second branch gives text only while the date is ahead:
+
+```json
+"locked": [{ "coalesce": [
+  [{ "where": { "path": "is_premium", "equals": "true" } }, { "path": "slug" }],
+  [{ "path": "early_access_until" }, { "date": ["iso"] }, "in_future"]
+] }]
+```
+
+`locked_label` is `"Early access"`.
+
+**Pages.** `GET /api/series/{series}/chapters/{chapter}`, images at `data.chapter.pages.*.url`. The same answer has `is_locked`, `access_gate` and `unlock_time`. The images are on `cdn.asurascans.com`, which answers with or without a referer; the definition sends the site's own.
+
+**The account.** See recipe 16. `min_app` is set because an older app would fail to load a definition with the new steps; the index tells an older app to wait for an update instead.
+
+**What was not tested:** a real sign-in, the refresh body, and a chapter that is locked on the live site (none was).

@@ -33,7 +33,7 @@ Five sources, each with fixtures recorded from the live site, and one theme:
 | --- | --- | --- |
 | `arenascans` | arenascan.com | a WordPress `mangareader` (MangaStream-family) site: `.bsx` cards, `?order=popular`/`update`, search filters by `genre`; pages come from the `ts_reader.run({...})` script blob's `sources.0.images` |
 | `demonicscans` | demonicscans.org | a plain PHP site with three different endpoints: popular is its `advanced.php` catalogue sorted `orderby=VIEWS DESC`, latest is `lastupdates.php`, and search is the AJAX suggest `search.php?manga=`, capped at ~20 with no pagination and no filters (the site has no text-filterable list search — `advanced.php` filters by `genre[]`/`status` but ignores the term). Series slugs are double-encoded (`%2527` in the href is the literal slug); the detail path decodes them twice, so `{id}` re-encoding is harmless. Chapter ids are the numbers in the `chaptered.php?...&chapter=` hrefs; the reader is `/title/{series}/chapter/{id}/1`, which puts every page on one answer behind `img.imgholder` — a relative `/img/free_ads.jpg` ad rides in the same class and is dropped by a regex that keeps only absolute URLs. Both `demoniclibs.com` and `cdn2.demoniclibs.com` serve pages |
-| `asurascans` | api.asurascans.com | its own JSON API: `data`, `meta.has_more`, `series`, `data.chapter.pages.*.url` |
+| `asurascans` | api.asurascans.com | its own JSON API: lists with `limit`/`offset` and five sorts, search with eight filters (genre, type, status, sort, order, author, artist, at least this many chapters), a detail page with authors, artists and alternative titles, every chapter in one answer with its early-access and premium flags, pages, and an optional account (email and password). The worked example in the skill's recipe 17 |
 | `dynastyscans` | dynasty-scans.com | its own JSON API, for series and for one-shots; an id is `series/<p>` or `doujins/<p>` |
 | `flamecomics` | flamecomics.xyz | a Next.js site: reads `script#__NEXT_DATA__` as JSON for detail, chapters and pages; search is its `/api/series` |
 
@@ -306,7 +306,7 @@ Do not build `next` out of the request's own holes (`{"template": "{page}"}`): t
 
 ### chapters
 
-`rows`, `chapter` (`id` required; `number`, `title`, `date`, `scanlator`, `locked`), `order`, `repeat`, `prepare`, `vars`.
+`rows`, `chapter` (`id` required; `number`, `title`, `date`, `scanlator`, `locked`), `locked_label`, `locked_action`, `order`, `repeat`, `prepare`, `vars`.
 
 Chapters come back **newest first** whatever order the site lists them in. Say `"order": "oldest-first"` if the site lists them oldest first. A chapter's number is read from its title when no `number` is given. `date` must end up as milliseconds since 1970: use the `date` step.
 
@@ -338,14 +338,14 @@ For a site with free titles and paid ones. The `auth` section says how to sign i
 - `fields` is what the person types (`secret: true` hides it). Those are holes (`{email}`) in the `login` request only.
 - `login.vars` read the **session** out of the answer. Session values (`{access}`, `{refresh}`, `{user}`) are holes in every later request, and in `headers` and `image_headers`.
 - `headers` are added to every request to `base_url` while signed in, and left off while signed out. The free titles keep working without an account.
-- `chapters.chapter.locked` (an expression such as `"is_premium"`) marks a chapter that needs the account. The apps show "Locked" on it while signed out, and a tap opens the sign-in sheet first, then the chapter.
+- `chapters.chapter.locked` (an expression such as `"is_premium"`) marks a chapter that needs the account. The apps show a lock in place of the read mark while signed out, and a tap opens the sign-in sheet first, then the chapter. For a date, end with `{"date": ["iso"]}` and `"in_future"` (locked only while the date is ahead). `chapters.locked_label` is the source's own word for it (`"Members only"`), and `chapters.locked_action` is `sign_in` (default) or `none` (only show the lock).
 - `refresh` is asked once when a request gets `401`, then that request is asked again. A refresh that fails ends the session ("sign in again").
 - **Only `base_url` ever sees the session.** The sign-in, the refresh, the logout and the headers never go to a mirror.
 - Without `login`, what the person typed is the session: a **pasted token or API key** (one field, and `headers` that use it).
 - The app keeps only the session (Keychain on iPhone, Keystore on Android), never the password. Sign-in screen: the source's page, **Account**.
 - Test with made-up accounts: `fixtures.json` calls `sign_in` (with fake `fields`) and `sign_out`. Never `record` a real sign-in: the real tokens would land in the fixtures. Live, set `AKI_AUTH_EMAIL` and `AKI_AUTH_PASSWORD` (`AKI_AUTH_<FIELD ID>`) and `scripts/run-live.sh` signs in first, so nothing is typed on a command line.
 
-**State today:** built and tested in the engine (`desktop/manga/tests/auth.rs` in the code repo), and in the iPhone and Android apps: a source with `auth` shows an **Account** row on its settings page, with a sign-in sheet drawn from `fields`, and the session is kept in the Keychain or the Keystore. An older app ignores `auth` and shows the source signed out. A chapter can say it is locked (`chapters.chapter.locked`): the apps show "Locked" on it while signed out and ask the person to sign in when they tap it. Template: `templates/source-with-login.json`. Worked example: `templates/worked-examples/login/`. Details: `.claude/skills/manga-sources/references/format.md` (auth) and `recipes.md` (recipe 16).
+**State today:** built and tested in the engine (`desktop/manga/tests/auth.rs` in the code repo), and in the iPhone and Android apps: a source with `auth` shows an **Account** row on its settings page, with a sign-in sheet drawn from `fields`, and the session is kept in the Keychain or the Keystore. An older app ignores `auth` and shows the source signed out. A chapter can say it is locked (`chapters.chapter.locked`): the apps show a lock mark on it while signed out and ask the person to sign in when they tap it. Template: `templates/source-with-login.json`. Worked example: `templates/worked-examples/login/`. Details: `.claude/skills/manga-sources/references/format.md` (auth) and `recipes.md` (recipe 16).
 
 ### Chains: `prepare` and `vars`
 
@@ -375,6 +375,7 @@ A value is read by an expression. Short forms: HTML `"h3"` (the text of the matc
 | `{"const": t}`, `{"default": t}`, `"non_empty"`, `"exists"`, `{"map": [["ongoing","ongoing"]]}` | constants and tests |
 | `{"coalesce": [ex, ex]}` | the first expression that gives something |
 | `{"where": {"path": p, "equals"/"not_equals"/"in"/"absent": ...}}` | keeps the JSON nodes whose value at `path` passes (a related item of one type, a row that is not external) |
+| `"in_future"` | a date in milliseconds that is still ahead of now gives `true` (for `locked` on an early-access date) |
 | `"unique"`, `"sort"` | drops texts already seen; orders texts the way file names read (`p2` before `p10`) |
 | `"plain_text"` | HTML inside a text (a JSON field that holds markup) as plain text |
 | `"trim"`, `"lower"` | trims, lower-cases |
