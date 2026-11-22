@@ -16,13 +16,14 @@
     {
       "id": "asurascans",
       "name": "Asura Scans",
-      "version": 5,
+      "version": 6,
       "path": "sources/asurascans.json",
-      "sha256": "d575319102a7cf571efacdd4e2e190c2cc4551a50fa59438087cfd243f455cbf",
+      "sha256": "28172c3be74e0e77fc83d92dea067469fbae7648d372762050cbbdadbaed893d",
       "lang": [
         "en"
       ],
-      "nsfw": false
+      "nsfw": false,
+      "min_app": "0.1.30"
     },
     {
       "id": "demonicscans",

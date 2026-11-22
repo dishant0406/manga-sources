@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "id": 4,
+      "number": 4,
+      "title": "The newest",
+      "slug": "chapter-4",
+      "is_premium": true,
+      "early_access_until": "2020-01-01T00:00:00Z",
+      "published_at": "2026-11-22T01:00:00Z"
+    },
+    {
+      "id": 3,
+      "number": 3,
+      "title": "Still early",
+      "slug": "chapter-3",
+      "is_premium": false,
+      "early_access_until": "2026-12-31T00:00:00Z",
+      "published_at": "2026-11-21T01:00:00Z"
+    },
+    {
+      "id": 2,
+      "number": 2,
+      "title": "Early access over",
+      "slug": "chapter-2",
+      "is_premium": false,
+      "early_access_until": "2026-11-01T00:00:00Z",
+      "published_at": "2026-10-30T01:00:00Z"
+    },
+    {
+      "id": 1,
+      "number": 1,
+      "title": "",
+      "slug": "chapter-1",
+      "is_premium": false,
+      "published_at": "2026-10-01T01:00:00Z"
+    }
+  ]
+}

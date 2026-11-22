@@ -2,16 +2,105 @@
   "schema": 1,
   "id": "asurascans",
   "name": "Asura Scans",
-  "version": 5,
+  "version": 6,
   "lang": [
     "en"
   ],
   "nsfw": false,
+  "min_app": "0.1.30",
   "base_url": "https://api.asurascans.com",
-  "rate_per_second": 1,
+  "rate_per_second": 2,
+  "auth": {
+    "fields": [
+      {
+        "id": "email",
+        "name": "Email"
+      },
+      {
+        "id": "password",
+        "name": "Password",
+        "secret": true
+      }
+    ],
+    "login": {
+      "request": {
+        "method": "POST",
+        "url": "{base}/api/auth/login",
+        "json": {
+          "email": "{email}",
+          "password": "{password}"
+        }
+      },
+      "format": "json",
+      "vars": {
+        "access": [
+          {
+            "coalesce": [
+              "data.access_token",
+              "access_token"
+            ]
+          }
+        ],
+        "refresh": [
+          {
+            "coalesce": [
+              "data.refresh_token",
+              "refresh_token"
+            ]
+          }
+        ],
+        "user": [
+          {
+            "coalesce": [
+              "data.user.username",
+              "user.username"
+            ]
+          }
+        ]
+      }
+    },
+    "refresh": {
+      "request": {
+        "method": "POST",
+        "url": "{base}/api/auth/refresh",
+        "json": {
+          "refresh_token": "{refresh}"
+        }
+      },
+      "format": "json",
+      "vars": {
+        "access": [
+          {
+            "coalesce": [
+              "data.access_token",
+              "access_token"
+            ]
+          }
+        ],
+        "refresh": [
+          {
+            "coalesce": [
+              "data.refresh_token",
+              "refresh_token"
+            ]
+          }
+        ]
+      }
+    },
+    "logout": {
+      "method": "POST",
+      "url": "{base}/api/auth/logout",
+      "json": {
+        "refresh_token": "{refresh}"
+      }
+    },
+    "headers": {
+      "authorization": "Bearer {access}"
+    }
+  },
   "popular": {
     "request": {
-      "url": "{base}/api/series?offset={offset}&per_page=20&sort=popular"
+      "url": "{base}/api/series?limit=20&offset={offset}&sort=popular"
     },
     "format": "json",
     "rows": "data",
@@ -25,7 +114,7 @@
   },
   "latest": {
     "request": {
-      "url": "{base}/api/series?offset={offset}&per_page=20"
+      "url": "{base}/api/series?limit=20&offset={offset}&sort=latest"
     },
     "format": "json",
     "rows": "data",
@@ -39,7 +128,7 @@
   },
   "search": {
     "request": {
-      "url": "{base}/api/series?offset={offset}&per_page=20{?&search={term}?}{?&genre={genre}&sort=popular?}"
+      "url": "{base}/api/series?limit=20&offset={offset}&sort={sort}&order={order}{?&search={term}?}{?&genres={genre}?}{?&type={type}?}{?&status={status}?}{?&author={author}?}{?&artist={artist}?}{?&min_chapters={min_chapters}?}"
     },
     "format": "json",
     "rows": "data",
@@ -56,28 +145,268 @@
       "id": "genre",
       "name": "Genre",
       "kind": "select",
+      "default": "",
       "options": [
-        { "value": "action", "name": "Action" },
-        { "value": "adventure", "name": "Adventure" },
-        { "value": "comedy", "name": "Comedy" },
-        { "value": "drama", "name": "Drama" },
-        { "value": "fantasy", "name": "Fantasy" },
-        { "value": "isekai", "name": "Isekai" },
-        { "value": "magic", "name": "Magic" },
-        { "value": "martial-arts", "name": "Martial Arts" },
-        { "value": "murim", "name": "Murim" },
-        { "value": "mystery", "name": "Mystery" },
-        { "value": "overpowered", "name": "Overpowered" },
-        { "value": "regression", "name": "Regression" },
-        { "value": "reincarnation", "name": "Reincarnation" },
-        { "value": "revenge", "name": "Revenge" },
-        { "value": "romance", "name": "Romance" },
-        { "value": "school-life", "name": "School Life" },
-        { "value": "sci-fi", "name": "Sci-fi" },
-        { "value": "shounen", "name": "Shounen" },
-        { "value": "slice-of-life", "name": "Slice of Life" },
-        { "value": "system", "name": "System" }
+        {
+          "value": "",
+          "name": "All"
+        },
+        {
+          "value": "action",
+          "name": "Action"
+        },
+        {
+          "value": "adventure",
+          "name": "Adventure"
+        },
+        {
+          "value": "comedy",
+          "name": "Comedy"
+        },
+        {
+          "value": "crazy-mc",
+          "name": "Crazy MC"
+        },
+        {
+          "value": "dark-fantasy",
+          "name": "Dark Fantasy"
+        },
+        {
+          "value": "demon",
+          "name": "Demon"
+        },
+        {
+          "value": "drama",
+          "name": "Drama"
+        },
+        {
+          "value": "dungeons",
+          "name": "Dungeons"
+        },
+        {
+          "value": "fantasy",
+          "name": "Fantasy"
+        },
+        {
+          "value": "game",
+          "name": "Game"
+        },
+        {
+          "value": "genius-mc",
+          "name": "Genius MC"
+        },
+        {
+          "value": "isekai",
+          "name": "Isekai"
+        },
+        {
+          "value": "magic",
+          "name": "Magic"
+        },
+        {
+          "value": "martial-arts",
+          "name": "Martial Arts"
+        },
+        {
+          "value": "murim",
+          "name": "Murim"
+        },
+        {
+          "value": "mystery",
+          "name": "Mystery"
+        },
+        {
+          "value": "necromancer",
+          "name": "Necromancer"
+        },
+        {
+          "value": "overpowered",
+          "name": "Overpowered"
+        },
+        {
+          "value": "psychological",
+          "name": "Psychological"
+        },
+        {
+          "value": "regression",
+          "name": "Regression"
+        },
+        {
+          "value": "reincarnation",
+          "name": "Reincarnation"
+        },
+        {
+          "value": "revenge",
+          "name": "Revenge"
+        },
+        {
+          "value": "romance",
+          "name": "Romance"
+        },
+        {
+          "value": "school-life",
+          "name": "School Life"
+        },
+        {
+          "value": "sci-fi",
+          "name": "Sci-fi"
+        },
+        {
+          "value": "shoujo",
+          "name": "Shoujo"
+        },
+        {
+          "value": "shounen",
+          "name": "Shounen"
+        },
+        {
+          "value": "slice-of-life",
+          "name": "Slice of Life"
+        },
+        {
+          "value": "supernatural",
+          "name": "Supernatural"
+        },
+        {
+          "value": "system",
+          "name": "System"
+        },
+        {
+          "value": "tower",
+          "name": "Tower"
+        },
+        {
+          "value": "tragedy",
+          "name": "Tragedy"
+        },
+        {
+          "value": "transmigration",
+          "name": "Transmigration"
+        },
+        {
+          "value": "villain",
+          "name": "Villain"
+        },
+        {
+          "value": "violence",
+          "name": "Violence"
+        }
       ]
+    },
+    {
+      "id": "type",
+      "name": "Type",
+      "kind": "select",
+      "default": "",
+      "options": [
+        {
+          "value": "",
+          "name": "All"
+        },
+        {
+          "value": "manhwa",
+          "name": "Manhwa"
+        },
+        {
+          "value": "manhua",
+          "name": "Manhua"
+        },
+        {
+          "value": "manga",
+          "name": "Mangatoon"
+        }
+      ]
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "kind": "select",
+      "default": "",
+      "options": [
+        {
+          "value": "",
+          "name": "All"
+        },
+        {
+          "value": "ongoing",
+          "name": "Ongoing"
+        },
+        {
+          "value": "completed",
+          "name": "Completed"
+        },
+        {
+          "value": "hiatus",
+          "name": "Hiatus"
+        },
+        {
+          "value": "dropped",
+          "name": "Dropped"
+        },
+        {
+          "value": "axed",
+          "name": "Axed"
+        }
+      ]
+    },
+    {
+      "id": "sort",
+      "name": "Sort by",
+      "kind": "select",
+      "default": "latest",
+      "options": [
+        {
+          "value": "latest",
+          "name": "Latest update"
+        },
+        {
+          "value": "popular",
+          "name": "Popular"
+        },
+        {
+          "value": "rating",
+          "name": "Rating"
+        },
+        {
+          "value": "title",
+          "name": "A to Z"
+        },
+        {
+          "value": "newest",
+          "name": "Newest"
+        }
+      ]
+    },
+    {
+      "id": "order",
+      "name": "Order",
+      "kind": "select",
+      "default": "desc",
+      "options": [
+        {
+          "value": "desc",
+          "name": "Descending"
+        },
+        {
+          "value": "asc",
+          "name": "Ascending"
+        }
+      ]
+    },
+    {
+      "id": "author",
+      "name": "Author",
+      "kind": "text"
+    },
+    {
+      "id": "artist",
+      "name": "Artist",
+      "kind": "text"
+    },
+    {
+      "id": "min_chapters",
+      "name": "At least this many chapters",
+      "kind": "text"
     }
   ],
   "detail": {
@@ -89,11 +418,25 @@
     "cover": "series.cover",
     "description": [
       {
-        "path": "series.description"
+        "path": "series"
+      },
+      {
+        "template": "{?{^.series.description}?}{?<p>Also known as: {^.series.alternative_titles}</p>?}"
       },
       "plain_text"
     ],
-    "authors": "series.author",
+    "authors": [
+      {
+        "path": "series"
+      },
+      {
+        "template": "{?{^.series.author}?}{?/{^.series.artist}?}"
+      },
+      {
+        "split": "/"
+      },
+      "unique"
+    ],
     "tags": "series.genres.*.name",
     "status": [
       {
@@ -114,11 +457,11 @@
             "hiatus"
           ],
           [
-            "cancelled",
+            "dropped",
             "cancelled"
           ],
           [
-            "canceled",
+            "axed",
             "cancelled"
           ]
         ]
@@ -130,7 +473,7 @@
   },
   "chapters": {
     "request": {
-      "url": "{base}/api/series/{id}/chapters?page={page}&per_page=100"
+      "url": "{base}/api/series/{id}/chapters"
     },
     "format": "json",
     "rows": "data",
@@ -139,10 +482,13 @@
       "number": "number",
       "title": [
         {
-          "path": "number"
+          "template": "Chapter {^.number}{? · {^.title}?}"
         },
         {
-          "template": "Chapter {value}"
+          "replace": {
+            "from": "^(Chapter [0-9.]+) · Chapter [0-9.]+$",
+            "to": "$1"
+          }
         }
       ],
       "date": [
@@ -154,12 +500,38 @@
             "iso"
           ]
         }
+      ],
+      "locked": [
+        {
+          "coalesce": [
+            [
+              {
+                "where": {
+                  "path": "is_premium",
+                  "equals": "true"
+                }
+              },
+              {
+                "path": "slug"
+              }
+            ],
+            [
+              {
+                "path": "early_access_until"
+              },
+              {
+                "date": [
+                  "iso"
+                ]
+              },
+              "in_future"
+            ]
+          ]
+        }
       ]
     },
     "order": "newest-first",
-    "repeat": {
-      "size": 100
-    }
+    "locked_label": "Early access"
   },
   "pages": {
     "request": {
@@ -167,7 +539,10 @@
     },
     "format": "json",
     "images": "data.chapter.pages.*.url",
-    "reading": "longstrip"
+    "reading": "longstrip",
+    "image_headers": {
+      "referer": "https://asurascans.com/"
+    }
   },
   "page_size": 20
 }

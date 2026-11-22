@@ -1,0 +1,9 @@
+{
+  "data": {
+    "access_token": "fake-access-token",
+    "refresh_token": "fake-refresh-token",
+    "user": {
+      "username": "reader"
+    }
+  }
+}
