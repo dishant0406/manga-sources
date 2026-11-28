@@ -27,7 +27,7 @@ fixtures/<id>/         recorded pages and fixtures.json for a source or an examp
 
 ### The sources
 
-Six sources, each with fixtures recorded from the live site, and one theme:
+Nine sources, each with fixtures recorded from the live site, and one theme:
 
 | Source | Site | How it reads the site |
 | --- | --- | --- |
@@ -37,6 +37,9 @@ Six sources, each with fixtures recorded from the live site, and one theme:
 | `asurascans` | api.asurascans.com | its own JSON API: lists with `limit`/`offset` and five sorts, search with eight filters (genre, type, status, sort, order, author, artist, at least this many chapters), a detail page with authors, artists and alternative titles, every chapter in one answer with its early-access and premium flags, pages, and an optional account (email and password). The worked example in the skill's recipe 17 |
 | `dynastyscans` | dynasty-scans.com | its own JSON API, for series and for one-shots; an id is `series/<p>` or `doujins/<p>` |
 | `flamecomics` | flamecomics.xyz | a Next.js site: reads `script#__NEXT_DATA__` as JSON for detail, chapters and pages; search is its `/api/series` |
+| `mangafire` | mangafire.cc | HTML cards and metadata, offset-paginated chapter lists, and page image URLs from the reader |
+| `mangakatana` | mangakatana.com | HTML cards and metadata, the full chapter table, and the ordered `thzq` image array normalized to JSON |
+| `weebcentral` | weebcentral.com | offset-paginated catalog fragments, a full chapter-list fragment, and the ordered chapter image fragment |
 
 No shipped source extends `madara` any more. The theme stays: `examples/madara-example.json` and `examples/madara-protected.json` are what keep it honest, and the family is still the cheapest place to add sources from. Earlier ports of `manhuaplus`, `3asq` and `tcbscans` live in the code repo's history (`git show 75a1a53`, run in `dishant0406/akidev`), and the findings they produced (the mirror trap, the per-site `pages` override, the chapter list that must ride in the detail page) are why those sites are cheap whenever they are wanted again.
 

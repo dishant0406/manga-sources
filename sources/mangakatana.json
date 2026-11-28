@@ -1,0 +1,421 @@
+{
+  "schema": 1,
+  "id": "mangakatana",
+  "name": "MangaKatana",
+  "version": 1,
+  "lang": [
+    "en"
+  ],
+  "nsfw": false,
+  "base_url": "https://mangakatana.com",
+  "rate_per_second": 1,
+  "page_size": 20,
+  "popular": {
+    "request": {
+      "url": "{base}/manga{?/page/{page}?}?filter=1&order=numc&chapters=1"
+    },
+    "rows": "#book_list > div.item[data-id]",
+    "card": {
+      "id": [
+        {
+          "css": "h3.title a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/manga/([^/]+)$"
+        }
+      ],
+      "title": "h3.title a",
+      "chapters": "h3.title a",
+      "cover": [
+        {
+          "css": ".wrap_img img"
+        },
+        {
+          "attr": "lazy-src|data-src|src"
+        }
+      ]
+    },
+    "next": "a.next.page-numbers"
+  },
+  "latest": {
+    "request": {
+      "url": "{base}/latest{?/page/{page}?}"
+    },
+    "rows": "#book_list > div.item[data-id]",
+    "card": {
+      "id": [
+        {
+          "css": "h3.title a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/manga/([^/]+)$"
+        }
+      ],
+      "title": "h3.title a",
+      "chapters": "h3.title a",
+      "cover": [
+        {
+          "css": ".wrap_img img"
+        },
+        {
+          "attr": "lazy-src|data-src|src"
+        }
+      ]
+    },
+    "next": "a.next.page-numbers"
+  },
+  "search": {
+    "request": {
+      "url": "{base}/{?page/{page}?}{?&search={term}?}{?&search_by={search_by}?}{?&filter=1&include={genre}?}"
+    },
+    "rows": "#book_list > div.item[data-id]",
+    "card": {
+      "id": [
+        {
+          "css": "h3.title a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/manga/([^/]+)$"
+        }
+      ],
+      "title": "h3.title a",
+      "chapters": "h3.title a",
+      "cover": [
+        {
+          "css": ".wrap_img img"
+        },
+        {
+          "attr": "lazy-src|data-src|src"
+        }
+      ]
+    },
+    "next": "a.next.page-numbers"
+  },
+  "filters": [
+    {
+      "id": "search_by",
+      "name": "Search by",
+      "kind": "select",
+      "default": "m_name",
+      "options": [
+        {
+          "value": "m_name",
+          "name": "Manga name"
+        },
+        {
+          "value": "author",
+          "name": "Author"
+        }
+      ]
+    },
+    {
+      "id": "genre",
+      "name": "Genre",
+      "kind": "select",
+      "options": [
+        {
+          "value": "4-koma",
+          "name": "4 koma"
+        },
+        {
+          "value": "action",
+          "name": "Action"
+        },
+        {
+          "value": "adult",
+          "name": "Adult"
+        },
+        {
+          "value": "adventure",
+          "name": "Adventure"
+        },
+        {
+          "value": "artbook",
+          "name": "Artbook"
+        },
+        {
+          "value": "award-winning",
+          "name": "Award winning"
+        },
+        {
+          "value": "comedy",
+          "name": "Comedy"
+        },
+        {
+          "value": "cooking",
+          "name": "Cooking"
+        },
+        {
+          "value": "doujinshi",
+          "name": "Doujinshi"
+        },
+        {
+          "value": "drama",
+          "name": "Drama"
+        },
+        {
+          "value": "ecchi",
+          "name": "Ecchi"
+        },
+        {
+          "value": "erotica",
+          "name": "Erotica"
+        },
+        {
+          "value": "fantasy",
+          "name": "Fantasy"
+        },
+        {
+          "value": "gender-bender",
+          "name": "Gender Bender"
+        },
+        {
+          "value": "gore",
+          "name": "Gore"
+        },
+        {
+          "value": "harem",
+          "name": "Harem"
+        },
+        {
+          "value": "historical",
+          "name": "Historical"
+        },
+        {
+          "value": "horror",
+          "name": "Horror"
+        },
+        {
+          "value": "isekai",
+          "name": "Isekai"
+        },
+        {
+          "value": "josei",
+          "name": "Josei"
+        },
+        {
+          "value": "loli",
+          "name": "Loli"
+        },
+        {
+          "value": "manhua",
+          "name": "Manhua"
+        },
+        {
+          "value": "manhwa",
+          "name": "Manhwa"
+        },
+        {
+          "value": "martial-arts",
+          "name": "Martial Arts"
+        },
+        {
+          "value": "mecha",
+          "name": "Mecha"
+        },
+        {
+          "value": "medical",
+          "name": "Medical"
+        },
+        {
+          "value": "music",
+          "name": "Music"
+        },
+        {
+          "value": "mystery",
+          "name": "Mystery"
+        },
+        {
+          "value": "one-shot",
+          "name": "One shot"
+        },
+        {
+          "value": "overpowered-mc",
+          "name": "Overpowered MC"
+        },
+        {
+          "value": "psychological",
+          "name": "Psychological"
+        },
+        {
+          "value": "reincarnation",
+          "name": "Reincarnation"
+        },
+        {
+          "value": "romance",
+          "name": "Romance"
+        },
+        {
+          "value": "school-life",
+          "name": "School Life"
+        },
+        {
+          "value": "sci-fi",
+          "name": "Sci-fi"
+        },
+        {
+          "value": "seinen",
+          "name": "Seinen"
+        },
+        {
+          "value": "sexual-violence",
+          "name": "Sexual violence"
+        },
+        {
+          "value": "shota",
+          "name": "Shota"
+        },
+        {
+          "value": "shoujo",
+          "name": "Shoujo"
+        },
+        {
+          "value": "shoujo-ai",
+          "name": "Shoujo Ai"
+        },
+        {
+          "value": "shounen",
+          "name": "Shounen"
+        },
+        {
+          "value": "shounen-ai",
+          "name": "Shounen Ai"
+        },
+        {
+          "value": "slice-of-life",
+          "name": "Slice of Life"
+        },
+        {
+          "value": "sports",
+          "name": "Sports"
+        },
+        {
+          "value": "super-power",
+          "name": "Super power"
+        },
+        {
+          "value": "supernatural",
+          "name": "Supernatural"
+        },
+        {
+          "value": "survival",
+          "name": "Survival"
+        },
+        {
+          "value": "time-travel",
+          "name": "Time travel"
+        },
+        {
+          "value": "tragedy",
+          "name": "Tragedy"
+        },
+        {
+          "value": "webtoon",
+          "name": "Webtoon"
+        },
+        {
+          "value": "yaoi",
+          "name": "Yaoi"
+        },
+        {
+          "value": "yuri",
+          "name": "Yuri"
+        }
+      ]
+    }
+  ],
+  "detail": {
+    "request": {
+      "url": "{base}/manga/{id}"
+    },
+    "title": "#single_book h1.heading",
+    "cover": [
+      {
+        "css": "#single_book .cover img"
+      },
+      {
+        "attr": "src"
+      },
+      "first"
+    ],
+    "description": "#single_book .summary p",
+    "authors": "#single_book .authors a",
+    "tags": "#single_book .meta .genres a",
+    "status": "#single_book .status"
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/manga/{id}"
+    },
+    "rows": "#single_book .chapters table tbody tr",
+    "chapter": {
+      "id": [
+        {
+          "css": ".chapter a"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/manga/[^/]+/([^/]+)$"
+        }
+      ],
+      "number": ".chapter a",
+      "title": ".chapter a",
+      "date": [
+        {
+          "css": ".update_time"
+        },
+        {
+          "date": [
+            "MMM-d-yyyy"
+          ]
+        }
+      ]
+    },
+    "order": "newest-first"
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/manga/{series}/{id}"
+    },
+    "images": [
+      {
+        "css": "script"
+      },
+      "text",
+      {
+        "regex": "(?s)var\\s+thzq\\s*=\\s*(\\[[^\\]]*\\]);function\\s+kxatz"
+      },
+      {
+        "replace": {
+          "from": "'",
+          "to": "\""
+        }
+      },
+      {
+        "replace": {
+          "from": ",\\s*\\]",
+          "to": "]"
+        }
+      },
+      "json",
+      {
+        "path": "*"
+      }
+    ],
+    "reading": "paged_rtl",
+    "image_headers": {
+      "referer": "{base}/"
+    }
+  }
+}

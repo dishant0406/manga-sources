@@ -68,6 +68,39 @@
         "en"
       ],
       "nsfw": false
+    },
+    {
+      "id": "mangafire",
+      "name": "MangaFire",
+      "version": 1,
+      "path": "sources/mangafire.json",
+      "sha256": "e5c372c4764741071ff3b155e0189803fcded6113e41eac825337d20ce995087",
+      "lang": [
+        "en"
+      ],
+      "nsfw": false
+    },
+    {
+      "id": "mangakatana",
+      "name": "MangaKatana",
+      "version": 1,
+      "path": "sources/mangakatana.json",
+      "sha256": "0d6c0bcc6aaf9c148ed629e0aec993a2999e87d9e4cf6eb149b6be2c60aa3f4c",
+      "lang": [
+        "en"
+      ],
+      "nsfw": false
+    },
+    {
+      "id": "weebcentral",
+      "name": "Weeb Central",
+      "version": 1,
+      "path": "sources/weebcentral.json",
+      "sha256": "c298790a9b8117931443678818e531414ba6e82f7a0cfb5d9e31e953cbb353cd",
+      "lang": [
+        "en"
+      ],
+      "nsfw": false
     }
   ],
   "themes": [

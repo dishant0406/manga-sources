@@ -1,0 +1,2022 @@
+{
+  "calls": [
+    {
+      "expect": {
+        "has_next": true,
+        "items": [
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XY7E9FNDZ1DBBM6PBJPFK.jpg",
+            "id": "01J76XY7E9FNDZ1DBBM6PBJPFK",
+            "title": "One Piece"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYD7E91K8QP6CY0Y53900.jpg",
+            "id": "01J76XYD7E91K8QP6CY0Y53900",
+            "title": "Blue Lock"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYDMR2777KEM5BKTBBK83.jpg",
+            "id": "01J76XYDMR2777KEM5BKTBBK83",
+            "title": "Overgeared"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYB8HNWARAQ67A4GAWG5Y.jpg",
+            "id": "01J76XYB8HNWARAQ67A4GAWG5Y",
+            "title": "Black Clover"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYAQSGEJPXCSCVPQ3MHZM.jpg",
+            "id": "01J76XYAQSGEJPXCSCVPQ3MHZM",
+            "title": "One Piece (Color)"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYFD97DRQQKK75FZB7PQH.jpg",
+            "id": "01J76XYFD97DRQQKK75FZB7PQH",
+            "title": "Gachiakuta"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYEMWA55C7XTZHP1HNARM.jpg",
+            "id": "01J76XYEMWA55C7XTZHP1HNARM",
+            "title": "Dandadan"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XY7VSG3R5ANYPDWTXDVP6.jpg",
+            "id": "01J76XY7VSG3R5ANYPDWTXDVP6",
+            "title": "Kingdom"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYCRSG391MCSWQARXCZZ2.jpg",
+            "id": "01J76XYCRSG391MCSWQARXCZZ2",
+            "title": "Ao Ashi"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYGGM22WZP7T4TKA4ZFAF.jpg",
+            "id": "01J76XYGGM22WZP7T4TKA4ZFAF",
+            "title": "Kagurabachi"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYHGCQ2A1VG5KYTNHEHKF.jpg",
+            "id": "01J76XYHGCQ2A1VG5KYTNHEHKF",
+            "title": "Even the Student Council Has Its Holes"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XY7EF75DJNQCV04HTPDZK.jpg",
+            "id": "01J76XY7EF75DJNQCV04HTPDZK",
+            "title": "Berserk"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XY7KT7J224EBK6J816Y1Q.jpg",
+            "id": "01J76XY7KT7J224EBK6J816Y1Q",
+            "title": "One-Punch Man"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYCERXE60T7FKXVCCAQ0H.jpg",
+            "id": "01J76XYCERXE60T7FKXVCCAQ0H",
+            "title": "Jujutsu Kaisen"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYCRVY3QGYAMRR3STW941.jpg",
+            "id": "01J76XYCRVY3QGYAMRR3STW941",
+            "title": "Chainsaw Man"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYDXH7KT6AABVG3JAT3ZP.jpg",
+            "id": "01J76XYDXH7KT6AABVG3JAT3ZP",
+            "title": "Shangri-La Frontier"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYEVQ0ZFHSDZBTNA55Y1F.jpg",
+            "id": "01J76XYEVQ0ZFHSDZBTNA55Y1F",
+            "title": "Bleach (Color)"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYE3130E1W5HKTJ7VD912.jpg",
+            "id": "01J76XYE3130E1W5HKTJ7VD912",
+            "title": "Sakamoto Days"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XY7E827QQQT0ERKCGH4CD.jpg",
+            "id": "01J76XY7E827QQQT0ERKCGH4CD",
+            "title": "Naruto"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYBK4HFZMAWWKX52WN8PK.jpg",
+            "id": "01J76XYBK4HFZMAWWKX52WN8PK",
+            "title": "Naruto (Color)"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYC5SVSG0YGGA1EN740VW.jpg",
+            "id": "01J76XYC5SVSG0YGGA1EN740VW",
+            "title": "Welcome to Demon School! Iruma-kun"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01JF2QH2SXZ5H6NXMATF67QBHF.jpg",
+            "id": "01JF2QH2SXZ5H6NXMATF67QBHF",
+            "title": "The Mortifying Ordeal of Being Seen"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XY7HF84B23C36Q8536BP7.jpg",
+            "id": "01J76XY7HF84B23C36Q8536BP7",
+            "title": "Hajime no Ippo"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYFHFZ88R32BW3RXHN1WP.jpg",
+            "id": "01J76XYFHFZ88R32BW3RXHN1WP",
+            "title": "The Fragrant Flower Blooms With Dignity"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYD3Q2Q7HYYMB3FSDPSKC.jpg",
+            "id": "01J76XYD3Q2Q7HYYMB3FSDPSKC",
+            "title": "Eleceed"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XY7EXQV9RE9KQ3JYE0WZ9.jpg",
+            "id": "01J76XY7EXQV9RE9KQ3JYE0WZ9",
+            "title": "Hunter x Hunter"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYCPSY3C4BNPBRY8JMCBE.jpg",
+            "id": "01J76XYCPSY3C4BNPBRY8JMCBE",
+            "title": "Solo Leveling"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYF6V9BDFSRRTY2C65SBS.jpg",
+            "id": "01J76XYF6V9BDFSRRTY2C65SBS",
+            "title": "The Greatest Estate Developer"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XY7E4JCPK14V53BVQWD9Y.jpg",
+            "id": "01J76XY7E4JCPK14V53BVQWD9Y",
+            "title": "Bleach"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYG95PJHF8P3PGVKJT5NQ.jpg",
+            "id": "01J76XYG95PJHF8P3PGVKJT5NQ",
+            "title": "Revenge of the Baskerville Bloodhound"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYG8FNWRR3PHEFKN2NB87.jpg",
+            "id": "01J76XYG8FNWRR3PHEFKN2NB87",
+            "title": "The Swordmaster's Son"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYDT7H7ANER8KJG5R9SJV.jpg",
+            "id": "01J76XYDT7H7ANER8KJG5R9SJV",
+            "title": "Nano Machine"
+          }
+        ]
+      },
+      "op": "popular",
+      "page": 1
+    },
+    {
+      "expect": {
+        "has_next": true,
+        "items": [
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01JBQ6M9JWMSPTW40GSM78TVSD.jpg",
+            "id": "01JBQ6M9JWMSPTW40GSM78TVSD",
+            "title": "Hero Organization"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01JNRBZ4GD8TCJVYPHT6M6R7X6.jpg",
+            "id": "01JNRBZ4GD8TCJVYPHT6M6R7X6",
+            "title": "Girl Meets Rock!"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01KT9B4AQNMQM3CEBY8KBKZZ8V.jpg",
+            "id": "01KT9B4AQNMQM3CEBY8KBKZZ8V",
+            "title": "Lunolita"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01M2G1CRBTTP06TKWBJ0WGWJFN.jpg",
+            "id": "01M2G1CRBTTP06TKWBJ0WGWJFN",
+            "title": "Ayaru's Brush with Romance"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYHFZS5EAE3YEYPF8A86N.jpg",
+            "id": "01J76XYHFZS5EAE3YEYPF8A86N",
+            "title": "Dorei kara no Kitai to Hyouka no sei de Sakushu dekinai no daga"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYGDPAQYBMYETM4TKM7DD.jpg",
+            "id": "01J76XYGDPAQYBMYETM4TKM7DD",
+            "title": "Everyone's Darling Has a Secret"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYBTM1Y7FWTPJK8Z5S6C5.jpg",
+            "id": "01J76XYBTM1Y7FWTPJK8Z5S6C5",
+            "title": "Only Sense Online"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01JZ0FAKR0TAXG0HPDGGVNMYJB.jpg",
+            "id": "01JZ0FAKR0TAXG0HPDGGVNMYJB",
+            "title": "Warui ga Watashi wa Yuri ja nai"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYHFFDFQX79NXMG2K4YMD.jpg",
+            "id": "01J76XYHFFDFQX79NXMG2K4YMD",
+            "title": "She's the Strongest Bride, But I'm Stronger in Night Battles"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01KGQ1CXS23TCJFZE8NF43JPA1.jpg",
+            "id": "01KGQ1CXS23TCJFZE8NF43JPA1",
+            "title": "Isekai Henkyo Meshi"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYCQ1JVX9P99W4E13E36D.jpg",
+            "id": "01J76XYCQ1JVX9P99W4E13E36D",
+            "title": "Ao no Orchestra"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01KGSP4GPGN636P8WB0BFS93YR.jpg",
+            "id": "01KGSP4GPGN636P8WB0BFS93YR",
+            "title": "Rekkyou Sensen"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYFZTG9R0NQD4869YA3QJ.jpg",
+            "id": "01J76XYFZTG9R0NQD4869YA3QJ",
+            "title": "Messiah: Isekai o Sukutta Moto Yuusha"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01M63RX2NGK4RDMRT6RKD4ZG90.jpg",
+            "id": "01M63RX2NGK4RDMRT6RKD4ZG90",
+            "title": "Copying Skills With Affinity!"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYG8ZBK4VB4RRNVKCMKR2.jpg",
+            "id": "01J76XYG8ZBK4VB4RRNVKCMKR2",
+            "title": "Chronicles of the Demon Faction"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYDMR2777KEM5BKTBBK83.jpg",
+            "id": "01J76XYDMR2777KEM5BKTBBK83",
+            "title": "Overgeared"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYEZWRB4MRT7EHVVPEDXV.jpg",
+            "id": "01J76XYEZWRB4MRT7EHVVPEDXV",
+            "title": "The Lazy Lord Masters the Sword"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYF02HVMZAMXFFS51ANAM.jpg",
+            "id": "01J76XYF02HVMZAMXFFS51ANAM",
+            "title": "Return of the Mad Demon"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYH46Y95YK54F4BM8KR3G.jpg",
+            "id": "01J76XYH46Y95YK54F4BM8KR3G",
+            "title": "Killer Peter"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01KNPHGHJXS9X39ZWBRY4GZ20Q.jpg",
+            "id": "01KNPHGHJXS9X39ZWBRY4GZ20Q",
+            "title": "The Player with 13 Hidden Traits"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01JXAC7MDTWPNM304YD9033CWJ.jpg",
+            "id": "01JXAC7MDTWPNM304YD9033CWJ",
+            "title": "Genius Archer's Livestreaming"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01M05RNVCFRHG42PX4KSJYSM08.jpg",
+            "id": "01M05RNVCFRHG42PX4KSJYSM08",
+            "title": "Tomb Raider King — End Line"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYDJP85NZ04DS8205W5E9.jpg",
+            "id": "01J76XYDJP85NZ04DS8205W5E9",
+            "title": "Yankee JK KuzuHana-chan"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYEE47QT44EYWEHXYZ7PE.jpg",
+            "id": "01J76XYEE47QT44EYWEHXYZ7PE",
+            "title": "New Normal"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01KB08QQG45HWSSAV5N7GGTP2J.jpg",
+            "id": "01KB08QQG45HWSSAV5N7GGTP2J",
+            "title": "The S-Class Hunter's Peaceful Life With Monsters"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01KGSPE133S4FVBHFRYZF6DB9J.jpg",
+            "id": "01KGSPE133S4FVBHFRYZF6DB9J",
+            "title": "Sei-jun Ecstasy: XXX Shinai to Derarenai Heya de Mazoku o Buttaoshimasu"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01KA19TYKAAZWJXVD9E0A20EZ1.jpg",
+            "id": "01KA19TYKAAZWJXVD9E0A20EZ1",
+            "title": "Isekai kara Elf-san ga Ochite Kita no desu ga!?"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01K8B44DAQHT5MRV1P1AQC40F9.jpg",
+            "id": "01K8B44DAQHT5MRV1P1AQC40F9",
+            "title": "Henkyou no Ofuroya-san, Harem ni Naru: Yamaoku ni Aru Sabireta Onsen no Kounou ga Cheat Sugite Onna Boukensha ni Daininki na Ken"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYBV8VCD64YA5EA5N013X.jpg",
+            "id": "01J76XYBV8VCD64YA5EA5N013X",
+            "title": "Tokusatsu Gagaga"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01KMQN1VQJ95FGBSQMS2CGME9Z.jpg",
+            "id": "01KMQN1VQJ95FGBSQMS2CGME9Z",
+            "title": "Hajimete no Sefure"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01JYPBB0Z73ANX6TFHWE283281.jpg",
+            "id": "01JYPBB0Z73ANX6TFHWE283281",
+            "title": "Dungeon no Aru Sekai de Kashikoku Sukoyaka ni Ikiru Houhou"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYGC29NQ1GWSS8SXCH0A4.jpg",
+            "id": "01J76XYGC29NQ1GWSS8SXCH0A4",
+            "title": "Maria no Danzai"
+          }
+        ]
+      },
+      "op": "latest",
+      "page": 1
+    },
+    {
+      "expect": {
+        "has_next": false,
+        "items": [
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYCPSY3C4BNPBRY8JMCBE.jpg",
+            "id": "01J76XYCPSY3C4BNPBRY8JMCBE",
+            "title": "Solo Leveling"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYDTCXD7A261S24T30TZE.jpg",
+            "id": "01J76XYDTCXD7A261S24T30TZE",
+            "title": "Solo Glitch Player"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYE8QW7NPM81QQWDDYR16.jpg",
+            "id": "01J76XYE8QW7NPM81QQWDDYR16",
+            "title": "Solo Camping for Two"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYEEFWZ9CW1JDREVAAWEA.jpg",
+            "id": "01J76XYEEFWZ9CW1JDREVAAWEA",
+            "title": "Solo Shinkan no VRMMO Boukenki"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYEGDCR38SA3Y17MQA1C7.jpg",
+            "id": "01J76XYEGDCR38SA3Y17MQA1C7",
+            "title": "I Log In Alone"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYEGEY5FWS0BD2838G7K7.jpg",
+            "id": "01J76XYEGEY5FWS0BD2838G7K7",
+            "title": "The Lone Spellcaster"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYEJVJ5H6AXPYWS4G0CFV.jpg",
+            "id": "01J76XYEJVJ5H6AXPYWS4G0CFV",
+            "title": "Solo Leveling (Volume)"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYEN0KTAB8VW8D5RABJ1B.jpg",
+            "id": "01J76XYEN0KTAB8VW8D5RABJ1B",
+            "title": "Soloist in A Cage"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYETVHDJ922M3RQ7TZPD2.jpg",
+            "id": "01J76XYETVHDJ922M3RQ7TZPD2",
+            "title": "My Solo Exchange Diary"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYEZYBE7Y3MEY7AEQ8MQN.jpg",
+            "id": "01J76XYEZYBE7Y3MEY7AEQ8MQN",
+            "title": "I'm the Max-Level Newbie"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYF7A7W131X37XKCGKWZ7.jpg",
+            "id": "01J76XYF7A7W131X37XKCGKWZ7",
+            "title": "The Lone Necromancer"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYG7C6AE3R2JEH096GMQJ.jpg",
+            "id": "01J76XYG7C6AE3R2JEH096GMQJ",
+            "title": "I May Be a Guild Receptionist, but I’ll Solo Any Boss to Clock Out on Time"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01J76XYHERFDX1V9X4A032QT6B.jpg",
+            "id": "01J76XYHERFDX1V9X4A032QT6B",
+            "title": "Solo Leveling: Ragnarok"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01JPADSCBPNWTCZEVQ60DEWDQ8.jpg",
+            "id": "01JPADSCBPNWTCZEVQ60DEWDQ8",
+            "title": "The Top Dungeon Farmer"
+          },
+          {
+            "cover": "https://temp.compsci88.com/cover/fallback/01JVSDREXQTRHVHM6YC681EW98.jpg",
+            "id": "01JVSDREXQTRHVHM6YC681EW98",
+            "title": "Emperor of Solo Play"
+          }
+        ]
+      },
+      "op": "search",
+      "term": "solo"
+    },
+    {
+      "expect": {
+        "authors": [
+          "GEE So-Lyung",
+          "JANG Sung-Lak",
+          "Redice Studio"
+        ],
+        "cover": "https://temp.compsci88.com/cover/fallback/01J76XYCPSY3C4BNPBRY8JMCBE.jpg",
+        "description": "E-class hunter Jinwoo Sung is the weakest of them all. Looked down on by everyone, he has no money, no abilities to speak of, and no other job prospects. So when his party finds a hidden dungeon, he's determined to use this chance to change his life for the better...but the opportunity he finds is a bit different from what he had in mind...",
+        "status": "completed",
+        "tags": [
+          "Action",
+          "Adventure",
+          "Fantasy",
+          "Shounen"
+        ],
+        "title": "Solo Leveling"
+      },
+      "id": "01J76XYCPSY3C4BNPBRY8JMCBE",
+      "op": "details"
+    },
+    {
+      "expect": [
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ666GREP4DQDKEP1YDZG",
+          "number": 200.0,
+          "scanlator": null,
+          "title": "Chapter 200"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ6614Z72ZP8CDK0PV0V3",
+          "number": 199.0,
+          "scanlator": null,
+          "title": "Chapter 199"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ6554SDX5X887FKNVDVB",
+          "number": 198.0,
+          "scanlator": null,
+          "title": "Chapter 198"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ64PB7ET38ZPGYWDCG16",
+          "number": 197.0,
+          "scanlator": null,
+          "title": "Chapter 197"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ642R6JMDTK3FDSC2FW7",
+          "number": 196.0,
+          "scanlator": null,
+          "title": "Chapter 196"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ63SCM4T88S89CE00PN8",
+          "number": 195.0,
+          "scanlator": null,
+          "title": "Chapter 195"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ63M6HN108S4XX7MR1VF",
+          "number": 194.0,
+          "scanlator": null,
+          "title": "Chapter 194"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ63A5TYSYZFPPZV4NHNQ",
+          "number": 193.0,
+          "scanlator": null,
+          "title": "Chapter 193"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ628CV68HGAZMZVZHR3W",
+          "number": 192.0,
+          "scanlator": null,
+          "title": "Chapter 192"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ61P3AMX91HMJ4MHMZDX",
+          "number": 191.0,
+          "scanlator": null,
+          "title": "Chapter 191"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ5S37P0M2XTHGBV4Q6GD",
+          "number": 190.0,
+          "scanlator": null,
+          "title": "Chapter 190"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ5S0GZADYDHP6CEG1M9C",
+          "number": 189.0,
+          "scanlator": null,
+          "title": "Chapter 189"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ5RVT2PRHX4AWB6BCMH3",
+          "number": 188.0,
+          "scanlator": null,
+          "title": "Chapter 188"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ5RE2NS150JW7D7DWY8M",
+          "number": 187.0,
+          "scanlator": null,
+          "title": "Chapter 187"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ5R5AM3DC986BTSGC4QW",
+          "number": 186.0,
+          "scanlator": null,
+          "title": "Chapter 186"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ5R2XBJ338B4CKYTMZMA",
+          "number": 185.0,
+          "scanlator": null,
+          "title": "Chapter 185"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ5QR785CRPJAJBZPQWT7",
+          "number": 184.0,
+          "scanlator": null,
+          "title": "Chapter 184"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ5PWGWWY12TE6WC796RD",
+          "number": 183.0,
+          "scanlator": null,
+          "title": "Chapter 183"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ5PH94GFHG8CMPEYAN8T",
+          "number": 182.0,
+          "scanlator": null,
+          "title": "Chapter 182"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ5PC763B543TMSZC7QQ1",
+          "number": 181.0,
+          "scanlator": null,
+          "title": "Chapter 181"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ5PC24JJ35HEK20C8CMB",
+          "number": 180.0,
+          "scanlator": null,
+          "title": "Chapter 180"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3WRQ6TE4W612633AC6E",
+          "number": 179.0,
+          "scanlator": null,
+          "title": "Chapter 179"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3WF025M07NF0Q3VXG23",
+          "number": 178.0,
+          "scanlator": null,
+          "title": "Chapter 178"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3WC2YWAED2XZCWF1NZH",
+          "number": 177.0,
+          "scanlator": null,
+          "title": "Chapter 177"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3W2H0FVTN0N4YX0MZVP",
+          "number": 176.0,
+          "scanlator": null,
+          "title": "Chapter 176"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3VJ2ER97H7N7J5SV92V",
+          "number": 175.0,
+          "scanlator": null,
+          "title": "Chapter 175"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3JZ22Y8PXYDZWQK2Y3K",
+          "number": 174.0,
+          "scanlator": null,
+          "title": "Chapter 174"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3JR2YQZV0VMGDBHEPX7",
+          "number": 173.0,
+          "scanlator": null,
+          "title": "Chapter 173"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3JKMYFNBVDSED16H1K9",
+          "number": 172.0,
+          "scanlator": null,
+          "title": "Chapter 172"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3JAS9NY0RHCS51HGYJ0",
+          "number": 171.0,
+          "scanlator": null,
+          "title": "Chapter 171"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3J1Z08G2HH24MNSRG5W",
+          "number": 170.0,
+          "scanlator": null,
+          "title": "Chapter 170"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3HFDDCYKFNT3KYHHCEZ",
+          "number": 169.0,
+          "scanlator": null,
+          "title": "Chapter 169"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3H1YEQCWVGETWQZ3E0X",
+          "number": 168.0,
+          "scanlator": null,
+          "title": "Chapter 168"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3GMMH928A3HG7ACV9YJ",
+          "number": 167.0,
+          "scanlator": null,
+          "title": "Chapter 167"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3GDS05MKWWQZ19SPHAJ",
+          "number": 166.0,
+          "scanlator": null,
+          "title": "Chapter 166"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ3G0RDHPJ1GRY8QRF0KB",
+          "number": 165.0,
+          "scanlator": null,
+          "title": "Chapter 165"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ36HV34T9QP5YW4QAFPK",
+          "number": 164.0,
+          "scanlator": null,
+          "title": "Chapter 164"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ36CA8NXQM07P4B5T4ZX",
+          "number": 163.0,
+          "scanlator": null,
+          "title": "Chapter 163"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ367JDCTEX37A6KYFQTR",
+          "number": 162.0,
+          "scanlator": null,
+          "title": "Chapter 162"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ36482K15PY6JT3Z6TYV",
+          "number": 161.0,
+          "scanlator": null,
+          "title": "Chapter 161"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ35ZAMMY8DW3K5D0GQ11",
+          "number": 160.0,
+          "scanlator": null,
+          "title": "Chapter 160"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ35M2GFB23B5ABCQMDBC",
+          "number": 159.0,
+          "scanlator": null,
+          "title": "Chapter 159"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ35BMWTCNXVHV4JGCRDX",
+          "number": 158.0,
+          "scanlator": null,
+          "title": "Chapter 158"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ34X1EP3ZGDS6KK6NAYK",
+          "number": 157.0,
+          "scanlator": null,
+          "title": "Chapter 157"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ34AYD0AWBNQM0DYCRME",
+          "number": 156.0,
+          "scanlator": null,
+          "title": "Chapter 156"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ2V9MSPDZVR7TYJC5192",
+          "number": 155.0,
+          "scanlator": null,
+          "title": "Chapter 155"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ2V14KZP5VTW84S2P6ZW",
+          "number": 154.0,
+          "scanlator": null,
+          "title": "Chapter 154"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ2TRCHYYQ0YXJ5RKDXMK",
+          "number": 153.0,
+          "scanlator": null,
+          "title": "Chapter 153"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ2TFFV50292YCXD3D0T2",
+          "number": 152.0,
+          "scanlator": null,
+          "title": "Chapter 152"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ2T6EJ608XATGAG3HGCK",
+          "number": 151.0,
+          "scanlator": null,
+          "title": "Chapter 151"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ2T10C0XE5SSWWD4XK6C",
+          "number": 150.0,
+          "scanlator": null,
+          "title": "Chapter 150"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ2G5HF1PQACZY3NAD0EG",
+          "number": 149.0,
+          "scanlator": null,
+          "title": "Chapter 149"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ2FRC00ERNXDSHF744XC",
+          "number": 148.0,
+          "scanlator": null,
+          "title": "Chapter 148"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ2DR6X4BDH2GQ23XVJ5J",
+          "number": 147.0,
+          "scanlator": null,
+          "title": "Chapter 147"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ247T9BM4JJ8A5BNDE68",
+          "number": 146.0,
+          "scanlator": null,
+          "title": "Chapter 146"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ23YKV90043HQ5V567WJ",
+          "number": 145.0,
+          "scanlator": null,
+          "title": "Chapter 145"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ238VJQ3G1TA91MTFKHG",
+          "number": 144.0,
+          "scanlator": null,
+          "title": "Chapter 144"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ22WEEB70ZSNEWBBFA0P",
+          "number": 143.0,
+          "scanlator": null,
+          "title": "Chapter 143"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ22P5VACBT1MDJRGBD13",
+          "number": 142.0,
+          "scanlator": null,
+          "title": "Chapter 142"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ22EJJTX6NJY0QZKKW7X",
+          "number": 141.0,
+          "scanlator": null,
+          "title": "Chapter 141"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ220Q24TZ94499GTER3Z",
+          "number": 140.0,
+          "scanlator": null,
+          "title": "Chapter 140"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ21WMC60Z8Z49GCTXRBC",
+          "number": 139.0,
+          "scanlator": null,
+          "title": "Chapter 139"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ21QTYYWW5BQ5YFNBX3F",
+          "number": 138.0,
+          "scanlator": null,
+          "title": "Chapter 138"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1RSHRA00NQB3YPAQRRE",
+          "number": 137.0,
+          "scanlator": null,
+          "title": "Chapter 137"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1RJMQ0NF1RBF7NMKKA7",
+          "number": 136.0,
+          "scanlator": null,
+          "title": "Chapter 136"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1R5M8785XZP8BHZHTMW",
+          "number": 135.0,
+          "scanlator": null,
+          "title": "Chapter 135"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1QXFK8GR32S7SY93JFM",
+          "number": 134.0,
+          "scanlator": null,
+          "title": "Chapter 134"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1QGA3AXGREEZQ418SP7",
+          "number": 133.0,
+          "scanlator": null,
+          "title": "Chapter 133"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1QC58M625FD723BSAV5",
+          "number": 132.0,
+          "scanlator": null,
+          "title": "Chapter 132"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1PZJSTAE4YNHD5CBVX9",
+          "number": 131.0,
+          "scanlator": null,
+          "title": "Chapter 131"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1PTGKCBKCT5TGXNBPAZ",
+          "number": 130.0,
+          "scanlator": null,
+          "title": "Chapter 130"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1PRWV1SAHGHE16F1V82",
+          "number": 129.0,
+          "scanlator": null,
+          "title": "Chapter 129"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1PM0D0WN6YHD6P7RHJW",
+          "number": 128.0,
+          "scanlator": null,
+          "title": "Chapter 128"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1P7Q7R6H1K7CQKCF3KD",
+          "number": 127.0,
+          "scanlator": null,
+          "title": "Chapter 127"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1NSPECH8BMFH0E1ERS7",
+          "number": 126.0,
+          "scanlator": null,
+          "title": "Chapter 126"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1CK5JCAQRZCV0DS1KEQ",
+          "number": 125.0,
+          "scanlator": null,
+          "title": "Chapter 125"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1CBZD1F5NXBTDC7QDQR",
+          "number": 124.0,
+          "scanlator": null,
+          "title": "Chapter 124"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1C33KW283S2XXSZTFPW",
+          "number": 123.0,
+          "scanlator": null,
+          "title": "Chapter 123"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1BTQMAVC1KQ2CMWW7T2",
+          "number": 122.0,
+          "scanlator": null,
+          "title": "Chapter 122"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1BNN54SNFGDGZRY3M32",
+          "number": 121.0,
+          "scanlator": null,
+          "title": "Chapter 121"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1BF1B739PMXJYM2HNMZ",
+          "number": 120.0,
+          "scanlator": null,
+          "title": "Chapter 120"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1B81FAKF5ATV0BDYPRH",
+          "number": 119.0,
+          "scanlator": null,
+          "title": "Chapter 119"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1B78V3NPKT9CMYK7BYZ",
+          "number": 118.0,
+          "scanlator": null,
+          "title": "Chapter 118"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1AS1HGE2CJ7QZDYN891",
+          "number": 117.0,
+          "scanlator": null,
+          "title": "Chapter 117"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1AJ41BX6PZK6ZSQQPEC",
+          "number": 116.0,
+          "scanlator": null,
+          "title": "Chapter 116"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1AA2WMFSXSHS4EKSZ4C",
+          "number": 115.0,
+          "scanlator": null,
+          "title": "Chapter 115"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ11CG9T870DQWAX84NAK",
+          "number": 114.0,
+          "scanlator": null,
+          "title": "Chapter 114"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ1121WYDGH7HAGWMQWFN",
+          "number": 113.0,
+          "scanlator": null,
+          "title": "Chapter 113"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ10VXNAQP16EYWS02W67",
+          "number": 112.0,
+          "scanlator": null,
+          "title": "Chapter 112"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ10VE0P7RPFZZ4QQKHPJ",
+          "number": 111.0,
+          "scanlator": null,
+          "title": "Chapter 111"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ0M6ENX2WMVBBAV1CGEF",
+          "number": 110.0,
+          "scanlator": null,
+          "title": "Chapter 110"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ0M1BTW3VD9VWJD0QBV5",
+          "number": 109.0,
+          "scanlator": null,
+          "title": "Chapter 109"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ0KYBST2HDKQ7S56JJQ3",
+          "number": 108.0,
+          "scanlator": null,
+          "title": "Chapter 108"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ0KS70XHKV6PM76TVS1Q",
+          "number": 107.0,
+          "scanlator": null,
+          "title": "Chapter 107"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ0KNJE6NRFW06A09QK3B",
+          "number": 106.0,
+          "scanlator": null,
+          "title": "Chapter 106"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ0KFDMA3S9D9THD26Y4V",
+          "number": 105.0,
+          "scanlator": null,
+          "title": "Chapter 105"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ0KCB4NRXF3VMRZWQJ69",
+          "number": 104.0,
+          "scanlator": null,
+          "title": "Chapter 104"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ0K4SFQE45THBAMW48QD",
+          "number": 103.0,
+          "scanlator": null,
+          "title": "Chapter 103"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XZ079N4TVEX3RHD9NZKX6",
+          "number": 102.0,
+          "scanlator": null,
+          "title": "Chapter 102"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZYVCPJ7K0KVCQVBS4BS",
+          "number": 101.0,
+          "scanlator": null,
+          "title": "Chapter 101"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZYJ3PEEVKJAYRNR58EP",
+          "number": 100.0,
+          "scanlator": null,
+          "title": "Chapter 100"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZXWE56MX9THN8Y4K3AR",
+          "number": 99.0,
+          "scanlator": null,
+          "title": "Chapter 99"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZXT4TYRW0ZNDA2DYK6X",
+          "number": 98.0,
+          "scanlator": null,
+          "title": "Chapter 98"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZX7BQM72W53Y8S52ADM",
+          "number": 97.0,
+          "scanlator": null,
+          "title": "Chapter 97"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZKFY452G15RV0KA06ZM",
+          "number": 96.0,
+          "scanlator": null,
+          "title": "Chapter 96"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZKA3C41EQB06J3MM41F",
+          "number": 95.0,
+          "scanlator": null,
+          "title": "Chapter 95"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZJY9D8JJKVVSFK2Y3Y5",
+          "number": 94.0,
+          "scanlator": null,
+          "title": "Chapter 94"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZJVGXRX25VFSPXFF41F",
+          "number": 93.0,
+          "scanlator": null,
+          "title": "Chapter 93"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZJS3YQ7891QEKSMWKYG",
+          "number": 92.0,
+          "scanlator": null,
+          "title": "Chapter 92"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZJRRH0R5H3ZMACC8959",
+          "number": 91.0,
+          "scanlator": null,
+          "title": "Chapter 91"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZJJ4YBF5TR3C6EM5EA3",
+          "number": 90.0,
+          "scanlator": null,
+          "title": "Chapter 90"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZJE2AZZKZYFFWCKT8J1",
+          "number": 89.0,
+          "scanlator": null,
+          "title": "Chapter 89"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZJ0XD31H35MXAPX0B0F",
+          "number": 88.0,
+          "scanlator": null,
+          "title": "Chapter 88"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZHJ4EHD5TMBTE7XS43A",
+          "number": 87.0,
+          "scanlator": null,
+          "title": "Chapter 87"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZGPBMCRXGX5CMKM6G63",
+          "number": 86.0,
+          "scanlator": null,
+          "title": "Chapter 86"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZG7JXYASJ1N2S4KAA8C",
+          "number": 85.0,
+          "scanlator": null,
+          "title": "Chapter 85"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZFHXBBXMPFKQ9AWXSW9",
+          "number": 84.0,
+          "scanlator": null,
+          "title": "Chapter 84"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZFBPY6NDCAJQVSDMEB9",
+          "number": 83.0,
+          "scanlator": null,
+          "title": "Chapter 83"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZERSDXNMYXSX5AVGB6P",
+          "number": 82.0,
+          "scanlator": null,
+          "title": "Chapter 82"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZDZ49P95X29VD7ZMJNM",
+          "number": 81.0,
+          "scanlator": null,
+          "title": "Chapter 81"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ48SXQDQXM8FSBY0Z5A",
+          "number": 80.0,
+          "scanlator": null,
+          "title": "Chapter 80"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ463B04NKPN6MGZK94V",
+          "number": 79.0,
+          "scanlator": null,
+          "title": "Chapter 79"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ438PYWX5D9RBQ45EZP",
+          "number": 78.0,
+          "scanlator": null,
+          "title": "Chapter 78"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ3ZW3JWYGWHB6ZTYKZ2",
+          "number": 77.0,
+          "scanlator": null,
+          "title": "Chapter 77"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ3WZSVPSP0Q1233SWHZ",
+          "number": 76.0,
+          "scanlator": null,
+          "title": "Chapter 76"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ3T5GP6Y0QHG5FZ90YE",
+          "number": 75.0,
+          "scanlator": null,
+          "title": "Chapter 75"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ3SPTDCVEY1B4PMFVRB",
+          "number": 74.0,
+          "scanlator": null,
+          "title": "Chapter 74"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ3NNMKD0WFWFXEVBZX6",
+          "number": 73.0,
+          "scanlator": null,
+          "title": "Chapter 73"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ3GPX4CGNFTSXN0J181",
+          "number": 72.0,
+          "scanlator": null,
+          "title": "Chapter 72"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ3EV58ZJRREW39474DD",
+          "number": 71.0,
+          "scanlator": null,
+          "title": "Chapter 71"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ3C5RE3P89A0657ZJRQ",
+          "number": 70.0,
+          "scanlator": null,
+          "title": "Chapter 70"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ3BWW8PQXM658C99432",
+          "number": 69.0,
+          "scanlator": null,
+          "title": "Chapter 69"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ38KE6NQE221FE3NJD1",
+          "number": 68.0,
+          "scanlator": null,
+          "title": "Chapter 68"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ2XRQDV2EGPG6JSZPQE",
+          "number": 67.0,
+          "scanlator": null,
+          "title": "Chapter 67"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ1V5S42HHRFSX6QV2A7",
+          "number": 66.0,
+          "scanlator": null,
+          "title": "Chapter 66"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYZ13G287PT8KZ1V1VZAR",
+          "number": 65.0,
+          "scanlator": null,
+          "title": "Chapter 65"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYYSWH0GDNN3RTGFM776V",
+          "number": 64.0,
+          "scanlator": null,
+          "title": "Chapter 64"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYYR6RBF2BK9DPAGH4HC2",
+          "number": 63.0,
+          "scanlator": null,
+          "title": "Chapter 63"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY65TZBZTWBDQWA7EW08",
+          "number": 62.0,
+          "scanlator": null,
+          "title": "Chapter 62"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY62YBCRGR15DQ5BX2E2",
+          "number": 61.0,
+          "scanlator": null,
+          "title": "Chapter 61"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY60EAP8PRHSSBH4PXKE",
+          "number": 60.0,
+          "scanlator": null,
+          "title": "Chapter 60"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY5XJ8ZJSG7F7XHR45S1",
+          "number": 59.0,
+          "scanlator": null,
+          "title": "Chapter 59"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY5VVAQ9031RV344KA56",
+          "number": 58.0,
+          "scanlator": null,
+          "title": "Chapter 58"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY5SJSTG03X3ZY9WA19C",
+          "number": 57.0,
+          "scanlator": null,
+          "title": "Chapter 57"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY5R9T0472R9Z0T2E7Y7",
+          "number": 56.0,
+          "scanlator": null,
+          "title": "Chapter 56"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY5PEEV2BENNH5JBZ0BB",
+          "number": 55.0,
+          "scanlator": null,
+          "title": "Chapter 55"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY5NKXAFH9420HS2RDW2",
+          "number": 54.0,
+          "scanlator": null,
+          "title": "Chapter 54"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY5KKY0AQVN316XCGVNZ",
+          "number": 53.0,
+          "scanlator": null,
+          "title": "Chapter 53"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY5GEQSDQ86XR7B5NDK7",
+          "number": 52.0,
+          "scanlator": null,
+          "title": "Chapter 52"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY5EYFPQPBYGPS4M0XWG",
+          "number": 51.0,
+          "scanlator": null,
+          "title": "Chapter 51"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYY5CQTHH1NZTJC6AANJ0",
+          "number": 50.0,
+          "scanlator": null,
+          "title": "Chapter 50"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXZ1S2TKVD1M5FS8CFXG",
+          "number": 49.0,
+          "scanlator": null,
+          "title": "Chapter 49"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXZ1EYX8NXQMS5NWMDD0",
+          "number": 48.0,
+          "scanlator": null,
+          "title": "Chapter 48"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXZ1DD1JSPTQPX2NQRF8",
+          "number": 47.0,
+          "scanlator": null,
+          "title": "Chapter 47"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXZ1Q4F6AMZ1FB79SA24",
+          "number": 46.0,
+          "scanlator": null,
+          "title": "Chapter 46"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXZ1P0XE2TR11C37RRST",
+          "number": 45.0,
+          "scanlator": null,
+          "title": "Chapter 45"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXZ0K2PERWD0FNV4PKR4",
+          "number": 44.0,
+          "scanlator": null,
+          "title": "Chapter 44"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXZ0Z0ZNV7NPHA74BGHP",
+          "number": 43.0,
+          "scanlator": null,
+          "title": "Chapter 43"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXZ0GEK3ED58RRAS1VPJ",
+          "number": 42.0,
+          "scanlator": null,
+          "title": "Chapter 42"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXZ0Z0DE45KZBGEYE0A3",
+          "number": 41.0,
+          "scanlator": null,
+          "title": "Chapter 41"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXZ0HPY1M1G1GHTSTFTE",
+          "number": 40.0,
+          "scanlator": null,
+          "title": "Chapter 40"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXZ0NHCVPZ5E7MFPDT6K",
+          "number": 39.0,
+          "scanlator": null,
+          "title": "Chapter 39"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXZ0G30NZ90VYKH9G6DT",
+          "number": 38.0,
+          "scanlator": null,
+          "title": "Chapter 38"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZNXHXGGHTYSF3VANK",
+          "number": 37.0,
+          "scanlator": null,
+          "title": "Chapter 37"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZV7JXFD13AHVG0QK6",
+          "number": 36.0,
+          "scanlator": null,
+          "title": "Chapter 36"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZN8KMQ1KCGJXTS2N8",
+          "number": 35.0,
+          "scanlator": null,
+          "title": "Chapter 35"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZC6SJG6XC5XAFBCTZ",
+          "number": 34.0,
+          "scanlator": null,
+          "title": "Chapter 34"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZJ5NT42JPRR9W3TTE",
+          "number": 33.0,
+          "scanlator": null,
+          "title": "Chapter 33"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZVPWE7BK0VDXRMM6M",
+          "number": 32.0,
+          "scanlator": null,
+          "title": "Chapter 32"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZB3WRQ7XSNYAJ1YS1",
+          "number": 31.0,
+          "scanlator": null,
+          "title": "Chapter 31"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZD58149C4Z1XZKYFP",
+          "number": 30.0,
+          "scanlator": null,
+          "title": "Chapter 30"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZ8CHRJSQXCW5GHQW3",
+          "number": 29.0,
+          "scanlator": null,
+          "title": "Chapter 29"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZA4T71AJQ5WEXGP83",
+          "number": 28.0,
+          "scanlator": null,
+          "title": "Chapter 28"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZ60N4X0S5YHMN5FFR",
+          "number": 27.0,
+          "scanlator": null,
+          "title": "Chapter 27"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZTM8ER42NQAK1EZ6N",
+          "number": 26.0,
+          "scanlator": null,
+          "title": "Chapter 26"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZHDFYZZ287JTZAT65",
+          "number": 25.0,
+          "scanlator": null,
+          "title": "Chapter 25"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZWDE8TVH5D9YPA49D",
+          "number": 24.0,
+          "scanlator": null,
+          "title": "Chapter 24"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZMF7MTQ5RKCXBE6CV",
+          "number": 23.0,
+          "scanlator": null,
+          "title": "Chapter 23"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZXZT2Z3WGXG5A4ZVT",
+          "number": 22.0,
+          "scanlator": null,
+          "title": "Chapter 22"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZE2QKRN9GV132PJZA",
+          "number": 21.0,
+          "scanlator": null,
+          "title": "Chapter 21"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZ18FYXAZBKEH8Q7HS",
+          "number": 20.0,
+          "scanlator": null,
+          "title": "Chapter 20"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZVZ7V155TQ8JG7EST",
+          "number": 19.0,
+          "scanlator": null,
+          "title": "Chapter 19"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZPGKNEZ939R21V7E9",
+          "number": 18.0,
+          "scanlator": null,
+          "title": "Chapter 18"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZACJYWP7XH3EM61V5",
+          "number": 17.0,
+          "scanlator": null,
+          "title": "Chapter 17"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZAH2WQKBAKCHJYVBF",
+          "number": 16.0,
+          "scanlator": null,
+          "title": "Chapter 16"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZHR5Z8JMTP27BE4TC",
+          "number": 15.0,
+          "scanlator": null,
+          "title": "Chapter 15"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZJYFJ35NH7A4ZVE0P",
+          "number": 14.0,
+          "scanlator": null,
+          "title": "Chapter 14"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZGZ6756QS3P78T736",
+          "number": 13.0,
+          "scanlator": null,
+          "title": "Chapter 13"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZQR7769887H1JZTPW",
+          "number": 12.0,
+          "scanlator": null,
+          "title": "Chapter 12"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZ7XGQ1HJHQ81FBMFE",
+          "number": 11.0,
+          "scanlator": null,
+          "title": "Chapter 11"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZHJJ7PA4NEVKPZX5R",
+          "number": 10.0,
+          "scanlator": null,
+          "title": "Chapter 10"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZCWW1PG2KW4Z3VAQE",
+          "number": 9.0,
+          "scanlator": null,
+          "title": "Chapter 9"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZ5ASTKFFMBNBVXGR4",
+          "number": 8.0,
+          "scanlator": null,
+          "title": "Chapter 8"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZC4SKP7Q1MDR69PYB",
+          "number": 7.0,
+          "scanlator": null,
+          "title": "Chapter 7"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZ72DW7WTB23M767JG",
+          "number": 6.0,
+          "scanlator": null,
+          "title": "Chapter 6"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZNJGSZR5EJS3NX03P",
+          "number": 5.0,
+          "scanlator": null,
+          "title": "Chapter 5"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZYBKKE2WYNNBG2634",
+          "number": 4.0,
+          "scanlator": null,
+          "title": "Chapter 4"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZDYK0DMAHD9DHK62X",
+          "number": 3.0,
+          "scanlator": null,
+          "title": "Chapter 3"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZ7KCP3A5WEC0JNTQ2",
+          "number": 2.0,
+          "scanlator": null,
+          "title": "Chapter 2"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZHAP5EMZ62S0G3WGA",
+          "number": 1.0,
+          "scanlator": null,
+          "title": "Chapter 1"
+        },
+        {
+          "date_ms": 1725728655000,
+          "id": "01J76XYXYZGGRVGEGATYQWFTD8",
+          "number": 0.0,
+          "scanlator": null,
+          "title": "Chapter 0"
+        }
+      ],
+      "id": "01J76XYCPSY3C4BNPBRY8JMCBE",
+      "op": "chapters"
+    },
+    {
+      "expect": {
+        "headers": {
+          "referer": "https://weebcentral.com/"
+        },
+        "images": [
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-001.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-002.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-003.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-004.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-005.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-006.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-007.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-008.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-009.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-010.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-011.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-012.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-013.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-014.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-015.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-016.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-017.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-018.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-019.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-020.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-021.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-022.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-023.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-024.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-025.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-026.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-027.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-028.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-029.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-030.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-031.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-032.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-033.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-034.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-035.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-036.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-037.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-038.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-039.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-040.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-041.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-042.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-043.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-044.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-045.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-046.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-047.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-048.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0200-049.png"
+        ],
+        "reading": "paged_rtl"
+      },
+      "id": "01J76XZ666GREP4DQDKEP1YDZG",
+      "op": "pages",
+      "series": "01J76XYCPSY3C4BNPBRY8JMCBE"
+    },
+    {
+      "expect": {
+        "headers": {
+          "referer": "https://weebcentral.com/"
+        },
+        "images": [
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-001.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-002.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-003.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-004.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-005.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-006.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-007.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-008.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-009.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-010.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-011.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-012.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-013.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-014.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-015.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-016.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-017.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-018.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-019.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-020.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-021.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-022.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-023.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-024.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-025.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-026.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-027.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-028.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-029.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-030.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-031.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-032.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-033.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-034.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-035.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-036.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-037.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-038.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-039.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-040.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-041.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-042.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-043.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-044.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-045.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-046.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-047.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-048.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-049.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-050.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0190-051.png"
+        ],
+        "reading": "paged_rtl"
+      },
+      "id": "01J76XZ5S37P0M2XTHGBV4Q6GD",
+      "op": "pages",
+      "series": "01J76XYCPSY3C4BNPBRY8JMCBE"
+    },
+    {
+      "expect": {
+        "headers": {
+          "referer": "https://weebcentral.com/"
+        },
+        "images": [
+          "https://hot.planeptune.us/manga/Solo-Leveling/0000-001.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0000-002.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0000-003.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0000-004.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0000-005.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0000-006.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0000-007.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0000-008.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0000-009.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0000-010.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0000-011.png",
+          "https://hot.planeptune.us/manga/Solo-Leveling/0000-012.png"
+        ],
+        "reading": "paged_rtl"
+      },
+      "id": "01J76XYXYZGGRVGEGATYQWFTD8",
+      "op": "pages",
+      "series": "01J76XYCPSY3C4BNPBRY8JMCBE"
+    }
+  ],
+  "now_ms": 1795879551402,
+  "responses": {
+    "GET https://weebcentral.com/chapters/01J76XYXYZGGRVGEGATYQWFTD8/images?reading_style=long_strip&current_page=1": "r8.html",
+    "GET https://weebcentral.com/chapters/01J76XZ5S37P0M2XTHGBV4Q6GD/images?reading_style=long_strip&current_page=1": "r7.html",
+    "GET https://weebcentral.com/chapters/01J76XZ666GREP4DQDKEP1YDZG/images?reading_style=long_strip&current_page=1": "r6.html",
+    "GET https://weebcentral.com/search/data?limit=32&offset=0&display_mode=Full%20Display&sort=Best%20Match&order=Descending&official=Any&anime=Any&adult=Any&text=solo": "r3.html",
+    "GET https://weebcentral.com/search/data?limit=32&offset=0&display_mode=Full%20Display&sort=Latest%20Updates&order=Descending&official=Any&anime=Any&adult=Any": "r2.html",
+    "GET https://weebcentral.com/search/data?limit=32&offset=0&display_mode=Full%20Display&sort=Popularity&order=Descending&official=Any&anime=Any&adult=Any": "r1.html",
+    "GET https://weebcentral.com/series/01J76XYCPSY3C4BNPBRY8JMCBE": "r4.html",
+    "GET https://weebcentral.com/series/01J76XYCPSY3C4BNPBRY8JMCBE/full-chapter-list": "r5.html"
+  }
+}

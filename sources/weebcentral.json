@@ -1,0 +1,383 @@
+{
+  "schema": 1,
+  "id": "weebcentral",
+  "name": "Weeb Central",
+  "version": 1,
+  "lang": [
+    "en"
+  ],
+  "nsfw": false,
+  "base_url": "https://weebcentral.com",
+  "rate_per_second": 1,
+  "page_size": 32,
+  "popular": {
+    "request": {
+      "url": "{base}/search/data?limit=32&offset={offset}&display_mode=Full%20Display&sort=Popularity&order=Descending&official=Any&anime=Any&adult=Any"
+    },
+    "rows": "article.bg-base-300",
+    "card": {
+      "id": [
+        {
+          "css": "a[href*='/series/']"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/series/([^/]+)/[^/]+$"
+        }
+      ],
+      "title": "a.line-clamp-1",
+      "cover": [
+        {
+          "css": "img"
+        },
+        {
+          "attr": "src"
+        },
+        "first"
+      ]
+    },
+    "next": "button[hx-get*='offset=']"
+  },
+  "latest": {
+    "request": {
+      "url": "{base}/search/data?limit=32&offset={offset}&display_mode=Full%20Display&sort=Latest%20Updates&order=Descending&official=Any&anime=Any&adult=Any"
+    },
+    "rows": "article.bg-base-300",
+    "card": {
+      "id": [
+        {
+          "css": "a[href*='/series/']"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/series/([^/]+)/[^/]+$"
+        }
+      ],
+      "title": "a.line-clamp-1",
+      "cover": [
+        {
+          "css": "img"
+        },
+        {
+          "attr": "src"
+        },
+        "first"
+      ]
+    },
+    "next": "button[hx-get*='offset=']"
+  },
+  "search": {
+    "request": {
+      "url": "{base}/search/data?limit=32&offset={offset}&display_mode=Full%20Display&sort=Best%20Match&order=Descending&official=Any&anime=Any&adult=Any{?&text={term}?}{?&author={author}?}{?&included_tag={genre}?}{?&included_type={type}?}{?&included_status={status}?}"
+    },
+    "rows": "article.bg-base-300",
+    "card": {
+      "id": [
+        {
+          "css": "a[href*='/series/']"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/series/([^/]+)/[^/]+$"
+        }
+      ],
+      "title": "a.line-clamp-1",
+      "cover": [
+        {
+          "css": "img"
+        },
+        {
+          "attr": "src"
+        },
+        "first"
+      ]
+    },
+    "next": "button[hx-get*='offset=']"
+  },
+  "filters": [
+    {
+      "id": "author",
+      "name": "Author",
+      "kind": "text"
+    },
+    {
+      "id": "genre",
+      "name": "Genre",
+      "kind": "select",
+      "options": [
+        {
+          "value": "Action",
+          "name": "Action"
+        },
+        {
+          "value": "Adult",
+          "name": "Adult"
+        },
+        {
+          "value": "Adventure",
+          "name": "Adventure"
+        },
+        {
+          "value": "Comedy",
+          "name": "Comedy"
+        },
+        {
+          "value": "Doujinshi",
+          "name": "Doujinshi"
+        },
+        {
+          "value": "Drama",
+          "name": "Drama"
+        },
+        {
+          "value": "Ecchi",
+          "name": "Ecchi"
+        },
+        {
+          "value": "Fantasy",
+          "name": "Fantasy"
+        },
+        {
+          "value": "Gender Bender",
+          "name": "Gender Bender"
+        },
+        {
+          "value": "Harem",
+          "name": "Harem"
+        },
+        {
+          "value": "Hentai",
+          "name": "Hentai"
+        },
+        {
+          "value": "Historical",
+          "name": "Historical"
+        },
+        {
+          "value": "Horror",
+          "name": "Horror"
+        },
+        {
+          "value": "Isekai",
+          "name": "Isekai"
+        },
+        {
+          "value": "Josei",
+          "name": "Josei"
+        },
+        {
+          "value": "Lolicon",
+          "name": "Lolicon"
+        },
+        {
+          "value": "Martial Arts",
+          "name": "Martial Arts"
+        },
+        {
+          "value": "Mature",
+          "name": "Mature"
+        },
+        {
+          "value": "Mecha",
+          "name": "Mecha"
+        },
+        {
+          "value": "Mystery",
+          "name": "Mystery"
+        },
+        {
+          "value": "Psychological",
+          "name": "Psychological"
+        },
+        {
+          "value": "Romance",
+          "name": "Romance"
+        },
+        {
+          "value": "School Life",
+          "name": "School Life"
+        },
+        {
+          "value": "Sci-fi",
+          "name": "Sci-fi"
+        },
+        {
+          "value": "Seinen",
+          "name": "Seinen"
+        },
+        {
+          "value": "Shotacon",
+          "name": "Shotacon"
+        },
+        {
+          "value": "Shoujo",
+          "name": "Shoujo"
+        },
+        {
+          "value": "Shoujo Ai",
+          "name": "Shoujo Ai"
+        },
+        {
+          "value": "Shounen",
+          "name": "Shounen"
+        },
+        {
+          "value": "Shounen Ai",
+          "name": "Shounen Ai"
+        },
+        {
+          "value": "Slice of Life",
+          "name": "Slice of Life"
+        },
+        {
+          "value": "Smut",
+          "name": "Smut"
+        },
+        {
+          "value": "Sports",
+          "name": "Sports"
+        },
+        {
+          "value": "Supernatural",
+          "name": "Supernatural"
+        },
+        {
+          "value": "Tragedy",
+          "name": "Tragedy"
+        },
+        {
+          "value": "Yaoi",
+          "name": "Yaoi"
+        },
+        {
+          "value": "Yuri",
+          "name": "Yuri"
+        },
+        {
+          "value": "Other",
+          "name": "Other"
+        }
+      ]
+    },
+    {
+      "id": "type",
+      "name": "Type",
+      "kind": "select",
+      "options": [
+        {
+          "value": "Manga",
+          "name": "Manga"
+        },
+        {
+          "value": "Manhwa",
+          "name": "Manhwa"
+        },
+        {
+          "value": "Manhua",
+          "name": "Manhua"
+        },
+        {
+          "value": "OEL",
+          "name": "OEL"
+        }
+      ]
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "kind": "select",
+      "options": [
+        {
+          "value": "Ongoing",
+          "name": "Ongoing"
+        },
+        {
+          "value": "Complete",
+          "name": "Completed"
+        },
+        {
+          "value": "Hiatus",
+          "name": "Hiatus"
+        },
+        {
+          "value": "Canceled",
+          "name": "Cancelled"
+        }
+      ]
+    }
+  ],
+  "detail": {
+    "request": {
+      "url": "{base}/series/{id}"
+    },
+    "title": "h1",
+    "cover": [
+      {
+        "css": "section picture img"
+      },
+      {
+        "attr": "src"
+      },
+      "first"
+    ],
+    "description": "p.whitespace-pre-wrap",
+    "authors": "a[href*='/search?author=']",
+    "tags": "a[href*='/search?included_tag=']",
+    "status": "a[href*='/search?included_status=']"
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/series/{id}/full-chapter-list"
+    },
+    "rows": "#chapter-list > div, div[x-data*='new_chapter']",
+    "chapter": {
+      "id": [
+        {
+          "css": "a[href^='/chapters/']"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/chapters/([^/]+)$"
+        }
+      ],
+      "number": "a span.grow > span:first-child",
+      "title": "a span.grow > span:first-child",
+      "date": [
+        {
+          "css": "time"
+        },
+        {
+          "attr": "datetime"
+        },
+        {
+          "date": [
+            "iso"
+          ]
+        }
+      ]
+    },
+    "order": "newest-first"
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/chapters/{id}/images?reading_style=long_strip&current_page=1"
+    },
+    "images": [
+      {
+        "css": "#chapter-images img"
+      },
+      {
+        "attr": "src"
+      }
+    ],
+    "reading": "paged_rtl"
+  }
+}

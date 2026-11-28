@@ -1,0 +1,620 @@
+{
+  "schema": 1,
+  "id": "mangafire",
+  "name": "MangaFire",
+  "version": 1,
+  "lang": [
+    "en"
+  ],
+  "nsfw": false,
+  "base_url": "https://mangafire.cc",
+  "rate_per_second": 1,
+  "page_size": 30,
+  "popular": {
+    "request": {
+      "url": "{base}/top-manga?page={page}"
+    },
+    "rows": "div.manga-item",
+    "card": {
+      "id": [
+        {
+          "css": ".bsx a[href^='/manga/']"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/manga/([^/]+)/?$"
+        }
+      ],
+      "title": "h3",
+      "cover": [
+        {
+          "css": "img"
+        },
+        {
+          "attr": "data-src|src"
+        },
+        "abs"
+      ],
+      "chapters": ".chapter"
+    },
+    "next": "a[rel='next']"
+  },
+  "latest": {
+    "request": {
+      "url": "{base}/updated?page={page}"
+    },
+    "rows": "div.manga-item",
+    "card": {
+      "id": [
+        {
+          "css": ".bsx a[href^='/manga/']"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/manga/([^/]+)/?$"
+        }
+      ],
+      "title": "h3",
+      "cover": [
+        {
+          "css": "img"
+        },
+        {
+          "attr": "data-src|src"
+        },
+        "abs"
+      ],
+      "chapters": ".chapter"
+    },
+    "next": "a[rel='next']"
+  },
+  "search": {
+    "request": {
+      "url": "{base}/search?page={page}{?&q={term}?}{?&genre%5B%5D={genre}?}{?&status%5B%5D={status}?}{?&sort={sort}?}"
+    },
+    "rows": "div.manga-item",
+    "card": {
+      "id": [
+        {
+          "css": ".bsx a[href^='/manga/']"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/manga/([^/]+)/?$"
+        }
+      ],
+      "title": "h3",
+      "cover": [
+        {
+          "css": "img"
+        },
+        {
+          "attr": "data-src|src"
+        },
+        "abs"
+      ],
+      "chapters": ".chapter"
+    },
+    "next": "a[rel='next']"
+  },
+  "filters": [
+    {
+      "id": "genre",
+      "name": "Genre",
+      "kind": "select",
+      "options": [
+        {
+          "value": "action",
+          "name": "Action"
+        },
+        {
+          "value": "adaptation",
+          "name": "Adaptation"
+        },
+        {
+          "value": "adult-cast",
+          "name": "Adult Cast"
+        },
+        {
+          "value": "adventure",
+          "name": "Adventure"
+        },
+        {
+          "value": "aliens",
+          "name": "Aliens"
+        },
+        {
+          "value": "animals",
+          "name": "Animals"
+        },
+        {
+          "value": "anthology",
+          "name": "Anthology"
+        },
+        {
+          "value": "award-winning",
+          "name": "Award Winning"
+        },
+        {
+          "value": "boys-love",
+          "name": "Boys Love"
+        },
+        {
+          "value": "childcare",
+          "name": "Childcare"
+        },
+        {
+          "value": "comedy",
+          "name": "Comedy"
+        },
+        {
+          "value": "cooking",
+          "name": "Cooking"
+        },
+        {
+          "value": "crime",
+          "name": "Crime"
+        },
+        {
+          "value": "crossdressing",
+          "name": "Crossdressing"
+        },
+        {
+          "value": "delinquents",
+          "name": "Delinquents"
+        },
+        {
+          "value": "demons",
+          "name": "Demons"
+        },
+        {
+          "value": "doujinshi",
+          "name": "Doujinshi"
+        },
+        {
+          "value": "drama",
+          "name": "Drama"
+        },
+        {
+          "value": "ecchi",
+          "name": "Ecchi"
+        },
+        {
+          "value": "fan-colored",
+          "name": "Fan Colored"
+        },
+        {
+          "value": "fantasy",
+          "name": "Fantasy"
+        },
+        {
+          "value": "full-color",
+          "name": "Full Color"
+        },
+        {
+          "value": "game",
+          "name": "Game"
+        },
+        {
+          "value": "gender-bender",
+          "name": "Gender Bender"
+        },
+        {
+          "value": "ghosts",
+          "name": "Ghosts"
+        },
+        {
+          "value": "girls-love",
+          "name": "Girls Love"
+        },
+        {
+          "value": "gore",
+          "name": "Gore"
+        },
+        {
+          "value": "gyaru",
+          "name": "Gyaru"
+        },
+        {
+          "value": "harem",
+          "name": "Harem"
+        },
+        {
+          "value": "high-stakes-game",
+          "name": "High Stakes Game"
+        },
+        {
+          "value": "historical",
+          "name": "Historical"
+        },
+        {
+          "value": "horror",
+          "name": "Horror"
+        },
+        {
+          "value": "isekai",
+          "name": "Isekai"
+        },
+        {
+          "value": "josei",
+          "name": "Josei"
+        },
+        {
+          "value": "long-strip",
+          "name": "Long Strip"
+        },
+        {
+          "value": "love-polygon",
+          "name": "Love Polygon"
+        },
+        {
+          "value": "magic",
+          "name": "Magic"
+        },
+        {
+          "value": "magical-girls",
+          "name": "Magical Girls"
+        },
+        {
+          "value": "martial-arts",
+          "name": "Martial Arts"
+        },
+        {
+          "value": "mature",
+          "name": "Mature"
+        },
+        {
+          "value": "mecha",
+          "name": "Mecha"
+        },
+        {
+          "value": "medical",
+          "name": "Medical"
+        },
+        {
+          "value": "military",
+          "name": "Military"
+        },
+        {
+          "value": "monster-girls",
+          "name": "Monster Girls"
+        },
+        {
+          "value": "monsters",
+          "name": "Monsters"
+        },
+        {
+          "value": "music",
+          "name": "Music"
+        },
+        {
+          "value": "mystery",
+          "name": "Mystery"
+        },
+        {
+          "value": "mythology",
+          "name": "Mythology"
+        },
+        {
+          "value": "ninja",
+          "name": "Ninja"
+        },
+        {
+          "value": "organized-crime",
+          "name": "Organized Crime"
+        },
+        {
+          "value": "otaku-culture",
+          "name": "Otaku Culture"
+        },
+        {
+          "value": "parody",
+          "name": "Parody"
+        },
+        {
+          "value": "philosophical",
+          "name": "Philosophical"
+        },
+        {
+          "value": "post-apocalyptic",
+          "name": "Post Apocalyptic"
+        },
+        {
+          "value": "psychological",
+          "name": "Psychological"
+        },
+        {
+          "value": "regression",
+          "name": "Regression"
+        },
+        {
+          "value": "reincarnation",
+          "name": "Reincarnation"
+        },
+        {
+          "value": "revenge",
+          "name": "Revenge"
+        },
+        {
+          "value": "reverse-harem",
+          "name": "Reverse Harem"
+        },
+        {
+          "value": "romance",
+          "name": "Romance"
+        },
+        {
+          "value": "romantic-subtext",
+          "name": "Romantic Subtext"
+        },
+        {
+          "value": "school-life",
+          "name": "School Life"
+        },
+        {
+          "value": "sci-fi",
+          "name": "Sci Fi"
+        },
+        {
+          "value": "seinen",
+          "name": "Seinen"
+        },
+        {
+          "value": "self-published",
+          "name": "Self Published"
+        },
+        {
+          "value": "sexual-violence",
+          "name": "Sexual Violence"
+        },
+        {
+          "value": "shota",
+          "name": "Shota"
+        },
+        {
+          "value": "shoujo",
+          "name": "Shoujo"
+        },
+        {
+          "value": "shounen",
+          "name": "Shounen"
+        },
+        {
+          "value": "showbiz",
+          "name": "Showbiz"
+        },
+        {
+          "value": "slice-of-life",
+          "name": "Slice of Life"
+        },
+        {
+          "value": "space",
+          "name": "Space"
+        },
+        {
+          "value": "sports",
+          "name": "Sports"
+        },
+        {
+          "value": "streaming",
+          "name": "Streaming"
+        },
+        {
+          "value": "suggestive",
+          "name": "Suggestive"
+        },
+        {
+          "value": "super-power",
+          "name": "Super Power"
+        },
+        {
+          "value": "superhero",
+          "name": "Superhero"
+        },
+        {
+          "value": "supernatural",
+          "name": "Supernatural"
+        },
+        {
+          "value": "survival",
+          "name": "Survival"
+        },
+        {
+          "value": "thriller",
+          "name": "Thriller"
+        },
+        {
+          "value": "time-travel",
+          "name": "Time Travel"
+        },
+        {
+          "value": "tragedy",
+          "name": "Tragedy"
+        },
+        {
+          "value": "transmigration",
+          "name": "Transmigration"
+        },
+        {
+          "value": "urban-fantasy",
+          "name": "Urban Fantasy"
+        },
+        {
+          "value": "user-created",
+          "name": "User Created"
+        },
+        {
+          "value": "vampires",
+          "name": "Vampires"
+        },
+        {
+          "value": "video-games",
+          "name": "Video Games"
+        },
+        {
+          "value": "villainess",
+          "name": "Villainess"
+        },
+        {
+          "value": "virtual-reality",
+          "name": "Virtual Reality"
+        },
+        {
+          "value": "web-comic",
+          "name": "Web Comic"
+        },
+        {
+          "value": "workplace",
+          "name": "Workplace"
+        },
+        {
+          "value": "wuxia",
+          "name": "Wuxia"
+        },
+        {
+          "value": "zombies",
+          "name": "Zombies"
+        }
+      ]
+    },
+    {
+      "id": "status",
+      "name": "Status",
+      "kind": "select",
+      "options": [
+        {
+          "value": "1",
+          "name": "Releasing"
+        },
+        {
+          "value": "2",
+          "name": "Finished"
+        },
+        {
+          "value": "3",
+          "name": "On Hiatus"
+        },
+        {
+          "value": "4",
+          "name": "Discontinued"
+        }
+      ]
+    },
+    {
+      "id": "sort",
+      "name": "Sort",
+      "kind": "select",
+      "options": [
+        {
+          "value": "recently_updated",
+          "name": "Recently Updated"
+        },
+        {
+          "value": "recently_added",
+          "name": "Newest"
+        },
+        {
+          "value": "title_az",
+          "name": "Name A-Z"
+        },
+        {
+          "value": "trending",
+          "name": "Trending"
+        },
+        {
+          "value": "total_views",
+          "name": "Top Rated"
+        }
+      ]
+    }
+  ],
+  "settings": [],
+  "detail": {
+    "request": {
+      "url": "{base}/manga/{id}"
+    },
+    "title": "h1",
+    "cover": [
+      {
+        "css": ".summary_image img"
+      },
+      {
+        "attr": "data-src|src"
+      },
+      "abs"
+    ],
+    "description": "#manga-summary",
+    "authors": ".author-content a",
+    "tags": ".genres-content a",
+    "status": [
+      {
+        "css": ".post-status .post-content_item:nth-of-type(2) .summary-content"
+      },
+      "text"
+    ]
+  },
+  "chapters": {
+    "request": {
+      "url": "{base}/manga/{id}/chapters?offset={offset}"
+    },
+    "rows": "li.a-h.item",
+    "chapter": {
+      "id": [
+        {
+          "css": "a.chapter-name"
+        },
+        {
+          "attr": "href"
+        },
+        {
+          "regex": "/read/[^/]+/([^/]+/[^/]+)/?$"
+        }
+      ],
+      "number": "@data-number",
+      "title": [
+        {
+          "css": "a.chapter-name"
+        },
+        {
+          "attr": "title"
+        }
+      ],
+      "date": [
+        {
+          "css": ".chapter-time"
+        },
+        "text",
+        {
+          "date": [
+            "MMM d, yyyy",
+            "relative"
+          ]
+        }
+      ]
+    },
+    "order": "newest-first",
+    "repeat": {
+      "size": 100
+    }
+  },
+  "pages": {
+    "request": {
+      "url": "{base}/read/{series}/{id}"
+    },
+    "images": [
+      {
+        "css": ".chapter-reader img.chapter-page-img"
+      },
+      {
+        "attr": "data-src|src"
+      }
+    ],
+    "reading": "paged_rtl"
+  }
+}
